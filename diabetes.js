@@ -4,14 +4,6 @@ function init() {
     let submitted = false;
     document.getElementById('Submit').addEventListener('click', clearForm);
     document.getElementById('Submit').addEventListener('click', submitForm);
-    //document.getElementById('Submit').onclick = submitted = true;
-
-
-
-
-
-    //displayResults(submitForm)
-
 
 }
 
@@ -19,14 +11,20 @@ function clearForm(e) {
     const divElement = document.querySelector('.results')
     divElement.innerHTML = '';
 }
-
+/* If item is over 10 an*/
 function submitForm(e) {
     var values = [];
+    var warnings = [];
     var age = document.getElementsByName('age'); //returns a node list
     age.forEach(function(age) {
         if (age.checked == true) {
 
             values.push(parseInt(age.value));
+            if(age.value >= 10){
+                warnings.push(age.name);
+                console.log(warnings)
+
+            }
 
 
         }
@@ -36,6 +34,11 @@ function submitForm(e) {
         if (diet.checked == true) {
 
             values.push(parseInt(diet.value));
+            if(parseInt(diet.value) >= 10){
+                warnings.push(diet.name);
+                console.log(warnings)
+
+            }
 
         }
     });
@@ -57,17 +60,10 @@ function submitForm(e) {
 
         }
     });
-
-   displayResults(values);
-
     e.preventDefault();
     console.log(values);
 
-
-
-
-
-
+    displayResults(values)
 }
 
 
@@ -79,7 +75,11 @@ function displayResults(values) {
     function getSum(total, num) {
         return total + num;
     }
+
     let number = values.reduce(getSum);
+    if(number >= 25){
+        displayWarnings
+    }
 
     const divElement = document.querySelector('.results');
 

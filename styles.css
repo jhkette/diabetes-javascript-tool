@@ -47,6 +47,20 @@ p {
     font-size: 2.2rem;
 }
 
+.results{
+    background-color: #5EC4B6;
+
+
+
+}
+
+
+
+.results-message{
+    padding: 3rem;
+
+}
+
 .grey {
     background-color: var(--tertiary);
     width: 100%;
