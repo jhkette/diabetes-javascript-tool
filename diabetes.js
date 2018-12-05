@@ -1,18 +1,15 @@
 window.onload = init;
 
 function init() {
-    document.getElementById('submit').onsubmit = submitForm();
+    document.getElementById('Submit').addEventListener('click', submitForm)
 
 }
 
-function submitForm(){
-// var age = document.getElementsByName('age'); //returns a node list
-// for (i=0; i < age.length; i++) {
-//             if (age[i] == age[i].checked) {
-//             console.log(age[i].input.value);
-//         }
-//     }
-
+function submitForm(e){
+ var age = document.getElementsByName('age'); //returns a node list
+if(age[1].checked==true){
+console.log(age[1].value);
 console.log('hello');
-return false;
+}
+e.preventDefault();
 }

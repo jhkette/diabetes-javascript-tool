@@ -110,14 +110,14 @@ fieldset {
     border: 0;
 }
 
-.submit {
+.button {
     padding: 2rem 3rem;
     font-size: 2.5rem;
     background-color: var(--secondary);
     border-radius: .5rem;
 }
 
-.submit:hover {
+.button:hover {
  background-color: #1a1a1a;
  transition-duration: .3s;
  color: white;
