@@ -23,6 +23,8 @@ body {
 h1{
     color: var(--secondary);
     font-size: 7rem;
+    font-family: 'Oswald';
+    
 }
 
 h4 {
@@ -87,11 +89,13 @@ fieldset {
     left: -.5rem;
     padding: .2rem .7rem;
     font-size: 3.2rem;
-    font-family: roboto, arial, sans-serif;
+
     color: #1a1a1a;
     z-index: 100;
     font-weight: 900;
-    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    margin-bottom: .5rem;
+    font-family: 'Oswald', sans-serif;
 }
 
 .display {
