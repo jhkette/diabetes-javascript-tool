@@ -4,11 +4,14 @@ function init() {
     document.getElementById('Submit').addEventListener('click', clearForm);
     document.getElementById('Submit').addEventListener('click', submitForm);
 
+    //displayResults(submitForm)
+
+
 }
 
-function clearForm(e){
+function clearForm(e) {
     const divElement = document.querySelector('.results')
-    divElement.innerHTML ='';
+    divElement.innerHTML = '';
 }
 
 function submitForm(e) {
@@ -16,18 +19,18 @@ function submitForm(e) {
     var age = document.getElementsByName('age'); //returns a node list
     age.forEach(function(age) {
         if (age.checked == true) {
-            console.log(age.value);
+
             values.push(parseInt(age.value));
-            console.log(values);
+
 
         }
     });
     var diet = document.getElementsByName('diet'); //returns a node list
     diet.forEach(function(diet) {
         if (diet.checked == true) {
-            console.log(diet.value);
-             values.push(parseInt(diet.value));
-                console.log(values);
+
+            values.push(parseInt(diet.value));
+
         }
     });
 
@@ -37,7 +40,7 @@ function submitForm(e) {
 
             values.push(parseInt(element.value));
 
-                console.log(values);
+
         }
     });
 
@@ -45,28 +48,41 @@ function submitForm(e) {
     bmi.forEach(function(element) {
         if (element.checked == true) {
             values.push(parseInt(element.value));
-            console.log('hello')
+
         }
     });
-console.log(values);
+
 
     e.preventDefault();
-
+    console.log(values);
 
     function getSum(total, num) {
-    return total + num;
+        return total + num;
     }
+    let number = values.reduce(getSum);
+
+    displayResults(number)
+    return number;
+
+}
+
+var number = submitForm;
+
+console.log(number);
 
 
+// console.log(values);
 
-            const divElement = document.querySelector('.results')
-            const results = document.createElement("h2");
-            // give it a className
-            results.className = "results-message";
-            //appendChild (the task input value to the const li)
-            var text = document.createTextNode(values.reduce(getSum));
-            results.appendChild(text);
-            divElement.appendChild(results);
 
+function displayResults(x) {
+
+    const divElement = document.querySelector('.results');
+    const results = document.createElement("h2");
+    // give it a className
+    results.className = "results-message";
+    //appendChild (the task input value to the const li)
+    var text = document.createTextNode(x);
+    results.appendChild(text);
+    divElement.appendChild(results);
 
 }
