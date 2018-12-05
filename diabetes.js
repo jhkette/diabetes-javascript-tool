@@ -1,8 +1,14 @@
 window.onload = init;
 
 function init() {
+    let submitted = false;
     document.getElementById('Submit').addEventListener('click', clearForm);
     document.getElementById('Submit').addEventListener('click', submitForm);
+    //document.getElementById('Submit').onclick = submitted = true;
+
+
+
+
 
     //displayResults(submitForm)
 
@@ -52,36 +58,36 @@ function submitForm(e) {
         }
     });
 
+   displayResults(values);
 
     e.preventDefault();
     console.log(values);
+
+
+
+
+
+
+}
+
+
+
+
+
+function displayResults(values) {
 
     function getSum(total, num) {
         return total + num;
     }
     let number = values.reduce(getSum);
 
-    displayResults(number)
-    return number;
-
-}
-
-var number = submitForm;
-
-console.log(number);
-
-
-// console.log(values);
-
-
-function displayResults(x) {
-
     const divElement = document.querySelector('.results');
+
     const results = document.createElement("h2");
     // give it a className
     results.className = "results-message";
     //appendChild (the task input value to the const li)
-    var text = document.createTextNode(x);
+    var text = document.createTextNode(number);
     results.appendChild(text);
     divElement.appendChild(results);
 
