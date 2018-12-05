@@ -65,7 +65,11 @@ p {
 }
 .item.five {
     grid-row: span 2;
-    background-color: red;
+    background-image: url(images/fruits.jpg);
+    background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
 }
 
 .item.one{
@@ -75,8 +79,23 @@ p {
 }
 
 .item.two{
-    grid-template-columns: 300px;
+
     background-color: yellow;
+}
+
+.item.one{
+    background-image: url(images/sweets.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.item.four{
+
+    background-image: url(images/cupcake.jpg);
+    background-position: center;
+    background-size: cover;
+        background-repeat: no-repeat;
 }
 
 
