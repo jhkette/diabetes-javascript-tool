@@ -1,0 +1,204 @@
+:root {
+    --secondary: #5ec4b6;
+    --tertiary: #f5f6f7;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Roboto', helvtica, arial;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+h1{
+    color: var(--secondary);
+    font-size: 7rem;
+}
+
+h4 {
+    padding-bottom: 3rem;
+    font-size: 3rem
+}
+
+.row {
+    width: 80%;
+    padding: 3rem 0rem;
+    margin: auto;
+}
+
+p {
+    margin: 2rem 0;
+    font-weight: 300;
+    font-size: 2.2rem;
+}
+
+.grey {
+    background-color: var(--tertiary);
+    width: 100%;
+    height: 60rem;
+}
+
+.form {
+    background-color: var(--tertiary);
+    padding-top: 7rem;
+}
+
+fieldset {
+    border: 0;
+}
+
+.submit {
+    padding: 2rem 3rem;
+    font-family: 2.5rem;
+    background-color: var(--secondary);
+    border-radius: .5rem;
+}
+
+.item-container {
+
+    display: flex;
+    padding: 2rem;
+    margin: auto;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 80%;
+    counter-reset: section;
+    position: relative;
+    background-color: var(--secondary);
+
+}
+
+.display::before {
+    counter-increment: section;
+    content: counter(section) '.';
+    position: relative;
+    top: .4rem;
+    left: -.5rem;
+    padding: .2rem .7rem;
+    font-size: 3.2rem;
+    font-family: roboto, arial, sans-serif;
+    color: #1a1a1a;
+    z-index: 100;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 25rem;
+    padding: 2.5rem 1rem;
+}
+
+.display h2 {
+    color:
+        margin-bottom: 10px;
+}
+
+.rb-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.rb {
+    display: flex;
+    color: #1B1B1B;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.rb input {
+    width: 0;
+    height: 0;
+    /*I'm changing the opacity so it is still on screen - screen readers can still read this  */
+    opacity: 0;
+}
+
+.rb .rb-field {
+    width: 3.6rem;
+    height: 3.6rem;
+    background-color: white;
+    position: relative;
+    border: 3px solid #bcbcbc;
+}
+
+.rb .rb-text {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-left: .5em;
+}
+.rb-text{
+    font-size: 2.2rem;
+}
+
+.rb .rb-field {
+    border-radius: 100%;
+}
+
+.rb.fill input:checked+span:before {
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+}
+
+.rb.fill .rb-field:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    background-color:#1a1a1a;
+    border-radius: 100%;
+    transition: all .2s cubic-bezier(.45, .05, 0, 1.98);
+}
+
+.rb.outline .rb-field {
+    background-color: transparent;
+    border: .9em solid var(--secondary);
+}
+
+.rb.outline .rb-field:before {
+    content: '';
+    position: absolute;
+    border-radius: 100%;
+    background-color: black;
+    width: 0;
+    height: 0;
+    top: .5em;
+    left: .5em;
+    transition: all .2s cubic-bezier(.45, .05, 0, 1.98);
+}
+
+
+@media screen and (max-width: 600px) {
+    .item-container {
+
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+
+    }
+
+    .display{
+
+        flex: 1;
+        border: 1px solid red;
+
+    }
+}
