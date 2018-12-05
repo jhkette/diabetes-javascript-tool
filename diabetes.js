@@ -1,8 +1,14 @@
 window.onload = init;
 
 function init() {
-    document.getElementById('Submit').addEventListener('click', submitForm)
+    document.getElementById('Submit').addEventListener('click', clearForm);
+    document.getElementById('Submit').addEventListener('click', submitForm);
 
+}
+
+function clearForm(e){
+    const divElement = document.querySelector('.results')
+    divElement.innerHTML ='';
 }
 
 function submitForm(e) {
