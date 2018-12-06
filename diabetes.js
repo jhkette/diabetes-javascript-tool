@@ -23,10 +23,7 @@ function submitForm(e) {
             if(age.value >= 10){
                 warnings.push(age.name);
                 console.log(warnings)
-
             }
-
-
         }
     });
     var diet = document.getElementsByName('diet'); //returns a node list
@@ -48,38 +45,46 @@ function submitForm(e) {
         if (element.checked == true) {
 
             values.push(parseInt(element.value));
+            if(parseInt(family.value) >= 10){
+                warnings.push(family.name);
+                console.log(warnings)
 
-
+            }
         }
     });
 
     var bmi = document.getElementsByName('bmi'); //returns a node list
     bmi.forEach(function(element) {
-        if (element.checked == true) {
-            values.push(parseInt(element.value));
+        if (bmi.checked == true) {
+            if(parseInt(bmi.value) >= 10){
+                warnings.push(bmi.name);
+                console.log(warnings)
+            }
 
         }
     });
-    e.preventDefault();
-    console.log(values);
-
-    displayResults(values)
-}
-
-
-
-
-
-function displayResults(values) {
 
     function getSum(total, num) {
         return total + num;
     }
 
     let number = values.reduce(getSum);
+    displayResults(number);
+
+
     if(number >= 25){
-        displayWarnings
+        displayWarnings(warnings);
     }
+
+    console.log(values);
+    e.preventDefault();
+}
+
+
+
+
+
+function displayResults(number) {
 
     const divElement = document.querySelector('.results');
 
@@ -90,5 +95,22 @@ function displayResults(values) {
     var text = document.createTextNode(number);
     results.appendChild(text);
     divElement.appendChild(results);
+
+}
+
+function displayWarnings(warnings){
+
+    const divElement = document.querySelector('.results');
+
+    const results = document.createElement("h2");
+    // give it a className
+    results.className = "results-message";
+    //appendChild (the task input value to the const li)
+
+    var warningText = warnings.join(', ')
+    var text = document.createTextNode(warningText);
+    results.appendChild(text);
+    divElement.appendChild(results);
+
 
 }
