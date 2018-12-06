@@ -102,12 +102,12 @@ function displayResults(number, warnings) {
     divElement.appendChild(results);
     if (number > 25) {
     warningText = warnings.join(', ');
-    var results2 = document.createElement("p");
+    var results2 = document.createElement("h2");
     console.log(warningText);
 
-    // var text2 = document.createTextNode(warningText);
-    // results.appendChild(warningText);
-    // divElement.appendChild(results);
+     var text2 = document.createTextNode(warningText);
+     results2.appendChild(text2);
+     divElement.appendChild(results2);
 }
 
 }
