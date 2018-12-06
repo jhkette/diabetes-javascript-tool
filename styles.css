@@ -44,7 +44,7 @@ h4 {
 p {
     margin: 2rem 0;
     font-weight: 300;
-    font-size: 2.2rem;
+    font-size: 2rem;
 }
 
 .results{
@@ -64,11 +64,11 @@ p {
 .grey {
     background-color: var(--tertiary);
     width: 100%;
-    height: 60rem;
+    height: 52rem;
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: 1fr 2fr 1fr;
-    grid-gap: 5px;
+    
 }
 
 .item {background-color:  var(--secondary); }
@@ -113,7 +113,11 @@ p {
 }
 
 
-
+.main-nav{
+    height: 5rem;
+    background-color: #1a1a1a;
+    width: 100%;
+}
 
 .form {
     background-color: var(--tertiary);
@@ -165,7 +169,7 @@ fieldset {
     color: #1a1a1a;
     z-index: 100;
     font-weight: 900;
-    font-size: 3.5rem;
+
     margin-bottom: .5rem;
     font-family: 'Oswald', sans-serif;
 }
@@ -218,7 +222,7 @@ fieldset {
     margin-left: .5em;
 }
 .rb-text{
-    font-size: 2.2rem;
+    font-size: 2rem;
 }
 
 .rb .rb-field {

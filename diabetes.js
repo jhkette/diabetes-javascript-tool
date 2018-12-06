@@ -82,20 +82,32 @@ function submitForm(e) {
 /* THIS NEEDS TO TAKE THE WARNING STRING AS A PARAMETER YOU DONT NEED THE SECOND FUNCTION*/
 function displayResults(number, warnings) {
     var warningText = ' ';
-    console.log(warnings + 'hello');
+
+
+    console.log(warnings);
 
     const divElement = document.querySelector('.results');
 
     const results = document.createElement("h2");
+
     // give it a className
     results.className = "results-message";
-    if (number >= 25) {
-        warningText = warnings.join(', ')
-    }
+
     //appendChild (the task input value to the const li)
     var text = document.createTextNode(number);
+
     results.appendChild(text);
 
+
     divElement.appendChild(results);
+    if (number > 25) {
+    warningText = warnings.join(', ');
+    var results2 = document.createElement("p");
+    console.log(warningText);
+
+    // var text2 = document.createTextNode(warningText);
+    // results.appendChild(warningText);
+    // divElement.appendChild(results);
+}
 
 }
