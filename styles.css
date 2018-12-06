@@ -68,7 +68,7 @@ p {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: 1fr 2fr 1fr;
-    
+
 }
 
 .item {background-color:  var(--secondary); }
@@ -265,6 +265,13 @@ fieldset {
     transition: all .2s cubic-bezier(.45, .05, 0, 1.98);
 }
 
+.footer {
+    height: 500px;
+    width: 100%;
+    background-color: var(--tertiary);
+    
+
+}
 
 @media screen and (max-width: 600px) {
     .item-container {

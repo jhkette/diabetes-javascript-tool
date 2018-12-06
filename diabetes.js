@@ -27,12 +27,12 @@ function submitForm(e) {
         }
     });
     var diet = document.getElementsByName('diet'); //returns a node list
-    diet.forEach(function(diet) {
-        if (diet.checked == true) {
+    diet.forEach(function(element) {
+        if (element.checked == true) {
 
-            values.push(parseInt(diet.value));
-            if (parseInt(diet.value) >= 10) {
-                warnings.push(diet.name);
+            values.push(parseInt(element.value));
+            if (parseInt(element.value) >= 10) {
+                warnings.push(element.name);
                 console.log(warnings)
 
             }
@@ -45,8 +45,8 @@ function submitForm(e) {
         if (element.checked == true) {
 
             values.push(parseInt(element.value));
-            if (parseInt(family.value) >= 10) {
-                warnings.push(family.name);
+            if (parseInt(element.value) >= 10) {
+                warnings.push(element.name);
                 console.log(warnings)
 
             }
@@ -57,8 +57,8 @@ function submitForm(e) {
     bmi.forEach(function(element) {
         if (element.checked == true) {
         values.push(parseInt(element.value));
-            if (parseInt(bmi.value) >= 10) {
-                warnings.push(bmi.name);
+            if (parseInt(element.value) >= 10) {
+                warnings.push(element.name);
                 console.log(warnings)
             }
 
@@ -70,16 +70,15 @@ function submitForm(e) {
     }
 
     let number = values.reduce(getSum);
+
     displayResults(number, warnings);
 
-    console.log(values);
+
     e.preventDefault();
 }
 
 
 
-
-/* THIS NEEDS TO TAKE THE WARNING STRING AS A PARAMETER YOU DONT NEED THE SECOND FUNCTION*/
 function displayResults(number, warnings) {
     var warningText = ' ';
 
