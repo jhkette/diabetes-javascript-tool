@@ -69,12 +69,11 @@ function submitForm(e) {
     }
 
     let number = values.reduce(getSum);
-    displayResults(number);
+    displayResults(number, warnings);
 
 
-    if(number >= 25){
-        displayWarnings(warnings);
-    }
+
+
 
     console.log(values);
     e.preventDefault();
@@ -83,34 +82,22 @@ function submitForm(e) {
 
 
 
-
-function displayResults(number) {
+/* THIS NEEDS TO TAKE THE WARNING STRING AS A PARAMETER YOU DONT NEED THE SECOND FUNCTION*/
+function displayResults(number, warnings) {
+   var warningText =' ';
+   console.log(warnings + 'hello');
 
     const divElement = document.querySelector('.results');
 
     const results = document.createElement("h2");
     // give it a className
     results.className = "results-message";
+    if(number >= 25){  warningText = warnings.join(', ')
+    }
     //appendChild (the task input value to the const li)
     var text = document.createTextNode(number);
     results.appendChild(text);
+
     divElement.appendChild(results);
-
-}
-
-function displayWarnings(warnings){
-
-    const divElement = document.querySelector('.results');
-
-    const results = document.createElement("h2");
-    // give it a className
-    results.className = "results-message";
-    //appendChild (the task input value to the const li)
-
-    var warningText = warnings.join(', ')
-    var text = document.createTextNode(warningText);
-    results.appendChild(text);
-    divElement.appendChild(results);
-
 
 }
