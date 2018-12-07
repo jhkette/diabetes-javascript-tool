@@ -18,25 +18,19 @@ function submitForm(e) {
     var age = document.getElementsByName('age'); //returns a node list
     age.forEach(function(element) {
         if (element.checked == true) {
-
             values.push(parseInt(element.value));
             if (element.value >= 10) {
                 warnings.push(element.name);
-
             }
         }
     });
     var diet = document.getElementsByName('diet'); //returns a node list
     diet.forEach(function(element) {
         if (element.checked == true) {
-
             values.push(parseInt(element.value));
             if (parseInt(element.value) >= 10) {
                 warnings.push(element.name);
-
-
             }
-
         }
     });
 
@@ -47,8 +41,6 @@ function submitForm(e) {
             values.push(parseInt(element.value));
             if (parseInt(element.value) >= 10) {
                 warnings.push(element.name);
-
-
             }
         }
     });
@@ -73,15 +65,12 @@ function submitForm(e) {
 
     displayResults(number, warnings);
 
-
     e.preventDefault();
 }
 
 
-
 function displayResults(number, warnings) {
-    console.log(number);
-    console.log(warnings);
+
     console.log(warnings.length);
     var warningText = ' ';
 

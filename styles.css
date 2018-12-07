@@ -1,6 +1,7 @@
 :root {
     --secondary: #5ec4b6;
     --tertiary: #f5f6f7;
+    --black: #1a1a1a;
 }
 
 * {
@@ -37,7 +38,7 @@ h4 {
 
 .row {
     width: 80%;
-    
+
     margin:  2rem auto;
 }
 
@@ -79,7 +80,7 @@ margin: auto;
 
 .main-nav{
     height: 5rem;
-    background-color: #1a1a1a;
+    background-color: var(--black);;
     width: 100%;
 }
 
@@ -101,18 +102,18 @@ fieldset {
 .button {
     padding: 1.5rem 3rem;
     font-size: 1.8rem;
-    background-color: #1a1a1a;
+    background-color: var(--black);;
     border-radius: .5rem;
     color: white;
-    border: 2px solid #1a1a1a;
+    border: 2px solid var(--black);;
 }
 
 .button:hover {
- background-color: #1a1a1a;
+ background-color: var(--black);;
  transition-duration: .3s;
  background-color: var(--secondary);
  cursor: pointer;
- color: #1a1a1a;
+ color: var(--black);;
 }
 
 .item-container {
@@ -202,7 +203,7 @@ fieldset {
     height: 0;
     top: 50%;
     left: 50%;
-    background-color:#1a1a1a;
+    background-color:var(--black);;
     border-radius: 100%;
     transition: all .2s cubic-bezier(.45, .05, 0, 1.98);
 }
@@ -296,7 +297,7 @@ li:before {
 
 .fa-arrow-right{
     font-size: 3rem;
-    color: #1a1a1a;
+    color: var(--black);;
 
 }
 
