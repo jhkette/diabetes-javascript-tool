@@ -37,8 +37,8 @@ h4 {
 
 .row {
     width: 80%;
-    padding: 3rem 0rem;
-    margin: auto;
+    
+    margin:  2rem auto;
 }
 
 p {
@@ -99,17 +99,20 @@ fieldset {
 }
 
 .button {
-    padding: 2rem 3rem;
-    font-size: 2.5rem;
-    background-color: var(--secondary);
+    padding: 1.5rem 3rem;
+    font-size: 1.8rem;
+    background-color: #1a1a1a;
     border-radius: .5rem;
+    color: white;
+    border: 2px solid #1a1a1a;
 }
 
 .button:hover {
  background-color: #1a1a1a;
  transition-duration: .3s;
- color: white;
+ background-color: var(--secondary);
  cursor: pointer;
+ color: #1a1a1a;
 }
 
 .item-container {
@@ -222,7 +225,7 @@ fieldset {
 }
 
 .footer {
-    height: 500px;
+    height: 20rem;
     width: 100%;
     background-color: var(--tertiary);
 

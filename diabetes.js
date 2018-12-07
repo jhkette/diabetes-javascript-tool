@@ -80,30 +80,40 @@ function submitForm(e) {
 
 
 function displayResults(number, warnings) {
+    console.log(number);
     var warningText = ' ';
+    warningText = warnings.join(', ');
+    var response = "Your results show that you currently have a low risk of developing diabetes. However, it is important that you maintain a healthy lifestyle in terms of diet and exercise.";
+
+    var response2 = " Your results show that you currently have a medium risk of developing diabetes.";
+
+    var response3 = "Your results show that you currently have a high risk of developing diabetes.";
+    var finalResponse ='';
 
     const divElement = document.querySelector('.results');
 
-    const results = document.createElement("h2");
+    const results = document.createElement("p");
 
     // give it a className
     results.className = "results-message";
 
     //appendChild (the task input value to the const li)
-    var text = document.createTextNode(number);
+    switch (true) {
+        case number < 15:
+            finalResponse = response;
+            //console.log('hello')
+            break;
+        case (number >= 15 && number <= 30):
+            finalResponse = response2;
+            //console.log('hello1')
+            break;
+        case number > 30:
+            finalResponse = response3;
+            //console.log('hello2')
+            break;
+    }
 
+    var text = document.createTextNode(finalResponse);
     results.appendChild(text);
-
-
     divElement.appendChild(results);
-    if (number > 25) {
-    warningText = warnings.join(', ');
-    var results2 = document.createElement("h2");
-    console.log(warningText);
-
-     var text2 = document.createTextNode(warningText);
-     results2.appendChild(text2);
-     divElement.appendChild(results2);
-}
-
 }
