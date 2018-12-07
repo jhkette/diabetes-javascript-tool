@@ -21,12 +21,12 @@ body {
 }
 
 h1{
-    color: var(--secondary);
-    font-size: 7rem;
+    color: var(--tertiary);
+    font-size: 9rem;
     font-family: 'Oswald';
     position: absolute;
-    top: 2rem;
-    right: 10rem;
+    top: 15rem;
+    right: 50rem;
 
 }
 
@@ -62,60 +62,28 @@ p {
 }
 
 .grey {
-    background-color: var(--tertiary);
+
     width: 100%;
-    height: 52rem;
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 1fr 2fr 1fr;
+    height: 45rem;
+    background-image: linear-gradient(#5ec4b6,  #0aaf97);
+
+
 
 }
 
-.item {background-color:  var(--secondary); }
 
-.item.seven {
-    grid-column: auto;
-    background-color: red;
-}
-.item.five {
-    grid-row: span 2;
-    background-image: url(images/fruits.jpg);
-    background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
 
-}
-
-.item.one{
-    grid-column:  auto;
-    background-color: red;
-    grid-row: span 2;
-}
-
-.item.two{
-
-    background-color: yellow;
-}
-
-.item.one{
-    background-image: url(images/sweets.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.item.four{
-
-    background-image: url(images/cupcake.jpg);
-    background-position: center;
-    background-size: cover;
-        background-repeat: no-repeat;
-}
 
 
 .main-nav{
     height: 5rem;
     background-color: #1a1a1a;
+    width: 100%;
+}
+
+.breadcrumbs{
+    height: 5rem;
+    background-color: white;
     width: 100%;
 }
 
@@ -269,7 +237,7 @@ fieldset {
     height: 500px;
     width: 100%;
     background-color: var(--tertiary);
-    
+
 
 }
 
@@ -288,4 +256,56 @@ fieldset {
         border: 1px solid red;
 
     }
+}
+
+/* HEADER */
+.content {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: 1fr 1fr 1fr 1fr ;
+
+
+	@include bp(small) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@include bp(large) {
+		grid-template-columns: repeat(6, 1fr);
+		grid-template-rows: repeat(3, 70px);
+	}
+}
+
+
+ol {
+   counter-reset: listNumbering;
+	list-style: none;
+	padding: 0 1rem;
+}
+
+li {
+   font-size: 1em;
+	counter-increment: listNumbering;
+}
+
+li:before {
+	content: counter(listNumbering, decimal);
+	display: block;
+	font-family: Oswald, sans-serif;
+	font-size: 7rem;
+	font-weight: 700;
+	text-align: center;
+    color: #202020;
+}
+
+.summary {
+	color: #3987df;
+	border-top: 1px solid #3987df;
+	border-bottom: 1px solid #3987df;
+	font-family: "Roboto", sans-serif;
+	font-size: 3rem;
+	font-weight: 300;
+	letter-spacing: 0.1rem;
+	padding: .5rem 0;
+	text-align: center;
+	text-transform: uppercase;
 }
