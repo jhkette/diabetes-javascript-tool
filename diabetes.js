@@ -82,9 +82,6 @@ function submitForm(e) {
 function displayResults(number, warnings) {
     var warningText = ' ';
 
-
-    console.log(warnings);
-
     const divElement = document.querySelector('.results');
 
     const results = document.createElement("h2");
