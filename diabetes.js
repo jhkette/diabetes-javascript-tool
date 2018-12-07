@@ -113,7 +113,8 @@ function displayResults(number, warnings) {
 
     var response2 = " Your results show that you currently have a medium risk of developing diabetes.";
 
-    var response3 =  'Your results show that you currently have a high risk of developing diabetes.' + warningText
+    var response3 =  'Your results show that you currently have a high risk of developing diabetes.' + warningText +
+    'We advise that you contact the Health Authority to discuss your risk factors as soon as you can. Please fill in our contact form and a member of the Health Authority Diabetes Team will be in contact with you.'
 
     //appendChild (the task input value to the const li)
     switch (true) {
