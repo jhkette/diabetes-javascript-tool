@@ -39,13 +39,13 @@ h4 {
 .row {
     width: 80%;
 
-    margin:  2rem auto;
+    margin:  1.9rem auto;
 }
 
 p {
-    margin: 2rem 0;
+    margin: 1.9rem 0;
     font-weight: 300;
-    font-size: 2rem;
+    font-size: 1.9rem
 }
 
 .results{
@@ -58,10 +58,9 @@ p {
 
 .results-message{
 width: 80%;
-margin: 2rem auto;
-padding: 2rem 0;
-border-top: 2px dashed var(--black);
-border-bottom: 2px dashed var(--black);
+margin: 1.9rem auto 0rem auto;
+padding: 1.9rem 0;
+
 
 }
 
@@ -96,11 +95,12 @@ fieldset {
 
 .button {
     padding: 1.5rem 3rem;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     background-color: var(--black);;
     border-radius: .5rem;
     color: white;
     border: 2px solid var(--black);;
+    margin-bottom: 1rem;
 }
 
 .button:hover {
@@ -133,13 +133,18 @@ fieldset {
     flex-direction: column;
     flex-wrap: wrap;
     width: 25rem;
-    padding: 0 1rem;
+    margin: 0rem 1rem;
 
 }
 
 .display h2 {
     color:
         margin-bottom: 10px;
+}
+
+.formtext{
+    height: 5.5rem;
+    font-weight: 900;
 }
 
 .rb-container {
@@ -150,7 +155,7 @@ fieldset {
 
 .rb {
     display: flex;
-    color: #1B1B1B;
+    color: var(--black);
     font-weight: 500;
     margin-bottom: 25px;
 }
@@ -167,7 +172,7 @@ fieldset {
     height: 3.6rem;
     background-color: white;
     position: relative;
-    border: 3px solid #bcbcbc;
+    border: 2px solid var(--black);
 }
 
 .rb .rb-text {
@@ -177,7 +182,7 @@ fieldset {
     margin-left: .5em;
 }
 .rb-text{
-    font-size: 2rem;
+    font-size: 1.9rem
 }
 
 .rb .rb-field {
@@ -250,6 +255,7 @@ fieldset {
 	display: grid;
 	grid-gap: 40px;
 	grid-template-columns: 1fr 1fr 1fr 1fr ;
+    padding-bottom: 8.5rem;
 
 
 
@@ -301,15 +307,15 @@ li:before {
     top: 0;
     left: 0;
     width: 100%;
-    height: 2rem;
+    height: 1.9rem;
 
 }
 
 
 @keyframes example {
   0% {left: 0;}
-  50% {left: 2rem;}
-  75% {right: 2rem;}
+  50% {left: 1.9rem;}
+  75% {right: 1.9rem;}
 }
 .arrowlink:hover{
     animation-name: example;

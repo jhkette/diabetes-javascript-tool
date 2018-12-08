@@ -119,7 +119,7 @@ function displayResults(number, warnings) {
             finalResponse = response3;
             break;
     }
-
+ /* THIS FINAL BIT NEEDS TO BE A SEPERATE FUNCTION  */
     const divElement = document.querySelector('.results');
     const results = document.createElement("p");
 
