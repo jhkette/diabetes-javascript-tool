@@ -1,5 +1,8 @@
+// call init function on window load
 window.onload = init;
 
+/* This functions loads the event listeners, listening for a click on a form button which will call clear form and submit form.
+Clear form is called first in case there is still an input in the 'results' div. Then the submit form function is called */
 function init() {
     let submitted = false;
     document.getElementById('Submit').addEventListener('click', clearForm);
@@ -73,8 +76,6 @@ function displayResults(number, warnings) {
 
     console.log(warnings.length);
     var warningText = ' ';
-
-
     var finalResponse = '';
 
    if(number > 25){
@@ -109,19 +110,17 @@ function displayResults(number, warnings) {
     switch (true) {
         case number <= 15:
             finalResponse = response;
-            //console.log('hello')
+
             break;
         case (number >= 16 && number <= 25):
             finalResponse = response2;
-            //console.log('hello1')
             break;
         case number > 25:
             finalResponse = response3;
-            //console.log('hello2')
             break;
     }
-    const divElement = document.querySelector('.results');
 
+    const divElement = document.querySelector('.results');
     const results = document.createElement("p");
 
     // give it a className
