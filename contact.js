@@ -10,12 +10,14 @@ function init() {
     document.getElementById('first-name').onfocus = clearError;
     document.getElementById('second-name').onfocus = clearError;
     document.getElementById('email').onfocus = clearError;
+    document.getElementById('health-authority').onfocus = clearError;
 
     document.getElementById('first-name').onblur = validateFirstName;
     document.getElementById('second-name').onblur = validateSecondName;
     document.getElementById('email').onblur = validateEmail;
+    document.getElementById('health-authority').onblur = validateHealthAuthority;
 
-    
+
 
 }
 
@@ -41,7 +43,6 @@ function clearError() {
     document.getElementById(this.id + 'error').innerHTML = "&nbsp;";
     // clears submit error span
     document.getElementById('SubmitError').innerHTML = "&nbsp;";
-
 
 }
 
@@ -80,6 +81,10 @@ function validateSecondName() {
 function validateEmail() {
     var valid = true;
     var email = document.getElementById('email').value;
+    /*does not include @
+    does include @
+    next charexter does not include a dot
+    does include a dot */
     var re = new RegExp(/[^@]+@[^\.]+\..+/);
     if (re.test(email)) {
         return valid;
@@ -87,4 +92,17 @@ function validateEmail() {
          document.getElementById('emailerror').innerHTML = 'error in the name field';
         return valid = false;
     }
+}
+
+function validateHealthAuthority(){
+    var valid = true;
+    var healthAuthority = document.getElementById('health-authority');
+    var re = new RegExp(/^\d{7}(?:\d{2})?$/);
+    if (re.test(healthAuthority)) {
+        return valid;
+    } else {
+         document.getElementById('health-authorityerror').innerHTML = 'error in the health field';
+        return valid = false;
+    }
+
 }
