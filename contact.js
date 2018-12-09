@@ -5,19 +5,32 @@ window.onload = init;
 // for each loop is going to be more effcient here
 function init() {
     document.getElementById('userInfo').onsubmit = processForm;
+
+    /* USE A FOREACH LOOP HERE*/
     document.getElementById('first-name').onfocus = clearError;
     document.getElementById('second-name').onfocus = clearError;
+    document.getElementById('email').onfocus = clearError;
 
-    //document.getElementById('email').onblur = clearError;
+    document.getElementById('first-name').onblur = validateFirstName;
+    document.getElementById('second-name').onblur = validateSecondName;
+    document.getElementById('email').onblur = validateEmail;
+
+    
 
 }
 
 function processForm() {
     console.log('hello');
-    validateFirstName();
-    validateSecondName();
+    var firstName = validateFirstName();
+    var lastName = validateSecondName();
+    var email = validateEmail();
     validateEmail();
-
+    if(firstName == true){
+        console.log('x is true');
+    }
+    if(lastName == true){
+        console.log('y is true');
+    }
     return false;
 }
 
@@ -28,7 +41,7 @@ function clearError() {
     document.getElementById(this.id + 'error').innerHTML = "&nbsp;";
     // clears submit error span
     document.getElementById('SubmitError').innerHTML = "&nbsp;";
-    document.getElementById('result').innerHTML = "&nbsp;";
+
 
 }
 
@@ -37,11 +50,13 @@ function validateFirstName() {
 
     var valid = true;
     var firstName = document.getElementById('first-name').value;
+    console.log(firstName);
     var re = new RegExp(/^[a-z ,.'-]+$/i);
     if (re.test(firstName)) {
-    console.log("Valid");
+    return valid;
 } else {
-    console.log("Invalid");
+     document.getElementById('first-nameerror').innerHTML = 'error in the name field';
+    return valid = false;
 }
 
 }
@@ -50,13 +65,15 @@ function validateFirstName() {
 function validateSecondName() {
     var valid = true;
     var secondName = document.getElementById('second-name').value;
+
     console.log(secondName);
     var re = new RegExp(/^[a-z ,.'-]+$/i);
     if (re.test(secondName)) {
-    console.log("Valid");
-} else {
-    console.log("Invalid");
-}
+        return valid;
+    } else {
+         document.getElementById('second-nameerror').innerHTML = 'error in the email field';
+        return valid = false;
+    }
 
 }
 
@@ -65,11 +82,9 @@ function validateEmail() {
     var email = document.getElementById('email').value;
     var re = new RegExp(/[^@]+@[^\.]+\..+/);
     if (re.test(email)) {
-    console.log("Valid");
-} else {
-    console.log("Invalid");
-}
-
-
-
+        return valid;
+    } else {
+         document.getElementById('emailerror').innerHTML = 'error in the name field';
+        return valid = false;
+    }
 }
