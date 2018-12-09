@@ -262,6 +262,13 @@ fieldset {
 
 
 }
+@media screen and (max-width: 960px){
+    .content {
+    grid-template-columns: 2fr 2fr ;
+}
+}
+
+
 
 
 ol {
@@ -284,6 +291,16 @@ li:before {
 	text-align: center;
     color: #202020;
 }
+
+li:nth-of-type(4)
+		 {
+			margin-top: 8rem;
+		}
+li:nth-of-type(2)
+        		 {
+        			margin-top: 10rem;
+        		}
+
 
 .summary {
 	color: #3987df;
