@@ -1,3 +1,5 @@
+/* https://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149 */
+
 window.onload = init;
 // runs  functions on window load
 
@@ -16,7 +18,6 @@ function init() {
     document.getElementById('second-name').onblur = validateSecondName;
     document.getElementById('email').onblur = validateEmail;
     document.getElementById('health-authority').onblur = validateHealthAuthority;
-
 
 
 }
@@ -48,12 +49,12 @@ function clearError() {
 
 
 function validateFirstName() {
-
+    var defaultText = "Enter your name.";
     var valid = true;
     var firstName = document.getElementById('first-name').value;
     console.log(firstName);
     var re = new RegExp(/^[a-z ,.'-]+$/i);
-    if (re.test(firstName)) {
+    if (re.test(firstName) && (firstName !== defaultText)) {
     return valid;
 } else {
      document.getElementById('first-nameerror').innerHTML = 'error in the name field';
@@ -85,6 +86,7 @@ function validateEmail() {
     does include @
     next charexter does not include a dot
     does include a dot */
+    /* https://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149 */
     var re = new RegExp(/[^@]+@[^\.]+\..+/);
     if (re.test(email)) {
         return valid;
@@ -105,4 +107,30 @@ function validateHealthAuthority(){
         return valid = false;
     }
 
+}
+
+
+
+function hint() {
+var defaultText = "Enter your name.";
+var txtElem = document.getElementById("first-name");
+txtElem.value = defaultText;
+txtElem.style.color = "#A8A8A8";
+txtElem.style.fontStyle = "italic";
+
+
+txtElem.onfocus = function() {
+ if (input.value === defaultText) {
+   input.value = "";
+   input.style.color = "#000";
+   input.style.fontStyle = "normal";
+ }
+}
+txtElem.onblur = function() {
+ if (input.value === "") {
+   input.value = defaultText;
+   input.style.color = "#A8A8A8";
+   input.style.fontStyle = "italic";
+ }
+}
 }

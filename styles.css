@@ -1,7 +1,7 @@
 :root {
     --secondary: #5ec4b6;
     --tertiary: #f5f6f7;
-    --black: #1a1a1a;
+    --black: #212020;
 }
 
 * {
@@ -170,8 +170,8 @@ fieldset {
 }
 
 .rb .rb-field {
-    width: 3.6rem;
-    height: 3.6rem;
+    width: 3.4rem;
+    height: 3.4rem;
     background-color: white;
     position: relative;
     border: 2px solid var(--black);
@@ -289,7 +289,7 @@ li:before {
 	font-size: 9rem;
 	font-weight: 700;
 	text-align: center;
-    color: #202020;
+    color: var(--black);
 }
 
 li:nth-of-type(4)
