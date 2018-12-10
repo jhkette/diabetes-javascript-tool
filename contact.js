@@ -2,10 +2,13 @@ window.onload = start;
 
 function start() {
   init() ;
+  /*With the placeholder text, we are adding/removing several pieces of
+  text based on the user input/validation. The programme needs to have a clear sequence for it to
+ run correctly. First I am calling the 'hint', which needs to be presented on page load, this function
+ then call the validate or clearError functions based on user input.
+   */
   firstNameHint();
   secondNameHint();
-
-  /*YOU ARE PROBABLY GOING TO NEED TO CREATE HINTS FOR EACH FORM FIELD AND LOAD THEM HERE*/
 
   /* you are also going to need to change the background color of the first name part of the conctact form  */
 }
@@ -17,16 +20,8 @@ function start() {
 function init() {
     /*YOU DON"T NEED ALL THESE */
     document.getElementById('userInfo').onsubmit = processForm;
-
-    /* USE A FOREACH LOOP HERE*/
-    // document.getElementById('first-name').onfocus = clearError;
-    //
-    // document.getElementById('second-name').onfocus = clearError;
     document.getElementById('email').onfocus = clearError;
     document.getElementById('health-authority').onfocus = clearError;
-
-    // document.getElementById('first-name').onblur = validateFirstName;
-    // document.getElementById('second-name').onblur = validateSecondName;
     document.getElementById('email').onblur = validateEmail;
     document.getElementById('health-authority').onblur = validateHealthAuthority;
 
@@ -60,12 +55,13 @@ function clearError() {
 
 
 function validateFirstName() {
-    console.log('validating.....')
+
    var defaultText = "Enter your name.";
     var valid = true;
     var firstName = document.getElementById('first-name').value;
     console.log(firstName);
-    var re = new RegExp(/^[a-z ,.'-]+$/i);
+    /* first name contain only letters and is at least two charecters long  */
+    var re = new RegExp(/^[a-z]{2,}$/i);
     if (re.test(firstName) &&( firstName !== defaultText)) {
         console.log('REG EX WORKED')
     return valid;
@@ -82,9 +78,8 @@ function validateSecondName() {
     var defaultText = "Enter your name.";
     var valid = true;
     var secondName = document.getElementById('second-name').value;
-
-
-    var re = new RegExp(/^[a-z ,.'-]+$/i);
+    /* second name contains only letters or a hyphen, more thah 2 letters, case insensitive */
+    var re = new RegExp(/^[a-z-]{2,}$/i);
     if (re.test(secondName) &&( secondName !== defaultText)) {
         return valid;
     } else {
