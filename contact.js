@@ -62,7 +62,7 @@ function validateFirstName() {
     console.log(firstName);
     /* first name contain only letters and is at least two charecters long, case insensitive  */
     var re = new RegExp(/^[a-z]{2,}$/i);
-    if (re.test(firstName) && (firstName !== defaultText)) {
+    if (re.test(firstName)) {
         console.log('REG EX WORKED')
         return valid;
     } else {
@@ -79,7 +79,7 @@ function validateSecondName() {
     var secondName = document.getElementById('second-name').value;
     /* second name contains only letters or a hyphen, more thah 2 letters, case insensitive */
     var re = new RegExp(/^[a-z-]{2,}$/i);
-    if (re.test(secondName) && (secondName !== defaultText)) {
+    if (re.test(secondName)) {
         return valid;
     } else {
         document.getElementById('second-nameerror').innerHTML = 'error in the email field';
@@ -96,7 +96,7 @@ function validateEmail() {
     does include @
     next charexter does not include a dot
     does include a dot */
-    var re = new RegExp(/[^@]+@[^\.]+\..+/);
+    var re = new RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/);
     if (re.test(email)) {
         return valid;
     } else {
@@ -109,8 +109,8 @@ function validateEmail() {
 function validateHealthAuthority() {
     var defaultText = "Health number";
     var valid = true;
-    var healthAuthority = document.getElementById('health');
-    var re = new RegExp((/^\d{7}(?:\d{2})?$/) && (healthAuthority  !== defaultText)) ;
+    var healthAuthority = document.getElementById('health').value;
+    var re = new RegExp(/^zha[\d]{6}$/i);
     if (re.test(healthAuthority)) {
         return valid;
     } else {
