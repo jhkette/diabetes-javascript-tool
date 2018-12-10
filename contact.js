@@ -19,14 +19,14 @@ function init() {
     document.getElementById('userInfo').onsubmit = processForm;
 
     /* USE A FOREACH LOOP HERE*/
-    document.getElementById('first-name').onfocus = clearError;
-
-    document.getElementById('second-name').onfocus = clearError;
+    // document.getElementById('first-name').onfocus = clearError;
+    //
+    // document.getElementById('second-name').onfocus = clearError;
     document.getElementById('email').onfocus = clearError;
     document.getElementById('health-authority').onfocus = clearError;
 
-    document.getElementById('first-name').onblur = validateFirstName;
-    document.getElementById('second-name').onblur = validateSecondName;
+    // document.getElementById('first-name').onblur = validateFirstName;
+    // document.getElementById('second-name').onblur = validateSecondName;
     document.getElementById('email').onblur = validateEmail;
     document.getElementById('health-authority').onblur = validateHealthAuthority;
 
@@ -60,12 +60,14 @@ function clearError() {
 
 
 function validateFirstName() {
+    console.log('validating.....')
    var defaultText = "Enter your name.";
     var valid = true;
     var firstName = document.getElementById('first-name').value;
     console.log(firstName);
     var re = new RegExp(/^[a-z ,.'-]+$/i);
     if (re.test(firstName) &&( firstName !== defaultText)) {
+        console.log('REG EX WORKED')
     return valid;
 } else {
      document.getElementById('first-nameerror').innerHTML = 'error in the name field';
@@ -148,9 +150,12 @@ function validateHealthAuthority(){
     this.value = defaultText;
     this.style.color = "#A8A8A8";
 	this.style.fontStyle = "italic";
-    validateFirstName();
+
   }
+  validateFirstName();
  }
+
+
 }
 
 
@@ -169,7 +174,7 @@ function validateHealthAuthority(){
     this.value = "";
     this.style.color = "#000";
 	this.style.fontStyle = "normal";
-    
+
     clearError();
   }
  }
@@ -179,7 +184,8 @@ function validateHealthAuthority(){
     this.style.color = "#A8A8A8";
 	this.style.fontStyle = "italic";
 
-    validateSecondName();
+
   }
+  validateSecondName();
  }
 }
