@@ -103,6 +103,7 @@ fieldset {
     color: white;
     border: 2px solid var(--black);;
     margin-bottom: 1rem;
+    height: auto;
 }
 
 .button:hover {
@@ -338,21 +339,22 @@ li:nth-of-type(2)
 }
 .arrowlink:hover{
     animation-name: example;
- animation-duration: 1s;
+    animation-duration: 1s;
 }
 
-
-
 .questionmark {
-	position:relative;
-	background:url(questionmark.jpg) top left no-repeat;
+    position:absolute;
+    left: 70rem;
+	background:url(questionmark.jpg);
 	padding: 2em;
-	width: 55px;
+    background-repeat: no-repeat;
+    border: 2px solid red;
+    width: 3rem;
 }
 
 .tooltip {
 	position:absolute;
-	left:55px;
+	left:75rem;
 	top:0;
 	display:none;
 	width:125px;
@@ -360,6 +362,29 @@ li:nth-of-type(2)
 	background-color:#eeeeee;
 	color: #ffffff;
 	padding: 10px 10px 30px 35px;
-	background:url(tooltipbg.gif) top left no-repeat;
+	background-color: red;
 	font:0.65em Arial, Helvetica, sans-serif;
+}
+
+.form-field-tip{
+    position: relative;
+    border: 1px solid red;
+}
+
+main {width: 80%;
+margin: auto;}
+
+input {
+  border: 2px solid #eeeeee;
+  height: 46px;
+  margin: 10px 0 0 0;
+  padding: 1%;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  color: #333333;
+  letter-spacing: .01em;
+  font-style: normal;
+  font-weight: 300;
+  font-family: 'Roboto';
+  sans-serif;
 }

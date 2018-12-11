@@ -7,7 +7,6 @@ function init() {
     let submitted = false;
     document.getElementById('Submit').addEventListener('click', clearForm);
     document.getElementById('Submit').addEventListener('click', submitForm);
-
 }
 
 function clearForm(e) {

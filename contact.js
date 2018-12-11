@@ -60,6 +60,7 @@ function clearError() {
     // clears element if it was an error Only on focus
     document.getElementById('first-nameerror').innerHTML = "&nbsp;";
     document.getElementById('second-nameerror').innerHTML = "&nbsp;";
+    document.getElementById('health-authorityerror').innerHTML = "&nbsp;";
     // clears submit error span
     document.getElementById('SubmitError').innerHTML = "&nbsp;";
 }
