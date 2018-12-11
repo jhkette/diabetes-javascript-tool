@@ -345,9 +345,10 @@ li:nth-of-type(2)
 .questionmark {
     position:absolute;
     left: 70rem;
-	background:url(questionmark.jpg);
+	background:url(question2.png);
 	padding: 2em;
     background-repeat: no-repeat;
+
     border: 2px solid red;
     width: 3rem;
 }
@@ -366,17 +367,27 @@ li:nth-of-type(2)
 	font:0.65em Arial, Helvetica, sans-serif;
 }
 
-.form-field-tip{
+.tip{
     position: relative;
-    border: 1px solid red;
+    border: 1px solid blue;
+}
+.form-field{
+
 }
 
 main {width: 80%;
 margin: auto;}
+label {
 
+    left: 15rem;
+
+}
 input {
+
+
   border: 2px solid #eeeeee;
   height: 46px;
+  width: 200px;
   margin: 10px 0 0 0;
   padding: 1%;
   font-size: 1.2em;
@@ -386,5 +397,6 @@ input {
   font-style: normal;
   font-weight: 300;
   font-family: 'Roboto';
-  sans-serif;
+  
+
 }

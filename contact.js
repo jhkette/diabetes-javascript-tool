@@ -24,7 +24,9 @@ function loadEventListeners() {
     document.getElementById('userInfo').onsubmit = processForm;
     document.getElementById('email').onfocus = clearError;
     document.getElementById('email').onblur = validateEmail;
+
 }
+
 
 function switchToolTip() {
   document.getElementById('qmark').onmouseover = function() {
@@ -57,13 +59,16 @@ function processForm() {
 
 function clearError() {
 
-    // clears element if it was an error Only on focus
-    document.getElementById('first-nameerror').innerHTML = "&nbsp;";
+    //clears element if it was an error Only on focus
+    document.getElementById('first-nameError').innerHTML = "&nbsp;";
     document.getElementById('second-nameerror').innerHTML = "&nbsp;";
     document.getElementById('health-authorityerror').innerHTML = "&nbsp;";
-    // clears submit error span
-    document.getElementById('SubmitError').innerHTML = "&nbsp;";
+    document.getElementById('emailError').innerHTML = "&nbsp;";
+    document.getElementById(this.id + 'Error').innerHTML = "&nbsp;";
 }
+
+
+
 
 
 function validateFirstName() {
@@ -78,7 +83,7 @@ function validateFirstName() {
         console.log('REG EX WORKED')
         return valid;
     } else {
-        document.getElementById('first-nameerror').innerHTML = 'error in the name field';
+        document.getElementById('first-nameError').innerHTML = 'error in the name field';
         firstNameHint()
         return valid = false;
     }
@@ -113,7 +118,7 @@ function validateEmail() {
     if (re.test(email)) {
         return valid;
     } else {
-        document.getElementById('emailerror').innerHTML = 'error in the name field';
+        document.getElementById('emailError').innerHTML = 'error in the name field';
 
         return valid = false;
     }
@@ -146,10 +151,11 @@ function firstNameHint() {
             this.value = "";
             this.style.color = "#000";
             this.style.fontStyle = "normal";
-
+            clearError();
         }
-        clearError();
+
     }
+
     txtElem.onblur = function() {
         if (this.value === "") {
             this.value = defaultText;
