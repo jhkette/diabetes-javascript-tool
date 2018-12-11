@@ -340,3 +340,26 @@ li:nth-of-type(2)
     animation-name: example;
  animation-duration: 1s;
 }
+
+
+
+.questionmark {
+	position:relative;
+	background:url(questionmark.jpg) top left no-repeat;
+	padding: 2em;
+	width: 55px;
+}
+
+.tooltip {
+	position:absolute;
+	left:55px;
+	top:0;
+	display:none;
+	width:125px;
+	border:1px solid #ffffff;
+	background-color:#eeeeee;
+	color: #ffffff;
+	padding: 10px 10px 30px 35px;
+	background:url(tooltipbg.gif) top left no-repeat;
+	font:0.65em Arial, Helvetica, sans-serif;
+}

@@ -16,17 +16,28 @@ function start() {
     secondNameHint();
     healthHint();
     loadEventListeners();
+    switchToolTip();
 }
 
 function loadEventListeners() {
 
     document.getElementById('userInfo').onsubmit = processForm;
     document.getElementById('email').onfocus = clearError;
-
     document.getElementById('email').onblur = validateEmail;
-
-
 }
+
+function switchToolTip() {
+  document.getElementById('qmark').onmouseover = function() {
+  var toolTip = document.getElementById('ttip');
+  toolTip.style.display='block';
+  }
+  document.getElementById('qmark').onmouseout = function() {
+  var toolTip = document.getElementById('ttip');
+  toolTip.style.display='none';
+  }
+}
+
+
 
 function processForm() {
 
@@ -96,6 +107,7 @@ function validateEmail() {
     does include @
     next charexter does not include a dot
     does include a dot */
+    /* https://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149   */
     var re = new RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/);
     if (re.test(email)) {
         return valid;
@@ -110,7 +122,7 @@ function validateHealthAuthority() {
     var defaultText = "Health number";
     var valid = true;
     var healthAuthority = document.getElementById('health').value;
-    var re = new RegExp(/^zha[\d]{6}$/i);
+    var re = new RegExp(/^zha\d{6}$/i);
     if (re.test(healthAuthority)) {
         return valid;
     } else {
