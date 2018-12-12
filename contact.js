@@ -64,7 +64,7 @@ function clearError() {
     document.getElementById('second-nameerror').innerHTML = "&nbsp;";
     document.getElementById('health-authorityerror').innerHTML = "&nbsp;";
     document.getElementById('emailError').innerHTML = "&nbsp;";
-    document.getElementById(this.id + 'Error').innerHTML = "&nbsp;";
+    // document.getElementById(this.id + 'Error').innerHTML = "&nbsp;";
 }
 
 
