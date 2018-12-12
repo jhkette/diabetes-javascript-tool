@@ -37,7 +37,6 @@ function loadEventListeners() {
 
     document.getElementById('telephone').onblur = validateTelephone;
     document.getElementById('email').onblur = validateEmail;
-
     document.getElementById('userInfo').onsubmit = processForm;
 
 }
@@ -73,7 +72,6 @@ function processForm() {
 
 
 function clearError(id) {
-
     document.getElementById(id + 'Error').innerHTML = "&nbsp;";
 }
 
@@ -107,7 +105,7 @@ function validateSecondName() {
     var secondName = document.getElementById('second-name').value;
     console.log(secondName);
     /* first name contain only letters and is at least two charecters long, case insensitive  */
-    var re = new RegExp(/^[a-z]{2,}$/i);
+    var re = new RegExp(/^[a-z-]{2,}$/i);
     if (re.test(secondName)) {
         console.log('REG EX WORKED')
         return valid;
@@ -157,7 +155,7 @@ function validateHealthAuthority() {
         var health = document.getElementById('health').value;
         console.log(health);
         /* first name contain only letters and is at least two charecters long, case insensitive  */
-        var re = new RegExp(/^zha\d{^}$/i);
+        var re = new RegExp(/^zha\d{6}$/i);
         if (re.test(health)) {
             console.log('REG EX WORKED')
             return valid;
@@ -183,14 +181,10 @@ function firstNameHint() {
             this.style.color = "#000";
             this.style.fontStyle = "normal";
 
-
-
         }
         textElem = this.id;
         clearError(textElem);
-
     }
-
     txtElem.onblur = function() {
         if (this.value === "") {
             this.value = defaultText;

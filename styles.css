@@ -371,15 +371,41 @@ li:nth-of-type(2)
     position: relative;
     border: 1px solid blue;
 }
-.form-field{
 
-}
 
 main {width: 80%;
 margin: auto;}
-label {
 
-    left: 15rem;
+.contact-form{
+    width: 75rem;
+    border: 2px solid blue;
+    display: grid;
+     grid-template-columns:  1fr auto;
+
+
+
+    height: 80rem;
+
+
+
+
+}
+.error{
+    display: inline-block;
+}
+.forminput {
+    width: 50rem;
+    height: 5rem;
+    border: 2px solid green;
+    display: inline-block;
+}
+.label {
+
+    width: 20rem;
+    height: auto;
+    height: 4rem;
+    border: 2px solid green;
+    display: inline-block;
 
 }
 input {
@@ -387,7 +413,7 @@ input {
 
   border: 2px solid #eeeeee;
   height: 46px;
-  width: 200px;
+  width: 20rem;
   margin: 10px 0 0 0;
   padding: 1%;
   font-size: 1.2em;
@@ -397,6 +423,6 @@ input {
   font-style: normal;
   font-weight: 300;
   font-family: 'Roboto';
-  
+
 
 }
