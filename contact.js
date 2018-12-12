@@ -41,15 +41,16 @@ function loadEventListeners() {
     document.getElementById('userInfo').onsubmit = processForm;
 
 }
-
+/* this needs to change so that the blur removes the green */
 function firstNameFocus(){
      var firstName = document.getElementById('first-name');
+
      var firstNameCheck = validateFirstName();
      if (firstNameCheck == false){
-         firstName.classList.add("pink");
+         firstName.classList.add("focusgreen");
      }
      else{
-         firstName.classList.remove("pink")
+         firstName.classList.remove("focusgreen")
      }
 
 

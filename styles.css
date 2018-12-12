@@ -79,7 +79,7 @@ p {
 
 .form {
     background-color: var(--secondary);
-    padding-top: 12rem;
+    padding-top: 10rem;
 }
 
 fieldset {
@@ -357,11 +357,19 @@ li:nth-of-type(2) {
     border: 1px solid blue;
 }
 
-main {
-    width: 80%;
-    margin: auto;
-}
+.contact-form-body {
 
+    width: 100%;
+    height: auto;
+
+}
+.main-content{
+    padding: 4rem;
+
+    margin: auto;
+    width:auto;
+    background-color: var(--secondary);
+}
 .contact-form {
     width: 80rem;
     margin: auto;
@@ -369,6 +377,8 @@ main {
     display: grid;
     grid-template-columns: 1fr auto;
     height: 50rem;
+        background-color: white;
+        padding: 3rem;
 }
 
 .error {
@@ -410,6 +420,6 @@ input {
     font-family: 'Roboto';
 }
 
-.pink {
+.focusgreen {
     background-color: #e0f2ef;
 }
