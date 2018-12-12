@@ -17,6 +17,7 @@ function start() {
     healthHint();
     loadEventListeners();
     switchToolTip();
+    firstNameFocus()
 }
 
 function loadEventListeners() {
@@ -41,6 +42,18 @@ function loadEventListeners() {
 
 }
 
+function firstNameFocus(){
+     var firstName = document.getElementById('first-name');
+     var firstNameCheck = validateFirstName();
+     if (firstNameCheck == false){
+         firstName.classList.add("pink");
+     }
+     else{
+         firstName.classList.remove("pink")
+     }
+
+
+}
 
 function switchToolTip() {
   document.getElementById('qmark').onmouseover = function() {
@@ -60,6 +73,7 @@ function processForm() {
     var firstName = validateFirstName();
     var lastName = validateSecondName();
     var email = validateEmail();
+    var health = validateHealthAuthority();
 
     if (firstName == true) {
         console.log('x is true');
@@ -192,6 +206,7 @@ function firstNameHint() {
             this.style.fontStyle = "italic";
         }
         validateFirstName();
+        firstNameFocus();
     }
 }
 
