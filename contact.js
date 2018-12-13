@@ -7,8 +7,6 @@ then calls the validate or clearError functions based on user input. The hint fu
 recalled or it's input removed. The other form inputs are listend for in load event listeners, which also in
 turn validate or report errors. */
 
-/* you are also going to need to change the background color of the first name
- part of the conctact form  */
 
 
 function start() {
@@ -41,12 +39,7 @@ function loadEventListeners() {
     document.getElementById('userInfo').onsubmit = processForm;
 
 }
-/* this needs to change so that the blur removes the green */
-function firstNameFocus(){
-       firstName = document.getElementById('first-name');
-         firstName.classList.remove("focusgreen")
 
-}
 
 function switchToolTip() {
   document.getElementById('qmark').onmouseover = function() {
@@ -87,17 +80,18 @@ function validateFirstName() {
 
     var defaultText = "Enter your name.";
     var valid = true;
+    var firstNameField = document.getElementById('first-name');
     var firstName = document.getElementById('first-name').value;
     console.log(firstName);
     /* first name contain only letters and is at least two charecters long, case insensitive  */
     var re = new RegExp(/^[a-z]{2,}$/i);
     if (re.test(firstName)) {
-        console.log('REG EX WORKED')
-        firstNameFocus();
+
+         firstNameField.classList.remove('focusgreen');
         return valid;
     } else {
         document.getElementById('first-nameError').innerHTML = 'error in the name field';
-        firstName.classList.add('focusgreen');
+         firstNameField.classList.add('focusgreen');
         /*MAYBE ADD IF STATEMENT HERE */
         if(firstName ==''){
         firstNameHint()
@@ -116,7 +110,7 @@ function validateSecondName() {
     /* first name contain only letters and is at least two charecters long, case insensitive  */
     var re = new RegExp(/^[a-z-]{2,}$/i);
     if (re.test(secondName)) {
-        console.log('REG EX WORKED')
+
         return valid;
     } else {
         document.getElementById('second-nameError').innerHTML = 'error in the name field';
@@ -196,8 +190,8 @@ function firstNameHint() {
 
         }
 
-        textElem = this.id;
-        clearError(textElem);
+        textElemId = this.id;
+        clearError(textElemId);
     }
     txtElem.onblur = function() {
         if (this.value === "") {
@@ -207,7 +201,7 @@ function firstNameHint() {
 
         }
         validateFirstName();
-        firstNameFocus();
+        
     }
 }
 
@@ -230,8 +224,8 @@ function secondNameHint() {
 
 
         }
-        textElem = this.id;
-        clearError(textElem);
+        textElemId = this.id;
+        clearError(textElemId);
     }
 
     txtElem.onblur = function() {
@@ -266,8 +260,8 @@ function healthHint() {
             this.style.fontStyle = "normal";
 
         }
-        textElem = this.id;
-        clearError(textElem);
+        textElemId = this.id;
+        clearError(textElemId);
 
     }
 
