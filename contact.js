@@ -17,7 +17,7 @@ function start() {
     healthHint();
     loadEventListeners();
     switchToolTip();
-    firstNameFocus()
+
 }
 
 function loadEventListeners() {
@@ -43,16 +43,8 @@ function loadEventListeners() {
 }
 /* this needs to change so that the blur removes the green */
 function firstNameFocus(){
-     var firstName = document.getElementById('first-name');
-
-     var firstNameCheck = validateFirstName();
-     if (firstNameCheck == false){
-         firstName.classList.add("focusgreen");
-     }
-     else{
+       firstName = document.getElementById('first-name');
          firstName.classList.remove("focusgreen")
-     }
-
 
 }
 
@@ -91,9 +83,6 @@ function clearError(id) {
 }
 
 
-
-
-
 function validateFirstName() {
 
     var defaultText = "Enter your name.";
@@ -104,9 +93,11 @@ function validateFirstName() {
     var re = new RegExp(/^[a-z]{2,}$/i);
     if (re.test(firstName)) {
         console.log('REG EX WORKED')
+        firstNameFocus();
         return valid;
     } else {
         document.getElementById('first-nameError').innerHTML = 'error in the name field';
+        firstName.classList.add('focusgreen');
         firstNameHint()
         return valid = false;
     }
@@ -197,6 +188,7 @@ function firstNameHint() {
             this.style.fontStyle = "normal";
 
         }
+
         textElem = this.id;
         clearError(textElem);
     }
@@ -205,6 +197,7 @@ function firstNameHint() {
             this.value = defaultText;
             this.style.color = "#A8A8A8";
             this.style.fontStyle = "italic";
+
         }
         validateFirstName();
         firstNameFocus();
@@ -238,6 +231,7 @@ function secondNameHint() {
         if (this.value === "") {
             this.value = defaultText;
             this.style.color = "#A8A8A8";
+
             this.style.fontStyle = "italic";
         }
         validateSecondName();

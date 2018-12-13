@@ -1,9 +1,9 @@
 :root {
-    --secondary: #5ec4b6;
+    --secondary: #5ec3b6;
     --tertiary: #f5f6f7;
     --black: #212020;
-}
 
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -29,7 +29,13 @@ h1 {
     top: 18rem;
     right: 50rem;
 }
-
+h2{
+    padding-top: 10px;
+    color: white;
+    font-size: 2.2rem;
+    text-align: center;
+    font-weight: 200;
+}
 h4 {
     padding-bottom: 3rem;
     font-size: 3rem
@@ -37,7 +43,8 @@ h4 {
 
 .row {
     width: 80%;
-    margin: 1.9rem auto;
+    margin: auto;
+    padding: 1.9rem;
 }
 
 p {
@@ -46,15 +53,42 @@ p {
     font-size: 1.9rem
 }
 
+.contact-nav{
+    background-color: var(--secondary);
+    width: 11rem;
+
+}
+
+.contact-nav a{
+    text-decoration: none;
+    color: var(--black);
+}
+
+.contact-nav:hover{
+    background-color: #fa8072;
+
+
+}
+
 .results {
-    background-color: #5EC4B6;
-    height: 18rem;
+    background-color: var(--tertiary);
+    height: 16rem;
 }
 
 .results-message {
     width: 80%;
     margin: 1.9rem auto 0rem auto;
     padding: 1.9rem 0;
+}
+
+.navcontainer{
+
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    height: 4.5rem;
+
 }
 
 .grey {
@@ -64,9 +98,9 @@ p {
 }
 
 .main-nav {
-    height: 5rem;
+
     background-color: var(--black);
-    ;
+
     width: 100%;
 }
 
@@ -77,8 +111,13 @@ p {
     padding: 2rem 0;
 }
 
-.form {
+.container{
     background-color: var(--secondary);
+    width: 100%;
+}
+
+.form {
+    background-color: var(--tertiary);
     padding-top: 10rem;
 }
 
@@ -118,7 +157,7 @@ fieldset {
     width: 80%;
     counter-reset: section;
     position: relative;
-    background-color: var(--secondary);
+    background-color: var(--tertiary);
 }
 
 .display {
@@ -130,8 +169,7 @@ fieldset {
 }
 
 .display h2 {
-    color:
-        margin-bottom: 10px;
+
 }
 
 .formtext {
@@ -243,7 +281,8 @@ fieldset {
     display: grid;
     grid-gap: 40px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding-bottom: 8.5rem;
+    padding: 9.5rem 0;
+
 }
 
 @media screen and (max-width: 960px) {
@@ -273,18 +312,15 @@ li:before {
     color: var(--black);
 }
 
-li:nth-of-type(4) {
-    margin-top: 8rem;
-}
-
-li:nth-of-type(2) {
-    margin-top: 10rem;
+.home-image{
+    width: 25rem;
+    border: 15px solid var(--secondary);
 }
 
 .summary {
-    color: #3987df;
-    border-top: 1px solid #3987df;
-    border-bottom: 1px solid #3987df;
+    color: var(--black);
+    border-top: 1px dashed var(--black);
+    border-bottom: 1px dashed var(--black);
     font-family: "Roboto", sans-serif;
     font-size: 3rem;
     font-weight: 300;
@@ -421,5 +457,5 @@ input {
 }
 
 .focusgreen {
-    background-color: #e0f2ef;
+    background-color: #cdede6;
 }
