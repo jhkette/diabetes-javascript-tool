@@ -98,7 +98,10 @@ function validateFirstName() {
     } else {
         document.getElementById('first-nameError').innerHTML = 'error in the name field';
         firstName.classList.add('focusgreen');
+        /*MAYBE ADD IF STATEMENT HERE */
+        if(firstName ==''){
         firstNameHint()
+    }
         return valid = false;
     }
 }
@@ -117,7 +120,9 @@ function validateSecondName() {
         return valid;
     } else {
         document.getElementById('second-nameError').innerHTML = 'error in the name field';
-        secondNameHint()
+        if(secondName == ''){
+        secondNameHint();
+    }
         return valid = false;
     }
 }
@@ -167,7 +172,9 @@ function validateHealthAuthority() {
             return valid;
         } else {
             document.getElementById('healthError').innerHTML = 'error in the name field';
+            if(health == ''){
             healthHint()
+        }
             return valid = false;
         }
     }
