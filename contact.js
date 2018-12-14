@@ -7,9 +7,8 @@ then calls the validate or clearError functions based on user input. The hint fu
 recalled or it's input removed. The other form inputs are listend for in load event listeners, which also in
 turn validate or report errors. */
 
-
-
 function start() {
+
     firstNameHint();
     secondNameHint();
     healthHint();
@@ -23,17 +22,18 @@ function loadEventListeners() {
      email.onfocus = function() {
          email = this.id;
          clearError(email);
-     }
-
+     };
+     // anonymous function to call clear error on focus with the id of telephone as an argument
      var telephone = document.getElementById('telephone');
-
      telephone.onfocus = function() {
          telephone = this.id;
          clearError(telephone);
-     }
-
+     };
+   // on blur events for these fields validate field
     document.getElementById('telephone').onblur = validateTelephone;
     document.getElementById('email').onblur = validateEmail;
+
+    // call processForm function on submit
     document.getElementById('userInfo').onsubmit = processForm;
 
 }
@@ -43,11 +43,11 @@ function switchToolTip() {
   document.getElementById('qmark').onmouseover = function() {
   var toolTip = document.getElementById('ttip');
   toolTip.style.display='block';
-  }
+};
   document.getElementById('qmark').onmouseout = function() {
   var toolTip = document.getElementById('ttip');
   toolTip.style.display='none';
-  }
+};
 }
 
 
@@ -68,34 +68,49 @@ function processForm() {
     return false;
 }
 
-
+/* Clear error function which takes the parameter of 'id' of the form field to add an error messsage beside the
+form field */
 function clearError(id) {
     document.getElementById(id + 'Error').innerHTML = "&nbsp;";
 }
 
-
+/* validate first name uses a regular expression to validate the form. The initial focus on the first name
+is removed if valid by calling a function from here or readded if it still incorrect. First name hint text is only readded if
+the user has added no text. Otherwise error text is left in input field (it may of just been a small typo). The error message by the
+field is also added.  */
 function validateFirstName() {
 
     var defaultText = "Enter your name.";
     var valid = true;
-    var firstNameField = document.getElementById('first-name');
+
     var firstName = document.getElementById('first-name').value;
     console.log(firstName);
     /* first name contain only letters and is at least two charecters long, case insensitive  */
     var re = new RegExp(/^[a-z]{2,}$/i);
     if (re.test(firstName)) {
-
-         firstNameField.classList.remove('focusgreen');
+        removeNameFocus();
         return valid;
     } else {
         document.getElementById('first-nameError').innerHTML = 'error in the name field';
-         firstNameField.classList.add('focusgreen');
-        /*MAYBE ADD IF STATEMENT HERE */
+        addNameFocus();
         if(firstName ==''){
         firstNameHint()
     }
         return valid = false;
     }
+}
+
+/* This removes the 'focus' class on the first name. Is called if the first name is valid */
+function removeNameFocus(){
+    var firstNameField = document.getElementById('first-name');
+    firstNameField.classList.remove('focusgreen');
+}
+
+/* The focus is added again to the name field if it is incorrect. This is necessary to account
+for the possibility of the user adding a correct then incorrect name */
+function addNameFocus(){
+    var firstNameField = document.getElementById('first-name');
+     firstNameField.classList.add('focusgreen');
 }
 
 
@@ -185,7 +200,6 @@ function firstNameHint() {
             this.value = "";
             this.style.color = "#000";
             this.style.fontStyle = "normal";
-
         }
 
         textElemId = this.id;
@@ -218,9 +232,6 @@ function secondNameHint() {
             this.value = "";
             this.style.color = "#000";
             this.style.fontStyle = "normal";
-
-
-
         }
         textElemId = this.id;
         clearError(textElemId);
@@ -246,6 +257,7 @@ function healthHint() {
     txtElem.value = defaultText;
     txtElem.style.color = "#A8A8A8";
     txtElem.style.fontStyle = "italic";
+    txtElem.style.fontFamily = "calibri";
 
 
     txtElem.onfocus = function() {
