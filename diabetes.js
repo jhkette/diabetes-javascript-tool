@@ -4,7 +4,6 @@ window.onload = init;
 /* This functions loads the event listeners, listening for a click on a form button which will call clear form and submit form.
 Clear form is called first in case there is still an input in the 'results' div. Then the submit form function is called */
 function init() {
-    
     document.getElementById('Submit').addEventListener('click', clearForm);
     document.getElementById('Submit').addEventListener('click', submitForm);
 }

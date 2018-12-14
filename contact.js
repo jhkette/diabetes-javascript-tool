@@ -15,13 +15,11 @@ function start() {
     healthHint();
     loadEventListeners();
     switchToolTip();
-
 }
 
 function loadEventListeners() {
-
-     var email = document.getElementById('email');
      // anonymous function to call clear error on focus with the id of email as an argument
+     var email = document.getElementById('email');
      email.onfocus = function() {
          email = this.id;
          clearError(email);
@@ -201,7 +199,7 @@ function firstNameHint() {
 
         }
         validateFirstName();
-        
+
     }
 }
 
