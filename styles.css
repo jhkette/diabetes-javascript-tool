@@ -1,6 +1,6 @@
 :root {
     --secondary: #5ec3b6;
-    --tertiary: #f5f6f7;
+    --tertiary: #e2e2e2;
     --black: #212020;
 
 }
@@ -111,18 +111,7 @@ p {
     width: 100%;
 }
 
-.breadcrumbs {
-    /* height: 3rem; */
-    background-color: var(--tertiary);
-    width: 100%;
 
-}
-
-.navbreadcrumbs{
-    width: 80%;
-    margin: auto;
-    padding: 0;
-}
 
 .container{
     background-color: var(--secondary);
