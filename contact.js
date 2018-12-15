@@ -42,11 +42,11 @@ function loadEventListeners() {
 function switchToolTip() {
   document.getElementById('qmark').onmouseover = function() {
   var toolTip = document.getElementById('ttip');
-  toolTip.style.display='block';
+  toolTip.style.opacity= 1;
 };
   document.getElementById('qmark').onmouseout = function() {
   var toolTip = document.getElementById('ttip');
-  toolTip.style.display='none';
+  toolTip.style.opacity= 0;
 };
 }
 

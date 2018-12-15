@@ -2,6 +2,7 @@
     --secondary: #5ec3b6;
     --tertiary: #e2e2e2;
     --black: #212020;
+    --red:  #fa8072;
 
 }
 * {
@@ -36,6 +37,11 @@ h2{
     text-align: center;
     font-weight: 200;
 }
+h3{
+    font-family: 'Oswald';
+    font-size: 4rem;
+
+}
 h4 {
     padding-bottom: 3rem;
     font-size: 3rem
@@ -69,12 +75,12 @@ p {
 }
 
 .contact-nav:hover{
-    background-color: #fa8072;
+    background-color: var(--red);
 
 
 }
 #current{
-    background-color: #fa8072;
+    background-color: var(--red);
 }
 
 .results {
@@ -361,21 +367,17 @@ li:before {
 }
 
 .questionmark {
-    position: absolute;
-    top: 35rem;
-    left: 85rem;
+
     background: url(question2.png);
-    padding: 2em;
+    padding: 1em;
     background-repeat: no-repeat;
     border: 2px solid red;
     width: 3rem;
 }
 
 .tooltip {
-    position: absolute;
-    left: 75rem;
-    top: 50rem;
-    display: none;
+
+    opacity: 0;
     width: 125px;
     border: 1px solid #ffffff;
     background-color: #eeeeee;
@@ -383,18 +385,36 @@ li:before {
     padding: 10px 10px 30px 35px;
     background-color: red;
     font: 0.65em Arial, Helvetica, sans-serif;
+    display: block;
 
 }
 
-.tip {
-    position: relative;
+.formcontainer{
+    padding: 6rem;
+    margin: auto;
+    background-color: white;
+    width: 60%
+}
+
+.tool {
+
     border: 1px solid blue;
+    position: absolute;
+    top: 68rem;
+    margin-left: 8.2rem;
+
+
+}
+
+.container-white{
+    padding: 5rem;
 }
 
 .contact-form-body {
 
     width: 100%;
     height: auto;
+    background-color: var(--secondary);
 
 }
 .main-content{
@@ -405,38 +425,42 @@ li:before {
     background-color: var(--secondary);
 }
 .contact-form {
-    width: 80rem;
-    margin: auto;
-    border: 2px solid blue;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    height: 50rem;
+    width: 45rem;
+
+
+
+
         background-color: white;
         padding: 3rem;
+        border-top: 1px dashed var(--black);
+        border-bottom: 1px dashed var(--black);
 }
 
 .error {
-    display: inline-block;
+    display: block;
     align-self: center;
-    width: 25rem;
+    width: 22rem;
     margin-left: 1rem;
-}
-#health{
-    font-family:
-}
-.forminput {
-    width: 50rem;
-    height: 5rem;
+    color: var(--red);
+    font-size: 1.8rem;
 
-    display: inline-block;
-    display: flex;
-    justify-content: flex-start;
+}
+
+
+.forminput {
+
+    height: 5.5rem;
+
+
+
+    margin-bottom: 3rem;
+    width: 95%
 }
 
 .label {
     width: 27rem;
-    height: auto;
-    height: 5rem;
+
+    height: 3rem;
     align-self: flex-end;
     display: inline-block;
     font-size: 1.9rem;
@@ -447,7 +471,7 @@ select{
 input {
     border: 2px solid var(--black);
     height: 5rem;
-    width: 24rem;
+    width: 23rem;
     /* margin: 10px 0 0 0; */
     padding: 1%;
     font-size: 1.8rem;
@@ -457,6 +481,8 @@ input {
     font-style: normal;
     font-weight: 300;
     font-family: 'Source Sans Pro';
+    display: inline-block;
+    margin-bottom: 2rem;
 }
 
 .focusgreen {
