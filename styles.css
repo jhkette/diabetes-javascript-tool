@@ -21,6 +21,11 @@ body {
     font-size: 22px;
     font-weight: 500;
 }
+p {
+    margin: 1.9rem 0;
+    font-weight: 300;
+    font-size: 1.9rem
+}
 
 h1 {
     color: var(--tertiary);
@@ -38,7 +43,7 @@ h2{
     font-weight: 200;
 }
 h3{
-    font-family: 'Oswald';
+    font-family: 'Oswald','Helvetica neue', arial, sans-serif;
     font-size: 4rem;
     border-bottom: 1px dashed var(--black);
 
@@ -54,11 +59,7 @@ h4 {
     padding: 1.9rem;
 }
 
-p {
-    margin: 1.9rem 0;
-    font-weight: 300;
-    font-size: 1.9rem
-}
+
 
 .contact-nav{
     background-color: var(--secondary);
@@ -276,7 +277,7 @@ p {
 
     .display {
         flex: 1;
-        border: 1px solid red;
+
     }
 }
 
@@ -482,6 +483,10 @@ margin-left: -2.3rem;
     align-self: flex-end;
     display: inline-block;
     font-size: 1.9rem;
+}
+
+.backgroundred{
+    background-color: #fec1b8;
 }
 select{
     font-size: 1.9rem;

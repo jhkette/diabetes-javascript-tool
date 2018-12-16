@@ -59,19 +59,22 @@ function processForm() {
     var email = validateEmail();
     var health = validateHealthAuthority();
 
-    if (firstName == true) {
-        console.log('x is true');
+    if ((firstName == true) && (lastName == true) && (email == true) && (health == true))  {
+        console.log('SUBMIT FORM');
+        return false;
     }
-    if (lastName == true) {
-        console.log('y is true');
+
+    else{
+        document.getElementById('submitError').innerHTML = 'There are errors in the form';
+     return false;
     }
-    return false;
 }
 
 /* Clear error function which takes the parameter of 'id' of the form field to add an error messsage beside the
 form field */
 function clearError(id) {
     document.getElementById(id + 'Error').innerHTML = "&nbsp;";
+    document.getElementById('submitError').innerHTML = "&nbsp;";
 }
 
 /* validate first name uses a regular expression to validate the form. The initial focus on the first name
@@ -82,17 +85,19 @@ function validateFirstName() {
 
     var defaultText = "Enter your name.";
     var valid = true;
-
+    var firstNameField = document.getElementById('first-name');
     var firstName = document.getElementById('first-name').value;
     console.log(firstName);
     /* first name contain only letters and is at least two charecters long, case insensitive  */
     var re = new RegExp(/^[a-z]{2,}$/i);
     if (re.test(firstName)) {
         removeNameFocus();
+        removeRedError(firstNameField);
         return valid;
     } else {
         document.getElementById('first-nameError').innerHTML = 'error in the name field';
-        addNameFocus();
+        removeNameFocus();
+        addRedError(firstNameField);
         if(firstName ==''){
         firstNameHint()
     }
@@ -114,20 +119,35 @@ function addNameFocus(){
 }
 
 
+function addRedError(field){
+
+     field.classList.add('backgroundred');
+}
+
+function removeRedError(field){
+
+     field.classList.remove('backgroundred');
+}
+
+
+
 function validateSecondName() {
 
     var defaultText = "Enter your name.";
     var valid = true;
+    var secondNameField = document.getElementById('second-name');
     var secondName = document.getElementById('second-name').value;
     console.log(secondName);
     /* first name contain only letters and is at least two charecters long, case insensitive  */
     var re = new RegExp(/^[a-z-]{2,}$/i);
     if (re.test(secondName)) {
-
+        removeRedError(secondNameField);
         return valid;
     } else {
+        addRedError(secondNameField);
         document.getElementById('second-nameError').innerHTML = 'error in the name field';
         if(secondName == ''){
+
         secondNameHint();
     }
         return valid = false;
@@ -136,13 +156,16 @@ function validateSecondName() {
 
 function validateEmail() {
     var valid = true;
+    var emailField = document.getElementById('email');
     var email = document.getElementById('email').value;
 
     /* https://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149   */
     var re = new RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/);
     if (re.test(email)) {
+        removeRedError(emailField);
         return valid;
     } else {
+        addRedError(emailField);
         document.getElementById('emailError').innerHTML = 'error in the name field';
 
         return valid = false;
@@ -151,13 +174,16 @@ function validateEmail() {
 
 function validateTelephone() {
     var valid = true;
+    var telephoneField = document.getElementById('telephone');
     var telephone = document.getElementById('telephone').value;
 
     /* https://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149   */
     var re = new RegExp(/^\d{11}$/i);
     if (re.test(telephone)) {
+        removeRedError(telephoneField);
         return valid;
     } else {
+        addRedError(telephoneField);
         document.getElementById('telephoneError').innerHTML = 'error in the name field';
 
         return valid = false;
@@ -170,16 +196,19 @@ function validateHealthAuthority() {
 
         var defaultText = "Enter health number.";
         var valid = true;
+        var healthField = document.getElementById('health');
         var health = document.getElementById('health').value;
         console.log(health);
         /* first name contain only letters and is at least two charecters long, case insensitive  */
         var re = new RegExp(/^zha\d{6}$/i);
         if (re.test(health)) {
-            console.log('REG EX WORKED')
+            removeRedError(healthField);
             return valid;
         } else {
+            addRedError(healthField);
             document.getElementById('healthError').innerHTML = 'error in the name field';
             if(health == ''){
+
             healthHint()
         }
             return valid = false;
