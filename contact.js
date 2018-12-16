@@ -111,12 +111,6 @@ function removeNameFocus(){
     firstNameField.classList.remove('focusgreen');
 }
 
-/* The focus is added again to the name field if it is incorrect. This is necessary to account
-for the possibility of the user adding a correct then incorrect name */
-function addNameFocus(){
-    var firstNameField = document.getElementById('first-name');
-     firstNameField.classList.add('focusgreen');
-}
 
 
 function addRedError(field){
@@ -246,7 +240,7 @@ function firstNameHint() {
     }
 }
 
-// YOU CAN USE THIS HERE to clear error and in error function
+
 function secondNameHint() {
     var defaultText = "Enter your name.";
     var txtElem = document.getElementById("second-name");
