@@ -98,9 +98,7 @@ function validateFirstName() {
         document.getElementById('first-nameError').innerHTML = 'error in the name field';
         removeNameFocus();
         addRedError(firstNameField);
-        if(firstName ==''){
-        firstNameHint()
-    }
+    
         return valid = false;
     }
 }
@@ -140,10 +138,7 @@ function validateSecondName() {
     } else {
         addRedError(secondNameField);
         document.getElementById('second-nameError').innerHTML = 'error in the name field';
-        if(secondName == ''){
 
-        secondNameHint();
-    }
         return valid = false;
     }
 }
@@ -201,10 +196,7 @@ function validateHealthAuthority() {
         } else {
             addRedError(healthField);
             document.getElementById('healthError').innerHTML = 'error in the name field';
-            if(health == ''){
 
-            healthHint()
-        }
             return valid = false;
         }
     }
