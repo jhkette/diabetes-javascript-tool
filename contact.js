@@ -16,6 +16,7 @@ function start() {
     switchToolTip();
 }
 
+/*This function loads all the event listeners need on the contact form  */
 function loadEventListeners() {
      // anonymous function to call clear error on focus with the id of email as an argument
      var email = document.getElementById('email');
@@ -38,7 +39,7 @@ function loadEventListeners() {
 
 }
 
-
+/*Function to add tooltip. I'm changing the opacity on mouseout/mouseover.  */
 function switchToolTip() {
   document.getElementById('qmark').onmouseover = function() {
   var toolTip = document.getElementById('ttip');
@@ -98,7 +99,7 @@ function validateFirstName() {
         document.getElementById('first-nameError').innerHTML = 'error in the name field';
         removeNameFocus();
         addRedError(firstNameField);
-    
+
         return valid = false;
     }
 }
@@ -110,14 +111,13 @@ function removeNameFocus(){
 }
 
 
-
+/* This add a red background to the form if there is an error. It gets called in the validation functions .  */
 function addRedError(field){
-
      field.classList.add('backgroundred');
 }
 
+/*This removes the function if the form is correct. It is called in the validation functions    */
 function removeRedError(field){
-
      field.classList.remove('backgroundred');
 }
 

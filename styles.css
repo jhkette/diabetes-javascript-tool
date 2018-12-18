@@ -370,7 +370,7 @@ li:before {
 
 .questionmark {
 
-   background-image: url(questionmark.svg);
+   background-image: url(images/questionmark.svg);
    background-size: 38px 38px;
     padding: 1em;
     background-repeat: no-repeat;
@@ -394,7 +394,7 @@ li:before {
     position: absolute;
     right: 2rem;
 
-top: -8.3rem;
+top: -9rem;
 
 }
 .tooltip::after{

@@ -64,13 +64,13 @@ function submitForm(e) {
 
     let number = values.reduce(getSum);
 
-    displayResults(number, warnings);
+    calculateResults(number, warnings);
 
     e.preventDefault();
 }
 
 
-function displayResults(number, warnings) {
+function calculateResults(number, warnings) {
 
     console.log(warnings.length);
     var warningText = ' ';
@@ -117,7 +117,11 @@ function displayResults(number, warnings) {
             finalResponse = response3;
             break;
     }
- /* THIS FINAL BIT NEEDS TO BE A SEPERATE FUNCTION  */
+    displayResults(finalResponse);
+}
+
+function displayResults(finalResponse){
+
     const divElement = document.querySelector('.results');
     const results = document.createElement("p");
 

@@ -1,0 +1,7 @@
+// 1 remove call to hints on validate function they are not needed
+// add popup when form is submitted
+// tidy toolTip
+// add onmouseover function to column intro page
+// add actual text to intro text
+// check tma notes
+// write comments
