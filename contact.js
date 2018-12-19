@@ -14,8 +14,6 @@ function start() {
     healthHint();
     loadEventListeners();
     switchToolTip();
-
-
 }
 
 /*This function loads all the event listeners need on the contact form  */
@@ -41,30 +39,16 @@ function loadEventListeners() {
 
 }
 
-/*Function to add tooltip. I'm changing the opacity on mouseout/mouseover.  */
-function switchToolTip() {
-  document.getElementById('qmark').onmouseover = function() {
-  var toolTip = document.getElementById('ttip');
-  toolTip.style.opacity= 1;
-};
-  document.getElementById('qmark').onmouseout = function() {
-  var toolTip = document.getElementById('ttip');
-  toolTip.style.opacity= 0;
-};
-}
-
-
-
 function processForm() {
 
     var firstName = validateFirstName();
     var lastName = validateSecondName();
     var email = validateEmail();
     var health = validateHealthAuthority();
-    var telephone = validateTelephone();
 
-    if ((firstName == true) && (lastName == true) && (email == true) && (health == true)  && (telephone == true))  {
-        console.log('SUBMIT FORM');
+
+    if ((firstName == true) && (lastName == true) && (email == true) && (health == true))  {
+
         toggleModal();
 
         return false;
@@ -82,6 +66,25 @@ function clearError(id) {
     document.getElementById(id + 'Error').innerHTML = "&nbsp;";
     document.getElementById('submitError').innerHTML = "&nbsp;";
 }
+
+
+/* This removes the 'focus' class on the first name. Is called if the first name is valid */
+function removeNameFocus(){
+    var firstNameField = document.getElementById('first-name');
+    firstNameField.classList.remove('focusgreen');
+}
+
+/* This add a red background to the form if there is an error. It gets called in the validation functions .  */
+function addRedError(field){
+     field.classList.add('backgroundred');
+}
+
+
+/*This removes the function if the form is correct. It is called in the validation functions    */
+function removeRedError(field){
+     field.classList.remove('backgroundred');
+}
+
 
 /* validate first name uses a regular expression to validate the form. The initial focus on the first name
 is removed if valid by calling a function from here or readded if it still incorrect. First name hint text is only readded if
@@ -108,25 +111,6 @@ function validateFirstName() {
         return valid = false;
     }
 }
-
-/* This removes the 'focus' class on the first name. Is called if the first name is valid */
-function removeNameFocus(){
-    var firstNameField = document.getElementById('first-name');
-    firstNameField.classList.remove('focusgreen');
-}
-
-
-/* This add a red background to the form if there is an error. It gets called in the validation functions .  */
-function addRedError(field){
-     field.classList.add('backgroundred');
-}
-
-/*This removes the function if the form is correct. It is called in the validation functions    */
-function removeRedError(field){
-     field.classList.remove('backgroundred');
-}
-
-
 
 function validateSecondName() {
 
@@ -186,7 +170,6 @@ function validateTelephone() {
 
 
 function validateHealthAuthority() {
-
 
         var defaultText = "Enter health number.";
         var valid = true;
@@ -304,6 +287,18 @@ function healthHint() {
     }
 }
 
+
+/*Function to add tooltip. I'm changing the opacity on mouseout/mouseover.  */
+function switchToolTip() {
+  document.getElementById('qmark').onmouseover = function() {
+  var toolTip = document.getElementById('ttip');
+  toolTip.style.opacity= 1;
+};
+  document.getElementById('qmark').onmouseout = function() {
+  var toolTip = document.getElementById('ttip');
+  toolTip.style.opacity= 0;
+};
+}
 
 function toggleModal() {
     var modal = document.querySelector(".modal");

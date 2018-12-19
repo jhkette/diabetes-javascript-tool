@@ -6,6 +6,7 @@ Clear form is called first in case there is still an input in the 'results' div.
 function init() {
     document.getElementById('Submit').addEventListener('click', clearForm);
     document.getElementById('Submit').addEventListener('click', submitForm);
+    openListItems ();
 }
 // clears the results form
 function clearForm(e) {
@@ -129,4 +130,16 @@ function displayResults(finalResponse){
     var text = document.createTextNode(finalResponse);
     results.appendChild(text);
     divElement.appendChild(results);
+}
+
+function openListItems (){
+var contentitems = document.querySelectorAll('.contentitems');
+
+function toggleTransform(e){
+    this.classList.toggle('open');
+}
+
+ contentitems.forEach(function(contentitem){
+     contentitem.addEventListener('click', toggleTransform)
+ });
 }

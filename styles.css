@@ -44,8 +44,9 @@ h2{
 }
 h3{
     font-family: 'Oswald','Helvetica neue', arial, sans-serif;
-    font-size: 4rem;
+    font-size: 3.5rem;
     border-bottom: 1px dashed var(--black);
+    text-transform: uppercase;
 
 }
 h4 {
@@ -283,28 +284,49 @@ h4 {
 
 /* HEADER */
 .content {
-    display: grid;
-    grid-gap: 40px;
-    grid-template-columns: 2.5fr 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     padding: 9.5rem 0;
 
 }
 
-@media screen and (max-width: 960px) {
+.contentitems{
+    transition: all .5s;
+}
+
+.open {
+    flex-grow: 2;
+
+}
+.open p{
+
+}
+
+/* @media screen and (max-width: 960px) {
     .content {
         grid-template-columns: 2fr 2fr;
     }
-}
+} */
 
 ol {
     counter-reset: listNumbering;
     list-style: none;
     padding: 0 1rem;
+    margin: auto;
 }
+ /* .contentitems > * {
+transition: transform 0.5s;
+ } */
+
 
 li {
     font-size: 1em;
     counter-increment: listNumbering;
+    width: 18rem;
+    margin: 2rem;
+    cursor: pointer;
+
 }
 
 li:before {
@@ -386,7 +408,7 @@ li:before {
   text-align: center;
   opacity: 0;
 
-  border-radius: 6px;
+  border-radius: .2rem;
    z-index: 1;
 
     font: 0.65em Arial, Helvetica, sans-serif;
@@ -482,23 +504,62 @@ margin-left: -2.3rem;
     height: 3rem;
     align-self: flex-end;
     display: inline-block;
-    font-size: 1.9rem;
+    font-size: 1.8rem;
 }
 
 .backgroundred{
-    background-color: #fccac2;
+    background-color: #f9e3df;
 }
-select{
-    font-size: 1.9rem;
+
+/*----------------- Select box dropdown styles -----------  */
+.select-style {
+    padding: 0;
+
+    border: 1px solid var(--black);
+    width: 8rem;
+    border-radius: .2rem;
+    overflow: hidden;
+    background-color: #fff;
+    height: 5rem;
+    background: #fff url("images/arrow-down-solid.svg") no-repeat 75% 50%;
+    background-size: 15px 15px;
+
 }
+
+
+.select-style select {
+    padding: .4rem;
+    width: 160%;
+    font-size: 1.7rem;
+    line-height: 1.5rem;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+
+}
+
+.select-style select:focus {
+    border:0px;
+    outline:0px;
+
+}
+
+/*-----------------end of Select box dropdown styles -----------  */
+
+
+
 input {
     border: 1px solid var(--black);
     height: 5rem;
     width: 23rem;
     /* margin: 10px 0 0 0; */
-    padding: 1%;
+    padding: .4rem;
     font-size: 1.8rem;
-    line-height: 1.5em;
+    line-height: 1.5rem;
     color: var(--black);
     letter-spacing: .01em;
     font-style: normal;
@@ -558,4 +619,4 @@ input {
         transform: scale(1.0);
         transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
     }
-/* ------------ popup css ---------------- */
+/* ------------ end of popup css ---------------- */
