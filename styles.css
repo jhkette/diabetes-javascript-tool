@@ -60,12 +60,11 @@ h4 {
     padding: 1.9rem;
 }
 
-
+/*---------------- Main navigation ------------- */
 
 .contact-nav{
     background-color: var(--secondary);
     width: 11rem;
-
 
 }
 .leftnav{
@@ -79,12 +78,27 @@ h4 {
 
 .contact-nav:hover{
     background-color: var(--tertiary);
-
-
 }
+
 #current{
     background-color: var(--tertiary);
 }
+.navcontainer{
+
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    height: 4.5rem;
+
+}
+
+.main-nav {
+
+    background-color: var(--black);
+    width: 100%;
+}
+/*---------------- End of Main navigation ---------- */
 
 .results {
     background-color: var(--tertiary);
@@ -97,15 +111,7 @@ h4 {
     padding: 1.9rem 0;
 }
 
-.navcontainer{
 
-    margin: auto;
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    height: 4.5rem;
-
-}
 
 .grey {
     width: 100%;
@@ -113,12 +119,7 @@ h4 {
     background-image: linear-gradient(#5ec4b6, #0aaf97);
 }
 
-.main-nav {
 
-    background-color: var(--black);
-
-    width: 100%;
-}
 
 
 
@@ -289,20 +290,27 @@ h4 {
     justify-content: space-around;
     height: 70rem;
     padding-top: 5rem;
-
+    align-self: center;
 
 }
 
 .contentitems{
     transition: all .5s;
     flex: .7;
+    vertical-align: top;
 }
 
 .open {
     flex-grow: 2;
-
 }
 
+.open p{
+    font-size: 2.1rem;
+}
+
+.summary open {
+    font-size: 2.1rem;
+}
 
 /* @media screen and (max-width: 960px) {
     .content {

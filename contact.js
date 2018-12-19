@@ -18,19 +18,19 @@ function start() {
 
 /*This function loads all the event listeners need on the contact form  */
 function loadEventListeners() {
-     // anonymous function to call clear error on focus with the id of email as an argument
-     var email = document.getElementById('email');
-     email.onfocus = function() {
-         email = this.id;
-         clearError(email);
-     };
-     // anonymous function to call clear error on focus with the id of telephone as an argument
-     var telephone = document.getElementById('telephone');
-     telephone.onfocus = function() {
-         telephone = this.id;
-         clearError(telephone);
-     };
-   // on blur events for these fields validate field
+    // anonymous function to call clear error on focus with the id of email as an argument
+    var email = document.getElementById('email');
+    email.onfocus = function() {
+        email = this.id;
+        clearError(email);
+    };
+    // anonymous function to call clear error on focus with the id of telephone as an argument
+    var telephone = document.getElementById('telephone');
+    telephone.onfocus = function() {
+        telephone = this.id;
+        clearError(telephone);
+    };
+    // on blur events for these fields validate field
     document.getElementById('telephone').onblur = validateTelephone;
     document.getElementById('email').onblur = validateEmail;
 
@@ -46,17 +46,12 @@ function processForm() {
     var email = validateEmail();
     var health = validateHealthAuthority();
 
-
-    if ((firstName == true) && (lastName == true) && (email == true) && (health == true))  {
-
+    if ((firstName == true) && (lastName == true) && (email == true) && (health == true)) {
         toggleModal();
-
         return false;
-    }
-
-    else{
+    } else {
         document.getElementById('submitError').innerHTML = 'There are errors in the form';
-     return false;
+        return false;
     }
 }
 
@@ -69,27 +64,25 @@ function clearError(id) {
 
 
 /* This removes the 'focus' class on the first name. Is called if the first name is valid */
-function removeNameFocus(){
+function removeNameFocus() {
     var firstNameField = document.getElementById('first-name');
     firstNameField.classList.remove('focus');
 }
 
 /* This add a red background to the form if there is an error. It gets called in the validation functions .  */
-function addRedError(field){
-     field.classList.add('backgroundred');
+function addRedError(field) {
+    field.classList.add('backgroundred');
 }
 
 
 /*This removes the function if the form is correct. It is called in the validation functions    */
-function removeRedError(field){
-     field.classList.remove('backgroundred');
+function removeRedError(field) {
+    field.classList.remove('backgroundred');
 }
 
 
 /* validate first name uses a regular expression to validate the form. The initial focus on the first name
-is removed if valid by calling a function from here or readded if it still incorrect. First name hint text is only readded if
-the user has added no text. Otherwise error text is left in input field (it may of just been a small typo). The error message by the
-field is also added.  */
+is removed if valid by calling a function from here or readded if it still incorrect.  */
 function validateFirstName() {
 
     var defaultText = "Enter your name.";
@@ -107,8 +100,8 @@ function validateFirstName() {
         document.getElementById('first-nameError').innerHTML = 'error in the name field';
         removeNameFocus();
         addRedError(firstNameField);
-
-        return valid = false;
+        valid = false;
+        return valid;
     }
 }
 
@@ -119,7 +112,7 @@ function validateSecondName() {
     var secondNameField = document.getElementById('second-name');
     var secondName = document.getElementById('second-name').value;
 
-    /* first name contain only letters and is at least two charecters long, case insensitive  */
+    /* first name contain only letters or '-'. It is at least two charecters long, case insensitive  */
     var re = new RegExp(/^[a-z-]{2,}$/i);
     if (re.test(secondName)) {
         removeRedError(secondNameField);
@@ -127,8 +120,8 @@ function validateSecondName() {
     } else {
         addRedError(secondNameField);
         document.getElementById('second-nameError').innerHTML = 'error in the name field';
-
-        return valid = false;
+        valid = false;
+        return valid;
     }
 }
 
@@ -145,8 +138,8 @@ function validateEmail() {
     } else {
         addRedError(emailField);
         document.getElementById('emailError').innerHTML = 'error in the name field';
-
-        return valid = false;
+        valid = false;
+        return valid;
     }
 }
 
@@ -163,31 +156,31 @@ function validateTelephone() {
     } else {
         addRedError(telephoneField);
         document.getElementById('telephoneError').innerHTML = 'error in the name field';
-
-        return valid = false;
+        valid = false;
+        return valid;
     }
 }
 
 
 function validateHealthAuthority() {
 
-        var defaultText = "Enter health number.";
-        var valid = true;
-        var healthField = document.getElementById('health');
-        var health = document.getElementById('health').value;
+    var defaultText = "Enter health number.";
+    var valid = true;
+    var healthField = document.getElementById('health');
+    var health = document.getElementById('health').value;
 
-        /* first name contain only letters and is at least two charecters long, case insensitive  */
-        var re = new RegExp(/^zha\d{6}$/i);
-        if (re.test(health)) {
-            removeRedError(healthField);
-            return valid;
-        } else {
-            addRedError(healthField);
-            document.getElementById('healthError').innerHTML = 'error in the name field';
-
-            return valid = false;
-        }
+    /* first name contain only letters and is at least two charecters long, case insensitive  */
+    var re = new RegExp(/^zha\d{6}$/i);
+    if (re.test(health)) {
+        removeRedError(healthField);
+        return valid;
+    } else {
+        addRedError(healthField);
+        document.getElementById('healthError').innerHTML = 'error in the name field';
+        valid = false;
+        return valid;
     }
+}
 
 function firstNameHint() {
     var defaultText = "Enter your name.";
@@ -207,16 +200,15 @@ function firstNameHint() {
 
         textElemId = this.id;
         clearError(textElemId);
-    }
+    };
     txtElem.onblur = function() {
         if (this.value === "") {
             this.value = defaultText;
             this.style.color = "#A8A8A8";
             this.style.fontStyle = "italic";
-
         }
         validateFirstName();
-    }
+    };
 }
 
 
@@ -237,7 +229,7 @@ function secondNameHint() {
         }
         textElemId = this.id;
         clearError(textElemId);
-    }
+    };
 
     txtElem.onblur = function() {
         if (this.value === "") {
@@ -247,7 +239,7 @@ function secondNameHint() {
             this.style.fontStyle = "italic";
         }
         validateSecondName();
-    }
+    };
 }
 
 
@@ -271,7 +263,7 @@ function healthHint() {
         textElemId = this.id;
         clearError(textElemId);
 
-    }
+    };
 
     txtElem.onblur = function() {
         if (this.value === "") {
@@ -282,20 +274,20 @@ function healthHint() {
         // user moving away from form field will trigger form validation
 
         validateHealthAuthority();
-    }
+    };
 }
 
 
 /*Function to add tooltip. I'm changing the opacity on mouseout/mouseover.  */
 function switchToolTip() {
-  document.getElementById('qmark').onmouseover = function() {
-  var toolTip = document.getElementById('ttip');
-  toolTip.style.opacity= 1;
-};
-  document.getElementById('qmark').onmouseout = function() {
-  var toolTip = document.getElementById('ttip');
-  toolTip.style.opacity= 0;
-};
+    document.getElementById('qmark').onmouseover = function() {
+        var toolTip = document.getElementById('ttip');
+        toolTip.style.opacity = 1;
+    };
+    document.getElementById('qmark').onmouseout = function() {
+        var toolTip = document.getElementById('ttip');
+        toolTip.style.opacity = 0;
+    };
 }
 
 function toggleModal() {
@@ -304,17 +296,17 @@ function toggleModal() {
     var closeButton = document.querySelector(".close-button");
 
     closeButton.addEventListener("click", removeModal);
-    window.addEventListener("click", windowOnClick)
+    window.addEventListener("click", windowOnClick);
 
     function windowOnClick(event) {
-            if (event.target === modal) {
-                removeModal();
-            }
+        if (event.target === modal) {
+            removeModal();
         }
-    function removeModal(e){
+    }
+
+    function removeModal(e) {
         var modal = document.querySelector(".modal");
         modal.classList.remove("show-modal");
 
     }
-
 }
