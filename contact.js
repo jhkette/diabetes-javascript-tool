@@ -14,6 +14,8 @@ function start() {
     healthHint();
     loadEventListeners();
     switchToolTip();
+    popup();
+
 }
 
 /*This function loads all the event listeners need on the contact form  */
@@ -228,7 +230,6 @@ function firstNameHint() {
 
         }
         validateFirstName();
-
     }
 }
 
@@ -273,8 +274,6 @@ function healthHint() {
     txtElem.style.color = "#A8A8A8";
     txtElem.style.fontStyle = "italic";
     txtElem.style.fontFamily = "calibri";
-
-
     txtElem.onfocus = function() {
 
         // the value being operated on
@@ -300,4 +299,26 @@ function healthHint() {
 
         validateHealthAuthority();
     }
+}
+
+function popup(){
+
+    var modal = document.querySelector(".modal");
+        var trigger = document.querySelector(".trigger");
+
+
+        function toggleModal() {
+            modal.classList.toggle("show-modal");
+        }
+
+        function windowOnClick(event) {
+            if (event.target === modal) {
+                toggleModal();
+            }
+        }
+
+        trigger.addEventListener("click", toggleModal);
+        var closeButton = document.querySelector(".close-button");
+        closeButton.addEventListener("click", toggleModal);
+        window.addEventListener("click", windowOnClick)
 }

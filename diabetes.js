@@ -7,12 +7,12 @@ function init() {
     document.getElementById('Submit').addEventListener('click', clearForm);
     document.getElementById('Submit').addEventListener('click', submitForm);
 }
-
+// clears the results form
 function clearForm(e) {
     const divElement = document.querySelector('.results')
     divElement.innerHTML = '';
 }
-/* If item is over 10 an*/
+/* */
 function submitForm(e) {
     var values = [];
     var warnings = [];
@@ -29,7 +29,7 @@ function submitForm(e) {
     diet.forEach(function(element) {
         if (element.checked == true) {
             values.push(parseInt(element.value));
-            if (parseInt(element.value) >= 10) {
+            if (element.value >= 10) {
                 warnings.push(element.name);
             }
         }
@@ -40,7 +40,7 @@ function submitForm(e) {
         if (element.checked == true) {
 
             values.push(parseInt(element.value));
-            if (parseInt(element.value) >= 10) {
+            if (element.value >= 10) {
                 warnings.push(element.name);
             }
         }
@@ -50,11 +50,9 @@ function submitForm(e) {
     bmi.forEach(function(element) {
         if (element.checked == true) {
             values.push(parseInt(element.value));
-            if (parseInt(element.value) >= 10) {
+            if (element.value >= 10) {
                 warnings.push(element.name);
-
             }
-
         }
     });
 
@@ -69,10 +67,9 @@ function submitForm(e) {
     e.preventDefault();
 }
 
-
+/* */
 function calculateResults(number, warnings) {
 
-    console.log(warnings.length);
     var warningText = ' ';
     var finalResponse = '';
 
@@ -120,10 +117,11 @@ function calculateResults(number, warnings) {
     displayResults(finalResponse);
 }
 
+/* */
 function displayResults(finalResponse){
 
-    const divElement = document.querySelector('.results');
-    const results = document.createElement("p");
+    var divElement = document.querySelector('.results');
+    var results = document.createElement("p");
 
     // give it a className
     results.className = "results-message";
