@@ -71,7 +71,7 @@ function clearError(id) {
 /* This removes the 'focus' class on the first name. Is called if the first name is valid */
 function removeNameFocus(){
     var firstNameField = document.getElementById('first-name');
-    firstNameField.classList.remove('focusgreen');
+    firstNameField.classList.remove('focus');
 }
 
 /* This add a red background to the form if there is an error. It gets called in the validation functions .  */
@@ -96,7 +96,7 @@ function validateFirstName() {
     var valid = true;
     var firstNameField = document.getElementById('first-name');
     var firstName = document.getElementById('first-name').value;
-    console.log(firstName);
+
     /* first name contain only letters and is at least two charecters long, case insensitive  */
     var re = new RegExp(/^[a-z]{2,}$/i);
     if (re.test(firstName)) {
@@ -118,7 +118,7 @@ function validateSecondName() {
     var valid = true;
     var secondNameField = document.getElementById('second-name');
     var secondName = document.getElementById('second-name').value;
-    console.log(secondName);
+
     /* first name contain only letters and is at least two charecters long, case insensitive  */
     var re = new RegExp(/^[a-z-]{2,}$/i);
     if (re.test(secondName)) {
@@ -175,7 +175,7 @@ function validateHealthAuthority() {
         var valid = true;
         var healthField = document.getElementById('health');
         var health = document.getElementById('health').value;
-        console.log(health);
+
         /* first name contain only letters and is at least two charecters long, case insensitive  */
         var re = new RegExp(/^zha\d{6}$/i);
         if (re.test(health)) {
@@ -255,7 +255,6 @@ function secondNameHint() {
 function healthHint() {
     var defaultText = "Health number.";
     var txtElem = document.getElementById("health");
-    console.log(txtElem + 'HEALTH');
     txtElem.value = defaultText;
     txtElem.style.color = "#A8A8A8";
     txtElem.style.fontStyle = "italic";
@@ -264,7 +263,6 @@ function healthHint() {
 
         // the value being operated on
         if (this.value === defaultText) {
-            console.log('HELLLO health')
             this.value = "";
             this.style.color = "#000";
             this.style.fontStyle = "normal";

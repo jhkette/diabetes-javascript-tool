@@ -24,7 +24,7 @@ body {
 p {
     margin: 1.9rem 0;
     font-weight: 300;
-    font-size: 1.9rem
+    font-size: 1.8rem
 }
 
 h1 {
@@ -282,7 +282,7 @@ h4 {
     }
 }
 
-/* HEADER */
+/* intro text display */
 .content {
     display: flex;
     flex-wrap: wrap;
@@ -293,15 +293,14 @@ h4 {
 
 .contentitems{
     transition: all .5s;
+    flex: .7;
 }
 
 .open {
     flex-grow: 2;
 
 }
-.open p{
 
-}
 
 /* @media screen and (max-width: 960px) {
     .content {
@@ -339,10 +338,7 @@ li:before {
     color: var(--black);
 }
 
-.home-image{
-    width: 25rem;
-    border: 15px solid var(--secondary);
-}
+
 
 .summary {
     color: var(--black);
@@ -371,24 +367,7 @@ li:before {
     height: 1.9rem;
 }
 
-@keyframes example {
-    0% {
-        left: 0;
-    }
-
-    50% {
-        left: 1.9rem;
-    }
-
-    75% {
-        right: 1.9rem;
-    }
-}
-
-.arrowlink:hover {
-    animation-name: example;
-    animation-duration: 1s;
-}
+/* END OF intro text display */
 
 .questionmark {
 
@@ -440,7 +419,7 @@ content: "";
 .tool {
 
     position: absolute;
-    top: 67.6rem;
+    top: 67rem;
 
 margin-left: -2.3rem;
 
@@ -570,8 +549,8 @@ input {
     border-radius: .2rem;
 }
 
-.focusgreen {
-    background-color: #cdede6;
+.focus {
+    background-color: #f8ffd4;
 }
 
 
