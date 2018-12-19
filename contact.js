@@ -66,7 +66,8 @@ function clearError(id) {
 }
 
 
-/* This removes the 'focus' class on the first name. Is called if the first name is valid */
+/* This removes the 'focus' class on the first name. Is called if the first name is valid
+NOTE: certain browsers add default backgrounds to form fields (ie chrome), so have been changed in css */
 function removeNameFocus() {
     var firstNameField = document.getElementById('first-name');
     firstNameField.classList.remove('focus');
