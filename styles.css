@@ -11,6 +11,13 @@
     padding: 0;
     border: 0;
 }
+/* used to remove default background colours from chrome */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    background-color: white;
+}
 
 html {
     font-size: 62.5%;
