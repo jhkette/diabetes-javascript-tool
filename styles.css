@@ -287,7 +287,9 @@ h4 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 9.5rem 0;
+    height: 70rem;
+    padding-top: 5rem;
+
 
 }
 
