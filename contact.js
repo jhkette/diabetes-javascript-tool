@@ -14,7 +14,7 @@ function start() {
     healthHint();
     loadEventListeners();
     switchToolTip();
-    popup();
+
 
 }
 
@@ -64,6 +64,8 @@ function processForm() {
 
     if ((firstName == true) && (lastName == true) && (email == true) && (health == true))  {
         console.log('SUBMIT FORM');
+        toggleModal();
+
         return false;
     }
 
@@ -301,24 +303,18 @@ function healthHint() {
     }
 }
 
-function popup(){
 
+function toggleModal() {
     var modal = document.querySelector(".modal");
-        var trigger = document.querySelector(".trigger");
+    modal.classList.toggle("show-modal");
+    var closeButton = document.querySelector(".close-button");
+    closeButton.addEventListener("click", toggleModal);
+    window.addEventListener("click", windowOnClick)
 
-
-        function toggleModal() {
-            modal.classList.toggle("show-modal");
-        }
-
-        function windowOnClick(event) {
+    function windowOnClick(event) {
             if (event.target === modal) {
                 toggleModal();
             }
         }
 
-        trigger.addEventListener("click", toggleModal);
-        var closeButton = document.querySelector(".close-button");
-        closeButton.addEventListener("click", toggleModal);
-        window.addEventListener("click", windowOnClick)
 }
