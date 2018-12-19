@@ -61,8 +61,9 @@ function processForm() {
     var lastName = validateSecondName();
     var email = validateEmail();
     var health = validateHealthAuthority();
+    var telephone = validateTelephone();
 
-    if ((firstName == true) && (lastName == true) && (email == true) && (health == true))  {
+    if ((firstName == true) && (lastName == true) && (email == true) && (health == true)  && (telephone == true))  {
         console.log('SUBMIT FORM');
         toggleModal();
 
@@ -306,15 +307,21 @@ function healthHint() {
 
 function toggleModal() {
     var modal = document.querySelector(".modal");
-    modal.classList.toggle("show-modal");
+    modal.classList.add("show-modal");
     var closeButton = document.querySelector(".close-button");
-    closeButton.addEventListener("click", toggleModal);
+
+    closeButton.addEventListener("click", removeModal);
     window.addEventListener("click", windowOnClick)
 
     function windowOnClick(event) {
             if (event.target === modal) {
-                toggleModal();
+                removeModal();
             }
         }
+    function removeModal(e){
+        var modal = document.querySelector(".modal");
+        modal.classList.remove("show-modal");
+
+    }
 
 }

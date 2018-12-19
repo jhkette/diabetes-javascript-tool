@@ -486,7 +486,7 @@ margin-left: -2.3rem;
 }
 
 .backgroundred{
-    background-color: #fec1b8;
+    background-color: #fccac2;
 }
 select{
     font-size: 1.9rem;
@@ -513,6 +513,8 @@ input {
     background-color: #cdede6;
 }
 
+
+/* ------------ popup css ---------------- */
 .modal {
         position: fixed;
         left: 0;
@@ -523,6 +525,7 @@ input {
         opacity: 0;
         visibility: hidden;
         transform: scale(1.1);
+        /*transition for when the form closes */
         transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
     }
     .modal-content {
@@ -532,8 +535,10 @@ input {
         transform: translate(-50%, -50%);
         background-color: white;
         padding: 1rem 1.5rem;
-        width: 24rem;
-        border-radius: 0.5rem;
+        width: 35rem;
+        height: 15rem;
+        border-radius: 0.1rem;
+        border: 3px solid var(--black);
     }
     .close-button {
         float: right;
@@ -553,3 +558,4 @@ input {
         transform: scale(1.0);
         transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
     }
+/* ------------ popup css ---------------- */

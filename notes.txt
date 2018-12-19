@@ -5,4 +5,6 @@
 // add actual text to intro text
 // check tma notes
 // write comments
-// you only need to do parseint once in diabetes.js
+// you only need to do parseint once in diabetes.js DONE (but check)
+// telephone number check validation function. check in jquery form also.
+// individual error names
