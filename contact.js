@@ -94,7 +94,7 @@ function validateFirstName() {
     var firstNameField = document.getElementById('first-name');
 
     /* first name contain only letters and is at least two charecters long, case insensitive  */
-    var re = new RegExp(/^[a-z-]{2,}$/i);
+    var re = new RegExp(/^[a-z]{2,}$/i);
     if (re.test(firstNameField.value)) { // test value against regular expression
         /* Remove initial focus on first name */
         removeNameFocus();
@@ -119,7 +119,7 @@ function validateSecondName() {
     var valid = true;
     var secondNameField = document.getElementById('second-name');
 
-    /* last name contain only letters or letters and '-'. It is at least two charecters long, case insensitive  */
+    /* last name contain only letters OR letters and '-'. It is at least two charecters long, case insensitive  */
     var re = new RegExp(/^[a-z][a-z-]+$/i);
     if (re.test(secondNameField.value)) {
         removeRedError(secondNameField);

@@ -126,7 +126,7 @@ function displayResults(finalResponse, warningText) {
 
     /* A switch case statement that adds html to the parapgraph based on the finalResponse value. I'm using innerHTML here as opposed to creating
     a series of textnodes. Because there are links in two of the reponses this would involve creating text nodes for the text, then the link, then the subsequent text.
-    Using innerHTML creates shorter more legible code. */
+    Using innerHTML in this instance creates shorter more legible code. */
     switch(true){
         case finalResponse == 1:
         results.innerHTML = 'Your results show that you currently have a low risk of developing diabetes. it is important that you maintain a healthy lifestyle in terms of diet and exercise.';

@@ -2,7 +2,7 @@
 // add popup when form is submitted DONE
 // tidy toolTip DONE
 // add onmouseover function to column intro page DONE
-// add actual text to intro text
+// add actual text to intro text DONE
 // check tma notes
 // write comments DONE
 // you only need to do parseint once in diabetes.js DONE
@@ -11,6 +11,6 @@
 // individual error names -- DONE
 // make responsive
 // mark mandatory fields in red
-// add footer
+// add footer DONE
 
 // do writeup
