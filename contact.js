@@ -142,6 +142,7 @@ function validateSecondName() {
         return valid;
     }
 }
+
 /*Function to validate title. The inital selection is an empty string.
 This way i'm making the user SELECT a title rather than just add the default selection.
 If the value which accords to an empty string
