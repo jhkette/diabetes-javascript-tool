@@ -31,9 +31,18 @@ function loadEventListeners() {
         telephone = this.id;
         clearError(telephone);
     };
+
+    var title = document.getElementById('title');
+    // anonymous function to call clear error on focus with the id of telephone as an argument
+    title.onfocus = function() {
+        title = this.id;
+        clearError(title);
+    };
+
     // on blur events for these fields validate field
     document.getElementById('telephone').onblur = validateTelephone;
     document.getElementById('email').onblur = validateEmail;
+    document.getElementById('title').onblur = validateTitle;
 
     // call processForm function on submit
     document.getElementById('userInfo').onsubmit = processForm;
@@ -44,10 +53,11 @@ function processForm() {
     /* assign validation functions to variable */
     var firstName = validateFirstName();
     var lastName = validateSecondName();
+    var title = validateTitle();
     var email = validateEmail();
     var health = validateHealthAuthority();
     /* if statement to check validation functions return true (ie fields are valid) */
-    if ((firstName == true) && (lastName == true) && (email == true) && (health == true)) {
+    if ((firstName == true) && (lastName == true) && (email == true) && (health == true) && (title == true)) {
         /* call modal if all true */
         toggleModal();
         return false; // stop form submitting
@@ -130,6 +140,19 @@ function validateSecondName() {
         valid = false;
         return valid;
     }
+}
+
+function validateTitle(){
+    var valid = true;
+    var title = document.getElementById('title');
+    if(title.value == "") {
+        document.getElementById('titleError').innerHTML = 'Enter your title';
+        valid = false;
+        return valid;
+    } else{
+        return valid;
+    }
+
 }
 
 /* Validate email function */

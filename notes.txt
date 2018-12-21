@@ -12,5 +12,6 @@
 // make responsive
 // mark mandatory fields in red
 // add footer DONE
+// add title js to check input is added.
 
 // do writeup

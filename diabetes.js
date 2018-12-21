@@ -8,11 +8,13 @@ function init() {
     document.getElementById('Submit').addEventListener('click', submitForm);
     openListItems();
 }
+
 /* clears the results form. It's called on every click of the 'calculate button' */
 function clearForm(e) {
     var divElement = document.querySelector('.results');
     divElement.innerHTML = '';
 }
+
 /*  the submitForm function takes the values from the radio button form add adds them to two arrays - 'values' and 'warnings' */
 function submitForm(e) {
     var values = []; // instantiate value array
@@ -69,8 +71,8 @@ function submitForm(e) {
     e.preventDefault();
 }
 
-/* This function creates a warning string if the number value is over 25. It also assigns a value to finalResponse. This is used to
-assign relevant text in the final function  */
+/* This function uses the values from the prior function to create a warning string if the number value is over 25. It also assigns a
+value to finalResponse.  These are both then passed onto displayresults function - to create a messaged that is appended below the form */
 function calculateResults(number, warnings) {
     /* set warningText and finalResponse variables to empty strings. */
     var warningText = '';
@@ -113,8 +115,6 @@ function calculateResults(number, warnings) {
     displayResults(finalResponse, warningText);
 }
 
-
-
 /* This function creates a div and paragraph and then adds html text to the paragraph with the appropriate response */
 function displayResults(finalResponse, warningText) {
     // assign results div to variable
@@ -125,7 +125,8 @@ function displayResults(finalResponse, warningText) {
     results.className = "results-message";
 
     /* A switch case statement that adds html to the parapgraph based on the finalResponse value. I'm using innerHTML here as opposed to creating
-    a series of textnodes. Because there are links in two of the reponses this would involve creating text nodes for the text, then the link, then the subsequent text.
+    a series of textnodes. Because there are links in two of the reponses this would involve creating text nodes for the text, then the link,
+    then the subsequent text.
     Using innerHTML in this instance creates shorter more legible code. */
     switch(true){
         case finalResponse == 1:
