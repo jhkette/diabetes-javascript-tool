@@ -8,7 +8,6 @@ recalled or it's input removed. The other form inputs are listend for in load ev
 turn validate or report errors. */
 
 function start() {
-
     firstNameHint();
     secondNameHint();
     healthHint();
@@ -48,6 +47,7 @@ function loadEventListeners() {
     document.getElementById('userInfo').onsubmit = processForm;
 
 }
+
 /* This function processes form. It's called on form submission */
 function processForm() {
     /* assign validation functions to variable */
@@ -121,6 +121,7 @@ function validateFirstName() {
         return valid;
     }
 }
+
 /* Function to validate last name. The following validation functions follow the same structure
 as the first. They obviously need to be seperate functions, as we are validating different values
 against differnt regular expressions. */
@@ -141,6 +142,10 @@ function validateSecondName() {
         return valid;
     }
 }
+/*Function to validate title. The inital selection is an empty string.
+This way i'm making the user SELECT a title rather than just add the default selection.
+If the value which accords to an empty string
+is selected an error is thrown */
 
 function validateTitle(){
     var valid = true;
@@ -176,7 +181,7 @@ function validateEmail() {
     }
 }
 
-/* function to validation telephone */
+/* function to validate telephone */
 function validateTelephone() {
     var valid = true;
     var telephoneField = document.getElementById('telephone');
