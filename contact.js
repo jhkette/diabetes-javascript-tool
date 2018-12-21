@@ -67,7 +67,7 @@ function clearError(id) {
 
 
 /* This removes the 'focus' class on the first name. Is called if the first name is valid
-NOTE: certain browsers add default backgrounds to form fields (ie chrome), so have been changed in css */
+NOTE: certain browsers add default backgrounds to form fields (ie chrome), so defaults have been changed in css */
 function removeNameFocus() {
     var firstNameField = document.getElementById('first-name');
     firstNameField.classList.remove('focus');
@@ -156,8 +156,8 @@ function validateEmail() {
 function validateTelephone() {
     var valid = true;
     var telephoneField = document.getElementById('telephone');
-    /* regular expression to match 11 digits no other chrecters */
-    var re = new RegExp(/^\d{11}$/i);
+    /* regular expression to match 11 digits. no other chrecters allowed */
+    var re = new RegExp(/^\d{11}$/);
     if (re.test(telephoneField.value)) {
         removeRedError(telephoneField);
         return valid;
@@ -294,6 +294,7 @@ function switchToolTip() {
         toolTip.style.opacity = 0; // change the tooltip opacity to 0
     };
 }
+
 /* Function to add a modal popup. It is called if the form is completed correctly
 some inspiration taken from here https://sabe.io/tutorials/how-to-create-modal-popup-box */
 function toggleModal() {
