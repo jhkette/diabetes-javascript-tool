@@ -66,14 +66,15 @@ function clearError(id) {
 }
 
 
-/* This removes the 'focus' class on the first name. Is called if the first name is valid
-NOTE: certain browsers add default backgrounds to form fields (ie chrome), so defaults have been changed in css */
+/* This removes the initial 'focus' class on the first name. Is called if the first name is valid
+NOTE: certain browsers add default backgrounds to form fields (ie chrome), so browsers defaults have been changed in css */
 function removeNameFocus() {
     var firstNameField = document.getElementById('first-name');
     firstNameField.classList.remove('focus');
 }
 
-/* This add a red background to the form if there is an error in the form. It gets called in the validation functions .  */
+/* This add a very pale red background to the form if there is an error in the form. It gets called in the validation functions . I feel
+these help give feedback to the user  */
 function addRedError(field) {
     field.classList.add('backgroundred');
 }
@@ -93,7 +94,7 @@ function validateFirstName() {
     var firstNameField = document.getElementById('first-name');
 
     /* first name contain only letters and is at least two charecters long, case insensitive  */
-    var re = new RegExp(/^[a-z]{2,}$/i);
+    var re = new RegExp(/^[a-z-]{2,}$/i);
     if (re.test(firstNameField.value)) { // test value against regular expression
         /* Remove initial focus on first name */
         removeNameFocus();
@@ -101,7 +102,7 @@ function validateFirstName() {
         removeRedError(firstNameField);
         return valid; // return valid
     } else {
-        document.getElementById('first-nameError').innerHTML = 'error in the name field';
+        document.getElementById('first-nameError').innerHTML = 'This is not a valid first name';
          /* Remove initial focus on first name */
         removeNameFocus();
         /* Add red error background */
@@ -118,14 +119,14 @@ function validateSecondName() {
     var valid = true;
     var secondNameField = document.getElementById('second-name');
 
-    /* first name contain only letters or '-'. It is at least two charecters long, case insensitive  */
-    var re = new RegExp(/^[a-z-]{2,}$/i);
+    /* last name contain only letters or letters and '-'. It is at least two charecters long, case insensitive  */
+    var re = new RegExp(/^[a-z][a-z-]+$/i);
     if (re.test(secondNameField.value)) {
         removeRedError(secondNameField);
         return valid;
     } else {
         addRedError(secondNameField);
-        document.getElementById('second-nameError').innerHTML = 'error in the name field';
+        document.getElementById('second-nameError').innerHTML = 'This is not a valid last name';
         valid = false;
         return valid;
     }
@@ -146,7 +147,7 @@ function validateEmail() {
         return valid;
     } else {
         addRedError(emailField); // add red error
-        document.getElementById('emailError').innerHTML = 'error in the name field'; // add error message
+        document.getElementById('emailError').innerHTML = 'This is not a valid email'; // add error message
         valid = false;
         return valid;
     }
@@ -163,7 +164,7 @@ function validateTelephone() {
         return valid;
     } else {
         addRedError(telephoneField);
-        document.getElementById('telephoneError').innerHTML = 'error in the name field';
+        document.getElementById('telephoneError').innerHTML = 'This is not a valid telephone number';
         valid = false;
         return valid;
     }
@@ -182,7 +183,7 @@ function validateHealthAuthority() {
         return valid;
     } else {
         addRedError(healthField);
-        document.getElementById('healthError').innerHTML = 'error in the name field';
+        document.getElementById('healthError').innerHTML = 'This is not a valid Health Authority Number';
         valid = false;
         return valid;
     }
@@ -285,11 +286,11 @@ function healthHint() {
 
 /* Function to add tooltip. I'm changing the opacity on mouseout/mouseover. */
 function switchToolTip() {
-    document.getElementById('qmark').onmouseover = function() { // when user howver over question mark...
+    document.getElementById('qmark').onmouseover = function() { // when user hovers over question mark...
         var toolTip = document.getElementById('ttip');
         toolTip.style.opacity = 1; // change the opacity of the tooltip to 1
     };
-    document.getElementById('qmark').onmouseout = function() { // when the user moves away
+    document.getElementById('qmark').onmouseout = function() { // when the user moves away..
         var toolTip = document.getElementById('ttip');
         toolTip.style.opacity = 0; // change the tooltip opacity to 0
     };

@@ -7,8 +7,8 @@
 // write comments DONE
 // you only need to do parseint once in diabetes.js DONE
 // telephone number check validation function. check in jquery form also. DONE
-// YOU NEED TO ADD LINKS TO THE MESSAGES
-// individual error names
+// YOU NEED TO ADD LINKS TO THE MESSAGES -- DONE
+// individual error names -- DONE
 // make responsive
 // mark mandatory fields in red
 // add footer

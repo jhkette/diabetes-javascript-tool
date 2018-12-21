@@ -10,7 +10,7 @@ function init() {
 }
 /* clears the results form. It's called on every click of the 'calculate button' */
 function clearForm(e) {
-    const divElement = document.querySelector('.results')
+    var divElement = document.querySelector('.results');
     divElement.innerHTML = '';
 }
 /*  the submitForm function takes the values from the radio button form add adds them to two arrays - 'values' and 'warnings' */
@@ -149,13 +149,16 @@ it by toggling a class with 'flex grow'*/
 function openListItems() {
     // select all contentitems.This is now a node list of list items
     var contentitems = document.querySelectorAll('.contentitems');
+    var links = document.querySelectorAll('.summary');
 
      // function that toggles classList 'open'. This changes flexgrow property in css
     function toggleOpen(e) {
+
         this.classList.toggle('open');
     }
     /*addEventListener to EACH list item. Call toggleopen function on click  */
     contentitems.forEach(function(contentitem) {
         contentitem.addEventListener('click', toggleOpen);
+
     });
 }
