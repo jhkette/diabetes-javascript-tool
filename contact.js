@@ -142,7 +142,6 @@ function validateSecondName() {
         return valid;
     }
 }
-
 /*Function to validate title. The inital selection is an empty string.
 This way i'm making the user SELECT a title rather than just add the default selection.
 If the value which accords to an empty string
@@ -234,7 +233,7 @@ function firstNameHint() {
             this.style.fontStyle = "normal";
         }
 
-        textElemId = this.id; // assign id of value being operated on to variable
+        var textElemId = this.id; // assign id of value being operated on to variable
         clearError(textElemId); /*as the user is 'focused' on the form
         we need to call clear error function with id of value as an argument. This removes prior
         error message */
@@ -266,7 +265,7 @@ function secondNameHint() {
             this.style.color = "#000";
             this.style.fontStyle = "normal";
         }
-        textElemId = this.id;
+        var textElemId = this.id;
         clearError(textElemId);
     };
 
@@ -298,7 +297,7 @@ function healthHint() {
             this.style.fontStyle = "normal";
 
         }
-        textElemId = this.id;
+        var textElemId = this.id;
         clearError(textElemId);
     };
 
