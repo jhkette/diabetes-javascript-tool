@@ -10,8 +10,8 @@
 // YOU NEED TO ADD LINKS TO THE MESSAGES -- DONE
 // individual error names -- DONE
 // make responsive
-// mark mandatory fields in red
+// mark mandatory fields in red DONE
 // add footer DONE
-// add title js to check input is added.
+// add title js to check input is added. DONE
 
 // do writeup

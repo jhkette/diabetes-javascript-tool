@@ -5,7 +5,7 @@ window.onload = init;
 Clear form is called first in case there is still an input in the 'results' div. Then the submit form function is called */
 function init() {
     document.getElementById('Submit').addEventListener('click', clearForm);
-    document.getElementById('Submit').addEventListener('click', submitForm);
+    document.getElementById('Submit').addEventListener('click', calculateForm);
     openListItems();
 }
 
@@ -16,7 +16,7 @@ function clearForm(e) {
 }
 
 /*  the submitForm function takes the values from the radio button form add adds them to two arrays - 'values' and 'warnings' */
-function submitForm(e) {
+function calculateForm(e) {
     var values = []; // instantiate value array
     var warnings = []; // instantiate warning array
     var age = document.getElementsByName('age'); //returns a node list of all items with name 'age'
@@ -71,75 +71,47 @@ function submitForm(e) {
     e.preventDefault();
 }
 
-/* This function uses the values from the prior function to create a warning string if the number value is over 25. It also assigns a
-value to finalResponse.  These are both then passed onto displayresults function - to create a messaged that is appended below the form */
+/* This function uses the values from the prior function to create a 'warning' string if the number value is over 25. */
 function calculateResults(number, warnings) {
-    /* set warningText and finalResponse variables to empty strings. */
+    /* delcare warningText variable */
     var warningText = '';
-    var finalResponse;
-    /* Use a switch case statement that assigns a string to warningText based on the length of the 'warning' array
+    /* a switch case statement that assigns a string to warningText based on the length of the 'warning' array
     which was passed as an argument. This is only performed if the value of the number is OVER 25 */
     if (number > 25) {
         switch (true) {
             case (warnings.length == 1):
-                warningText = ' Your main risk factors is your ' + warnings[0] + '.';
+                warningText = ' Your main risk factors is your ' + warnings[0] + '. ';
                 break;
-
             case (warnings.length == 2):
-                warningText = ' Your main risk factors are your ' + warnings[0] + ' and your ' + warnings[1] + '.';
+                warningText = ' Your main risk factors are your ' + warnings[0] + ' and your ' + warnings[1] + '. ';
                 break;
-
             case (warnings.length == 3):
-                warningText = ' Your main risk factors are your ' + warnings[0] + ', your ' + warnings[1] + ' and your ' + warnings[2] + '.';
+                warningText = ' Your main risk factors are your ' + warnings[0] + ', your ' + warnings[1] + ' and your ' + warnings[2] + '. ';
                 break;
-
             case (warnings.length == 4):
-                warningText = ' Your main risk factors are your ' + warnings[0] + ', your ' + warnings[1] + ', your ' + warnings[2] + ' and your ' + warnings[3] + '.';
+                warningText = ' Your main risk factors are your ' + warnings[0] + ', your ' + warnings[1] + ', your ' + warnings[2] + ' and your ' + warnings[3] + '. ';
                 break;
         }
     }
 
-    /* The finalResponse is assigned a value. This is passed to the final function to assign appropriate text  */
-    switch (true) {
-        case number <= 15:
-            finalResponse = 1;
-            break;
-        case (number >= 16 && number <= 25):
-            finalResponse = 2;
-            break;
-        case number > 25:
-            finalResponse = 3;
-            break;
-    }
-    /* call displayResults function with finalRespons and the warning text as an argument  */
-    displayResults(finalResponse, warningText);
-}
+    var divElement = document.querySelector('.results'); // assign results div to variable
+    var results = document.createElement("p"); // create a p element
+    results.className = "results-message"; // give the paragraph a class name
 
-/* This function creates a div and paragraph and then adds html text to the paragraph with the appropriate response */
-function displayResults(finalResponse, warningText) {
-    // assign results div to variable
-    var divElement = document.querySelector('.results');
-    // create p element
-    var results = document.createElement("p");
-    // give it a class name
-    results.className = "results-message";
-
-    /* A switch case statement that adds html to the parapgraph based on the finalResponse value. I'm using innerHTML here as opposed to creating
+    /* A switch case statement that adds html to the parapgraph based on the number value. I'm using innerHTML here as opposed to creating
     a series of textnodes. Because there are links in two of the reponses this would involve creating text nodes for the text, then the link,
-    then the subsequent text.
-    Using innerHTML in this instance creates shorter more legible code. */
+    then the subsequent text. Using innerHTML in this instance creates far shorter and more legible code. */
     switch(true){
-        case finalResponse == 1:
-        results.innerHTML = 'Your results show that you currently have a low risk of developing diabetes. it is important that you maintain a healthy lifestyle in terms of diet and exercise.';
+        case number <= 15:
+        results.innerHTML = 'Your results show that you currently have a low risk of developing diabetes. It is important that you maintain a healthy lifestyle in terms of diet and exercise.';
         break;
-        case finalResponse == 2:
-        results.innerHTML = 'Your results show that you currently have a medium risk of developing diabetes.  For more information on your risk factors, and what to do about them, please visit our diabetes advice website at <a href="https://www.diabetes.org.uk/">http://www.zha.org.zd</a>.';
+        case (number >= 16 && number <= 25):
+        results.innerHTML = 'Your results show that you currently have a medium risk of developing diabetes. For more information on your risk factors, and what to do about them, please visit our diabetes advice website at <a href="https://www.diabetes.org.uk/">http://www.zha.org.zd</a>.';
         break;
-        case finalResponse == 3:
-        results.innerHTML = 'Your results show that you currently have a high risk of developing diabetes .' + warningText +
+        case number > 25:
+        results.innerHTML = 'Your results show that you currently have a high risk of developing diabetes.' + warningText +
             'We advise that you contact the Health Authority to discuss your risk factors as soon as you can. Please fill in our <a href="contact.html">contact</a> form and a member of the Health Authority Diabetes Team will be in contact with you.';
     }
-
     // append the paragraph to the div
     divElement.appendChild(results);
 }
