@@ -52,6 +52,7 @@ h2 {
     font-weight: 200;
 }
 
+
 h3 {
     font-family: 'Oswald', 'Helvetica neue', arial, sans-serif;
     font-size: 3.5rem;
@@ -75,16 +76,15 @@ h4 {
 .contact-nav {
     background-color: var(--secondary);
     width: 11rem;
+    padding-top: 10px;
 }
 
 .leftnav {
     display: flex;
+    text-align: center;
 }
 
-.contact-nav a {
-    text-decoration: none;
-    color: var(--black);
-}
+
 
 .contact-nav:hover {
     background-color: var(--tertiary);
@@ -101,6 +101,18 @@ h4 {
     justify-content: space-between;
     height: 4.5rem;
     max-width: 1000px;
+
+}
+
+.navcontainer a {
+    padding-top: 10px;
+    color: white;
+    font-size: 2.2rem;
+    text-align: center;
+    font-weight: 200;
+    text-decoration: none;
+    color: var(--black);
+
 
 }
 
@@ -251,6 +263,7 @@ li:before {
     width: 17rem;
 }
 
+
 .button:hover {
     background-color: var(--black);
     ;
@@ -260,6 +273,8 @@ li:before {
     color: var(--black);
     ;
 }
+
+button:focus {outline:0;}
 /* styles for radio button flexbox   */
 .item-container {
     display: flex;
@@ -333,19 +348,23 @@ li:before {
 }
 
 .rb.fill input:checked+span:before {
-    width: 70%;
-    height: 70%;
+
+    width: 71%;
+    height: 71%;
     top: 15%;
     left: 15%;
+
 }
 
 .rb.fill .rb-field:before {
     content: '';
     position: absolute;
+
     width: 0;
     height: 0;
     top: 50%;
     left: 50%;
+
     background-color: var(--black);
     ;
     border-radius: 100%;
