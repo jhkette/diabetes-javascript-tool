@@ -1,21 +1,25 @@
+// Joseph Ketterer
 window.onload = start;
 
 /* With the placeholder text, we are adding/removing several different pieces of
 text based on the user input/validation. The programme needs to have a clear sequence for it to
-run correctly. First I am calling the 'hints', which needs to be presented on page load, this function
-then calls the validate or clearError functions based on user input. The hint function is then
-recalled or it's input removed. The other form inputs are listend for in load event listeners, which also in
-turn validate or report errors. */
+run correctly. First I am calling the 'hints', which HAVE to be presented on page load, this function
+then calls the validate or clearError functions based on  eventlisteners for user input, declared in the hint functions.
+The hint function is then recalled or it's input removed.
+
+The other form inputs are listend for in load event listeners, which also in
+turn validate or report errors. I'm loading the eventlisteners for the other form fields in a seperate function
+for the sake of clarity */
 
 function start() {
-    firstNameHint();
+    firstNameHint(); // hints loaded
     secondNameHint();
     healthHint();
-    loadEventListeners();
-    switchToolTip();
+    loadEventListeners(); // other event listeners loaded
+    switchToolTip(); // tooltip loaded
 }
 
-/*This function loads all the event listeners needed on the contact form  */
+/*This function loads all the event listeners needed to complete the contact form  */
 function loadEventListeners() {
     var email = document.getElementById('email');
     // anonymous function to call clear error on focus with the id of email as an argument
@@ -96,7 +100,9 @@ function removeRedError(field) {
 
 
 /* validate first name uses a regular expression to validate the form. The initial focus on the first name
-is removed if valid by calling a function from here or readded if it still incorrect.  */
+is removed if valid by calling a function from here or re -added if it still incorrect. There needs to be seperate
+valiadtion functions for each input. we can't just loop through all the inputs as we are testing each input against
+specific regular expressions. Each function also needs to return a value */
 function validateFirstName() {
 
     var defaultText = "Enter your name.";
@@ -216,7 +222,8 @@ function validateHealthAuthority() {
         return valid;
     }
 }
-/* Function to add a hint to the first name field */
+/* Function to add a hint to the first name field. Again these need to be individaul functions. The defaultText
+is specific to each form input and a specific validation function, relevant to the form input, needs to be called onblur */
 function firstNameHint() {
     var defaultText = "Enter your first name."; // defualt text to be entered
     var txtElem = document.getElementById("first-name"); //asign field to variable

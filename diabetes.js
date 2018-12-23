@@ -1,3 +1,5 @@
+// Joseph Ketterer
+
 // call init function on window load
 window.onload = init;
 
