@@ -142,15 +142,15 @@ function validateSecondName() {
         return valid;
     }
 }
-/*Function to validate title. The inital selection is an empty string.
-This way i'm making the user SELECT a title rather than just add the default selection.
-If the value which accords to an empty string
-is selected an error is thrown */
+/*Function to validate title. The inital selection is 'select-title'.
+This way i'm making the user SELECT a title rather than just add the default selection. This helps in validation
+as the user has to choose rather than add the default.
+If the value  accords to  select-title  an error is thrown */
 
 function validateTitle(){
     var valid = true;
     var title = document.getElementById('title');
-    if(title.value == "") {
+    if(title.value == "select-title") {
         document.getElementById('titleError').innerHTML = 'Enter your title';
         valid = false;
         return valid;

@@ -59,11 +59,11 @@ function calculateForm(e) {
             }
         }
     });
-    /* This function is used by the javascript reduce function to get the sum of the values array  */
+    /* This function is used by the javascript higher order reduce function to get the sum of the values in the array  */
     function getSum(total, num) {
-        return total + num;
+        return total + num; // accumulator + value
     }
-    // assigned to variable number
+    // the sum of the array is assigned to a variable finalNumber
     var finalNumber = values.reduce(getSum);
     // call function to calculateResults with the finalNumber and warning array as arguments
     calculateResults(finalNumber, warnings);
