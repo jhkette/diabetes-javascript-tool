@@ -82,7 +82,7 @@ function calculateResults(number, warnings) {
     if (number > 25) {
         switch (true) {
             case (warnings.length == 1):
-                warningText = ' Your main risk factors is your ' + warnings[0] + '. ';
+                warningText = ' Your main risk factor is your ' + warnings[0] + '. ';
                 break;
             case (warnings.length == 2):
                 warningText = ' Your main risk factors are your ' + warnings[0] + ' and your ' + warnings[1] + '. ';
