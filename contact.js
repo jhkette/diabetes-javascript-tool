@@ -87,7 +87,7 @@ function removeNameFocus() {
     firstNameField.classList.remove('focus');
 }
 
-/* This add a very pale red background to the form if there is an error in the form. It gets called in the validation functions . I feel
+/* This adds a very pale red background to the form if there is an error in the form. It gets called in the validation functions . I feel
 these help give feedback to the user  */
 function addRedError(field) {
     field.classList.add('backgroundred');
@@ -246,7 +246,7 @@ function firstNameHint() {
         error message */
     };
     txtElem.onblur = function() {
-        if (this.value === "") { // on blur we readd default text if the value is empty
+        if (this.value === "") { // on blur we add default text again if the value is empty
             this.value = defaultText;
             this.style.color = "#aba9a9";
             this.style.fontStyle = "italic";

@@ -52,7 +52,7 @@ function calculateForm(e) {
         }
     });
 
-    var bmi = document.getElementsByName('bmi');
+    var bmi = document.getElementsByName('BMI');
     bmi.forEach(function(element) {
         if (element.checked == true) {
             values.push(parseInt(element.value));
