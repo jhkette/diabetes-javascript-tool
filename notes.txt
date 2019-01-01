@@ -13,5 +13,6 @@
 // mark mandatory fields in red DONE
 // add footer DONE
 // add title js to check input is added. DONE
+// Write more precise error messages
 
 // do writeup
