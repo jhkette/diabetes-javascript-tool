@@ -55,7 +55,7 @@ function loadEventListeners() {
 /* This function processes form. It's called on form submission */
 function processForm() {
     /* assign validation functions to variable */
-    var firstName = validateFirstName();
+    var firstName = validateFirstName(first-name);
     var lastName = validateSecondName();
     var title = validateTitle();
     var email = validateEmail();
@@ -110,7 +110,7 @@ function validateFirstName() {
     var firstNameField = document.getElementById('first-name');
 
     /* first name contain only letters and is at least two charecters long, case insensitive  */
-    var re = new RegExp(/^[a-z]{2,}$/i);
+    var re = new RegExp(/^[A-Za-z]{2,}$/);
     if (re.test(firstNameField.value)) { // test value against regular expression
         /* Remove initial focus on first name */
         removeNameFocus();
