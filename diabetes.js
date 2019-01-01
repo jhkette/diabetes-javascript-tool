@@ -8,7 +8,7 @@ Clear form is called first in case there is still an input in the 'results' div.
 function init() {
     document.getElementById('Submit').addEventListener('click', clearForm);
     document.getElementById('Submit').addEventListener('click', calculateForm);
-    // openListItems();
+     openListItems();
 }
 
 /* clears the results form. It's called on every click of the 'calculate button' */
@@ -23,9 +23,6 @@ function calculateForm(e) {
     var values = []; // instantiate value array
     var warnings = []; // instantiate warning array
     var radio = document.querySelectorAll('.radio'); //returns a node list of all items with the class name 'radio'
-
-
-
     radio.forEach(function(element) { // loop through each element in the node list
 
         if (element.checked == true) { // if the element is checked
@@ -44,7 +41,7 @@ function calculateForm(e) {
     var finalNumber = values.reduce(getSum);
     // call function to calculateResults with the finalNumber and warning array as arguments
     calculateResults(finalNumber, warnings);
-    
+
     // // prevent defualt behaviour (ie don't submit the form)
     e.preventDefault();
 }

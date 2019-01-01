@@ -1,35 +1,17 @@
 // Joseph Ketterer
 window.onload = start;
 
-
-
 function start() {
-    firstNameHint('Enter your first name', 'first-name');
-    firstNameHint('Enter your email', 'email'); // hints loaded
+     firstNameHint('first-name', 'Enter your first name');
+     firstNameHint('email', 'Enter your email');
 
-    loadEventListeners(); // other event listeners loaded
-    switchToolTip(); // tooltip loaded
-}
+     switchToolTip(); // tooltip loaded
 
-/*This function loads all the event listeners needed to complete the contact form  */
-function loadEventListeners() {
     var firstNameRe = new RegExp(/^[A-Za-z]{2,}$/i);
-    document.getElementById('first-name').addEventListener('blur', function(event){
-    validateFirstName('first-name', firstNameRe, 'this is not valid');
-    });
+
     document.getElementById('second-name').addEventListener('blur', function(event){
     validateFirstName('second-name', firstNameRe, 'this is not valid');
     });
-    document.getElementById('email').addEventListener('blur', function(event){
-    validateFirstName('email', firstNameRe, 'this is not valid');
-    });
-    document.getElementById('email').addEventListener('blur', function(event){
-    validateFirstName('email', firstNameRe, 'this is not valid');
-    });
-
-
-
-
     fields = document.querySelectorAll('.input-text');
     fields.forEach(function(element){
         element.onfocus = function() {
@@ -110,11 +92,13 @@ function validateFirstName(id, re, message) {
         removeRedError(firstNameField);
         return valid; // return valid
     } else {
+
         document.getElementById(id+ 'Error').innerHTML = message;
          /* Remove initial focus on first name */
         removeNameFocus();
         /* Add red error background */
         addRedError(firstNameField);
+
         valid = false; // change valid to false
         return valid;
     }
@@ -123,38 +107,38 @@ function validateFirstName(id, re, message) {
 
 
 
-function firstNameHint(message, id) {
+function firstNameHint(id, message) {
+
     var defaultText = message; // defualt text to be entered
     var txtElem = document.getElementById(id); //asign field to variable
+    console.log(txtElem);
     txtElem.value = defaultText; // add default text and styling
     txtElem.style.color = "#aba9a9";
     txtElem.style.fontStyle = "italic";
 
-    txtElem.onfocus = function() {
-        /* If value equals default text onfocus  - replace with empty string. (ie remove default text) to
-        allow user to type into field */
-        if (this.value === defaultText) {
+    txtElem.addEventListener('focus', function(event){
+        if (this.value == defaultText) {
             this.value = "";
             this.style.color = "#000";
             this.style.fontStyle = "normal";
         }
-
-        var textElemId = this.id; // assign id of value being operated on to variable
-        clearError(textElemId); /*as the user is 'focused' on the form
-        we need to call clear error function with id of value as an argument. This removes prior
-        error message */
-    };
-    txtElem.onblur = function() {
+    });
+    txtElem.addEventListener('blur', function(event) {
         if (this.value === "") { // on blur we add default text again if the value is empty
             this.value = defaultText;
             this.style.color = "#aba9a9";
             this.style.fontStyle = "italic";
         }
         var re = new RegExp(/^[A-Za-z]{2,}$/i);
-        /* We also need to call the validate function. The user has engaged then
-        moved away from the form, so we need to check if the input was valid   */
+        var reEmail = new RegExp(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/);
+        if(id == 'first-name'){
+        validateFirstName('first-name', re, 'not valid');
+        }
+        if(id == 'email'){
+        validateFirstName('email', reEmail, 'not a valid email');
+        }
 
-    };
+    });
 }
 
 
