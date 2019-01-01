@@ -101,7 +101,6 @@ function openListItems() {
 
     // function that toggles classList 'open'. This changes flexgrow property in css
     function toggleOpen(e) {
-
         this.classList.toggle('open');
     }
     /*addEventListener to EACH list item. Call toggleopen function on click  */

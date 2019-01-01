@@ -2,40 +2,55 @@
 window.onload = start;
 
 function start() {
-     firstNameHint('first-name', 'Enter your first name');
-     firstNameHint('email', 'Enter your email');
-
-     switchToolTip(); // tooltip loaded
-
+    firstNameHint('first-name', 'Enter your first name');
+    firstNameHint('email', 'Enter your email');
+    switchToolTip(); // tooltip loaded
     var firstNameRe = new RegExp(/^[A-Za-z]{2,}$/i);
+    var healthRe = new RegExp(/^(ZHA)(\d{6})$/);
+    var telephoneRe = new RegExp(/^\d{11}$/);
+    var emailRe = new RegExp(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/);
 
-    document.getElementById('second-name').addEventListener('blur', function(event){
-    validateFirstName('second-name', firstNameRe, 'this is not valid');
+    document.getElementById('second-name').addEventListener('blur', function(event) {
+        validateFirstName('second-name', firstNameRe, 'this is not valid');
     });
+
+    var health = document.getElementById('health');
+    health.addEventListener('blur', function(event) {
+        validateFirstName('health', healthRe, 'this is not valid');
+    });
+
+    var telephone = document.getElementById('telephone');
+    telephone.addEventListener('blur', function(event) {
+        validateFirstName('telephone', telephoneRe, 'this is not valid');
+    });
+
+
     fields = document.querySelectorAll('.input-text');
-    fields.forEach(function(element){
+    fields.forEach(function(element) {
         element.onfocus = function() {
             var id = this.id;
             clearError(id);
         };
     });
-
     // call processForm function on submit
     document.getElementById('userInfo').onsubmit = processForm;
-
 }
 
 /* This function processes form. It's called on form submission */
 function processForm() {
     /* assign validation functions to variable */
     var firstNameRe = new RegExp(/^[A-Za-z]{2,}$/i);
-    var secondNameRe = new RegExp(/^[A-Za-z]{2,}$/i);
-    var message = 'this is not a valid first name';
-
-    var secondName = validateFirstName('last-name', secondNameRe);
+    var reSecondName = new RegExp(/^[a-z][a-z-]+$/i);
+    var healthRe = new RegExp(/^(ZHA)(\d{6})$/);
+    var telephoneRe = new RegExp(/^\d{11}$/);
+    var emailRe = new RegExp(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/);
+    var firstName = validateFirstName('first-name', firstNameRe, 'error');
+    var lastName = validateFirstName('second-name', reSecondName, 'error');
+    var email = validateFirstName('email', emailRe, 'error');
+    var health = validateFirstName('health', healthRe, 'error');
 
     /* if statement to check validation functions return true (ie fields are valid) */
-    if (firstName == true) {
+    if ((firstName == true) && (lastName == true) && (email == true) && (health == true)) {
         /* call modal if all true */
         toggleModal();
         return false; // stop form submitting
@@ -78,13 +93,9 @@ is removed if valid by calling a function from here or re -added if it still inc
 valiadtion functions for each input. we can't just loop through all the inputs as we are testing each input against
 specific regular expressions. Each function also needs to return a value */
 function validateFirstName(id, re, message) {
-
-
     var valid = true;
     var firstNameField = document.getElementById(id);
-
     /* first name contain only letters and is at least two charecters long, case insensitive  */
-
     if (re.test(firstNameField.value)) { // test value against regular expression
         /* Remove initial focus on first name */
         removeNameFocus();
@@ -92,13 +103,11 @@ function validateFirstName(id, re, message) {
         removeRedError(firstNameField);
         return valid; // return valid
     } else {
-
-        document.getElementById(id+ 'Error').innerHTML = message;
-         /* Remove initial focus on first name */
+        document.getElementById(id + 'Error').innerHTML = message;
+        /* Remove initial focus on first name */
         removeNameFocus();
         /* Add red error background */
         addRedError(firstNameField);
-
         valid = false; // change valid to false
         return valid;
     }
@@ -111,12 +120,12 @@ function firstNameHint(id, message) {
 
     var defaultText = message; // defualt text to be entered
     var txtElem = document.getElementById(id); //asign field to variable
-    console.log(txtElem);
+
     txtElem.value = defaultText; // add default text and styling
     txtElem.style.color = "#aba9a9";
     txtElem.style.fontStyle = "italic";
 
-    txtElem.addEventListener('focus', function(event){
+    txtElem.addEventListener('focus', function(event) {
         if (this.value == defaultText) {
             this.value = "";
             this.style.color = "#000";
@@ -131,18 +140,15 @@ function firstNameHint(id, message) {
         }
         var re = new RegExp(/^[A-Za-z]{2,}$/i);
         var reEmail = new RegExp(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/);
-        if(id == 'first-name'){
-        validateFirstName('first-name', re, 'not valid');
+        if (id == 'first-name') {
+            validateFirstName('first-name', re, 'not valid');
         }
-        if(id == 'email'){
-        validateFirstName('email', reEmail, 'not a valid email');
+        if (id == 'email') {
+            validateFirstName('email', reEmail, 'not a valid email');
         }
 
     });
 }
-
-
-
 
 /* Function to add tooltip. I'm changing the opacity on mouseout/mouseover. */
 function switchToolTip() {
@@ -178,6 +184,5 @@ function toggleModal() {
     function removeModal(e) {
         var modal = document.querySelector(".modal");
         modal.classList.remove("show-modal");
-
     }
 }
