@@ -16,3 +16,16 @@
 // Write more precise error messages
 
 // do writeup
+
+
+The validation needs tightening up
+The code has some repetition – particularly hint functions – they are pretty much the same, send in the id and message....you could also look into the bind() function in session 7 slide 20 (I think!) for these and the tooltip. Also look at the validation functions as these too are similar, although made need multiple input parameters to make it work properly
+
+
+Checked the pure js.
+
+
+
+Not so many issues with the validation, but there are issues.
+Repetition in the form as in the JQ version although no bind() option in pure js, so not so much can be reduced....
+Diabetes tool is good, but again repetition in the code:

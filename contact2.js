@@ -2,26 +2,29 @@
 window.onload = start;
 
 function start() {
-    firstNameHint('first-name', 'Enter your first name');
-    firstNameHint('email', 'Enter your email');
+    nameHint('first-name', 'Enter your first name');
+    nameHint('email', 'Enter your email');
     switchToolTip(); // tooltip loaded
+
+
     var firstNameRe = new RegExp(/^[A-Za-z]{2,}$/i);
     var healthRe = new RegExp(/^(ZHA)(\d{6})$/);
     var telephoneRe = new RegExp(/^\d{11}$/);
     var emailRe = new RegExp(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/);
 
-    document.getElementById('second-name').addEventListener('blur', function(event) {
-        validateFirstName('second-name', firstNameRe, 'this is not valid');
+    var secondName = document.getElementById('second-name').addEventListener('blur', function(event) {
+        validateField('second-name', firstNameRe, 'this is not valid');
     });
 
     var health = document.getElementById('health');
     health.addEventListener('blur', function(event) {
-        validateFirstName('health', healthRe, 'this is not valid');
+        validateField('health', healthRe, 'this is not valid');
     });
+
 
     var telephone = document.getElementById('telephone');
     telephone.addEventListener('blur', function(event) {
-        validateFirstName('telephone', telephoneRe, 'this is not valid');
+        validateField('telephone', telephoneRe, 'this is not valid');
     });
 
 
@@ -44,10 +47,10 @@ function processForm() {
     var healthRe = new RegExp(/^(ZHA)(\d{6})$/);
     var telephoneRe = new RegExp(/^\d{11}$/);
     var emailRe = new RegExp(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/);
-    var firstName = validateFirstName('first-name', firstNameRe, 'error');
-    var lastName = validateFirstName('second-name', reSecondName, 'error');
-    var email = validateFirstName('email', emailRe, 'error');
-    var health = validateFirstName('health', healthRe, 'error');
+    var firstName = validateField('first-name', firstNameRe, 'error');
+    var lastName = validateField('second-name', reSecondName, 'error');
+    var email = validateField('email', emailRe, 'error');
+    var health = validateField('health', healthRe, 'error');
 
     /* if statement to check validation functions return true (ie fields are valid) */
     if ((firstName == true) && (lastName == true) && (email == true) && (health == true)) {
@@ -87,36 +90,32 @@ function removeRedError(field) {
     field.classList.remove('backgroundred');
 }
 
-
 /* validate first name uses a regular expression to validate the form. The initial focus on the first name
 is removed if valid by calling a function from here or re -added if it still incorrect. There needs to be seperate
 valiadtion functions for each input. we can't just loop through all the inputs as we are testing each input against
 specific regular expressions. Each function also needs to return a value */
-function validateFirstName(id, re, message) {
+function validateField(id, re, message) {
     var valid = true;
     var firstNameField = document.getElementById(id);
     /* first name contain only letters and is at least two charecters long, case insensitive  */
-    if (re.test(firstNameField.value)) { // test value against regular expression
+    if (re.test(field.value)) { // test value against regular expression
         /* Remove initial focus on first name */
         removeNameFocus();
         /* Remove error background if it exists (maybe add if statement??) */
-        removeRedError(firstNameField);
+        removeRedError(field);
         return valid; // return valid
     } else {
         document.getElementById(id + 'Error').innerHTML = message;
         /* Remove initial focus on first name */
         removeNameFocus();
         /* Add red error background */
-        addRedError(firstNameField);
+        addRedError(field);
         valid = false; // change valid to false
         return valid;
     }
 }
 
-
-
-
-function firstNameHint(id, message) {
+function nameHint(id, message) {
 
     var defaultText = message; // defualt text to be entered
     var txtElem = document.getElementById(id); //asign field to variable
@@ -141,10 +140,10 @@ function firstNameHint(id, message) {
         var re = new RegExp(/^[A-Za-z]{2,}$/i);
         var reEmail = new RegExp(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/);
         if (id == 'first-name') {
-            validateFirstName('first-name', re, 'not valid');
+            validateField('first-name', re, 'not valid');
         }
         if (id == 'email') {
-            validateFirstName('email', reEmail, 'not a valid email');
+            validateField('email', reEmail, 'not a valid email');
         }
 
     });
