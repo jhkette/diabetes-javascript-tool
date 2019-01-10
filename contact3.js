@@ -47,6 +47,10 @@ function validateField(field, id) {
         defaultText = 'This is not a valid second name';
     }
     if (id == 'email') {
+        /* regular expression: one or more letters or numbers or '_.-', followed by an @ sign. Then the email provider, which is letters,
+        numbers, or selected punctuation. Then a dot. Then a domain name which is letters, may contain a dot. Between 2 and 6 chrecters long.
+        Then end of string.
+        Inspiration from https://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149 */
         re = new RegExp(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/);
         defaultText = 'This is not a valid email';
     }
@@ -59,7 +63,7 @@ function validateField(field, id) {
         defaultText = 'This is not a valid telephone number';
     }
     if (id == 'first-name'){
-    removeNameFocus();
+        removeNameFocus();
     }
     var val = field.value;
     /* first name contain only letters and is at least two charecters long, case insensitive  */
