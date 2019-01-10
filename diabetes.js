@@ -8,14 +8,14 @@ Clear form is called first in case there is still an input in the 'results' div.
 function init() {
     document.getElementById('Submit').addEventListener('click', clearForm);
     document.getElementById('Submit').addEventListener('click', calculateForm);
-     openListItems();
+
 }
 
 /* clears the results form. It's called on every click of the 'calculate button' */
 function clearForm(e) {
     var divElement = document.querySelector('.results');
     divElement.innerHTML = '';
-    e.preventDefault();
+    event.preventDefault();
 }
 
 /*  the submitForm function takes the values from the radio button form add adds them to two arrays - 'values' and 'warnings' */
@@ -43,7 +43,7 @@ function calculateForm(e) {
     calculateResults(finalNumber, warnings);
 
     // // prevent defualt behaviour (ie don't submit the form)
-    e.preventDefault();
+    event.preventDefault();
 }
 
 /* This function uses the values from the prior function to create a 'warning' string if the number value is over 25. */
@@ -89,23 +89,4 @@ function calculateResults(number, warnings) {
     }
     // append the paragraph to the div
     divElement.appendChild(results);
-}
-
-// /* This is a function to add a simple effect to the home page */
-// /* I introduce the form with a flexbox list of diabetes factors. A click on a list item enlarges
-// it by toggling a class with 'flex grow'*/
-function openListItems() {
-    // select all contentitems.This is now a node list of list items
-    var contentitems = document.querySelectorAll('.contentitems');
-    var links = document.querySelectorAll('.summary');
-
-    // function that toggles classList 'open'. This changes flexgrow property in css
-    function toggleOpen(e) {
-        this.classList.toggle('open');
-    }
-    /*addEventListener to EACH list item. Call toggleopen function on click  */
-    contentitems.forEach(function(contentitem) {
-        contentitem.addEventListener('click', toggleOpen);
-
-    });
 }

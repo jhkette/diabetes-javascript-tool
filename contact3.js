@@ -9,31 +9,30 @@ function start() {
     nameHint(email, 'Enter your email');
     switchToolTip(); // tooltip loaded
 
-  /* document.querySelectorAll returns a NodeList which does have the forEach mothod, which is why I am using it here.
-  getelementbyClassName returns a HTMLCollection object which is less useful in this instance  */
-   fields = document.querySelectorAll('.input-text');
-   fields.forEach(function(element){
-       element.onblur = function(){
-           var field = this;
+  /* document.querySelectorAll returns a NodeList, which allows you to use the forEach mothod. This is why I am using it here.
+  getelementbyClassName returns a HTMLCollection object which is less useful in this particular instance  */
+   fields = document.querySelectorAll('.input-text'); // selecting all the form field elements
+   fields.forEach(function(element){ // for each element in fields node list..
+       element.onblur = function(){ // on blur ..
            var id = this.id;
-           validateField(field, id);
+           validateField(element, id); // validate field
        };
    });
 
-    fields = document.querySelectorAll('.input-text');
-    fields.forEach(function(element) {
-        element.onfocus = function() {
-            var field = this; // check if this is needed
-            var id = this.id;
-            clearError(id);
-            removeRedError(field);
-        };
-    });
-    // call processForm function on submit
+   fields.forEach(function(element) {
+       element.onfocus = function() {
+           var id = this.id;
+           clearError(id);
+           removeRedError(element);
+       };
+   });
+    // call processForm function on submit - this evaluates the validity of all the fields on the form
     document.getElementById('userInfo').onsubmit = processForm;
 }
 
-
+/*The validate field function takes the form field DOM element and its id as parameters. I'm adding
+the field as a parameter to make it easy to remove/add red background [removeRedError(field)] which I present /remove to the user if there
+is/is not an error. The id gets used to assign the correct regular expression to the variable Re. */
 function validateField(field, id) {
     var re = '';
     var defaultText = '';
@@ -59,19 +58,18 @@ function validateField(field, id) {
         re = new RegExp(/^\d{11}$/);
         defaultText = 'This is not a valid telephone number';
     }
+    if (id == 'first-name'){
+    removeNameFocus();
+    }
     var val = field.value;
     /* first name contain only letters and is at least two charecters long, case insensitive  */
     if (re.test(val)) { // test value against regular expression
         /* Remove initial focus on first name */
-        if (id == 'first-name'){
-        removeNameFocus();
-        }
+
         /* Remove error background if it exists (maybe add if statement??) */
         return valid; // return valid
     } else {
         document.getElementById(id + 'Error').innerHTML = defaultText;
-        /* Remove initial focus on first name */
-        removeNameFocus();
         /* Add red error background */
         addRedError(field);
         valid = false; // change valid to false
@@ -116,6 +114,11 @@ function processForm() {
             }
         }
     });
+    /* The telephone field is the only opetional field.
+    Therefore telephone field needs to be dealt with slightly differently. If the field is not empty I am validating it.
+    As, were this a real application you woudn't want invalid data entering a database. Therefore if there is an entry in the field it needs to be corrrect,
+    otherwise the form will not submit.
+    If the field is empty I am not validating the field. The form can still submit*/
     var telephone = document.getElementById('telephone');
     if (telephone.value !== "") {
         if(validateField(telephone, 'telephone') == false){
@@ -124,9 +127,7 @@ function processForm() {
     }
     if (telephone.value == "") {
         removeRedError(telephone);
-        }
-    console.log(valid);
-
+    }
     if (valid == true) {
         toggleModal();
     } else {
@@ -147,9 +148,7 @@ function clearAllErrors() {
     errors.forEach(function(error){
         error.innerHTML = "&nbsp;";
     });
-
 }
-
 
 /* This removes the initial 'focus' class on the first name. Is called if the first name is valid
 NOTE: certain browsers add default backgrounds to form fields (ie chrome), so browsers defaults have been changed in css */
@@ -169,8 +168,6 @@ function removeRedError(field) {
     field.classList.remove('backgroundred');
 }
 
-
-
 /* Function to add tooltip. I'm changing the opacity on mouseout/mouseover. */
 function switchToolTip() {
     document.getElementById('qmark').onmouseover = function() { // when user hovers over question mark...
@@ -181,29 +178,4 @@ function switchToolTip() {
         var toolTip = document.getElementById('ttip');
         toolTip.style.opacity = 0; // change the tooltip opacity to 0
     };
-}
-
-/* Function to add a modal popup. It is called if the form is completed correctly
-some inspiration taken from here https://sabe.io/tutorials/how-to-create-modal-popup-box */
-function toggleModal() {
-    var modal = document.querySelector(".modal"); // assign modal class div to vairable
-    modal.classList.add("show-modal"); // add class (this changes opacity in css)
-    var closeButton = document.querySelector(".close-button"); // assign close button to variable
-
-    closeButton.addEventListener("click", removeModal); // on click call removeModal
-    window.addEventListener("click", windowClick); // on click call windowOnClick
-
-    function windowClick(event) {
-        /* if the target of the event equals modal, remove modal. The target property gets the element on which the
-        event originally occurred, as opposed to the currentTarget property, which always refers to the element whose
-        event listener triggered the event.  */
-        if (event.target === modal) {
-            removeModal();
-        }
-    }
-    /* remove show modal class - this is called on the close button and a click outside window  */
-    function removeModal(e) {
-        var modal = document.querySelector(".modal");
-        modal.classList.remove("show-modal");
-    }
 }
