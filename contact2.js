@@ -96,7 +96,7 @@ valiadtion functions for each input. we can't just loop through all the inputs a
 specific regular expressions. Each function also needs to return a value */
 function validateField(id, re, message) {
     var valid = true;
-    var firstNameField = document.getElementById(id);
+    var field = document.getElementById(id);
     /* first name contain only letters and is at least two charecters long, case insensitive  */
     if (re.test(field.value)) { // test value against regular expression
         /* Remove initial focus on first name */
