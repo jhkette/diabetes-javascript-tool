@@ -63,7 +63,11 @@ function validateField(field, id) {
         defaultText = 'This is not a valid telephone number';
     }
     if (id == 'first-name'){
+<<<<<<< HEAD
         removeNameFocus();
+=======
+    removeNameFocus();
+>>>>>>> cbfc26078e6f69462ee7e104b5c3dd7211b6f6ed
     }
     var val = field.value;
     /* first name contain only letters and is at least two charecters long, case insensitive  */
