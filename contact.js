@@ -9,23 +9,23 @@ function start() {
     nameHint(email, 'Enter your email');
     switchToolTip(); // tooltip loaded
 
-  /* document.querySelectorAll returns a NodeList, which allows you to use the forEach mothod. This is why I am using it here.
-  getelementbyClassName returns a HTMLCollection object which is less useful in this particular instance  */
-   fields = document.querySelectorAll('.input-text'); // selecting all the form field elements
-   fields.forEach(function(element){ // for each element in fields node list..
-       element.onblur = function(){ // on blur ..
-           var id = this.id;
-           validateField(element, id); // validate field
-       };
-   });
+    /* document.querySelectorAll returns a NodeList, which allows you to use the forEach mothod. This is why I am using it here.
+    getelementbyClassName returns a HTMLCollection object which is less useful in this particular instance  */
+    fields = document.querySelectorAll('.input-text'); // selecting all the form field elements
+    fields.forEach(function(element) { // for each element in fields node list..
+        element.onblur = function() { // on blur ..
+            var id = this.id;
+            validateField(element, id); // validate field
+        };
+    });
 
-   fields.forEach(function(element) {
-       element.onfocus = function() {
-           var id = this.id;
-           clearError(id);
-           removeRedError(element);
-       };
-   });
+    fields.forEach(function(element) {
+        element.onfocus = function() {
+            var id = this.id;
+            clearError(id);
+            removeRedError(element);
+        };
+    });
     // call processForm function on submit - this evaluates the validity of all the fields on the form
     document.getElementById('userInfo').onsubmit = processForm;
 }
@@ -37,51 +37,57 @@ function validateField(field, id) {
     var re = '';
     var defaultText = '';
     var valid = true;
-
-    if (id == 'first-name') {
-        re = new RegExp(/^[A-Za-z]{2,}$/i);
-        defaultText = 'This is not a valid first name';
-    }
-    if (id == 'second-name') {
-        re = new RegExp(/^[a-z][a-z-]+$/i);
-        defaultText = 'This is not a valid second name';
-    }
-    if (id == 'email') {
-        /* regular expression: one or more letters or numbers or '_.-', followed by an @ sign. Then the email provider, which is letters,
-        numbers, or selected punctuation. Then a dot. Then a domain name which is letters, may contain a dot. Between 2 and 6 chrecters long.
-        Then end of string.
-        Inspiration from https://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149 */
-        re = new RegExp(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/);
-        defaultText = 'This is not a valid email';
-    }
-    if (id == 'health') {
-        re = new RegExp(/^(ZHA)(\d{6})$/);
-        defaultText = 'This is not a valid ZHA number';
-    }
-    if (id == 'telephone') {
-        re = new RegExp(/^\d{11}$/);
-        defaultText = 'This is not a valid telephone number';
-    }
-    if (id == 'first-name'){
-<<<<<<< HEAD
-        removeNameFocus();
-=======
-    removeNameFocus();
->>>>>>> cbfc26078e6f69462ee7e104b5c3dd7211b6f6ed
-    }
-    var val = field.value;
-    /* first name contain only letters and is at least two charecters long, case insensitive  */
-    if (re.test(val)) { // test value against regular expression
-        /* Remove initial focus on first name */
-
-        /* Remove error background if it exists (maybe add if statement??) */
-        return valid; // return valid
+    if (id == 'title') {
+        if ((field.value == 'Mr') || (field.value == 'Mrs') || (field.value == 'Miss') || (field.value == 'Master') || (field.value == 'Ms')) {
+            return valid;
+        } else {
+            document.getElementById(id + 'Error').innerHTML = 'Please select a title';
+            valid = false;
+            return valid;
+        }
     } else {
-        document.getElementById(id + 'Error').innerHTML = defaultText;
-        /* Add red error background */
-        addRedError(field);
-        valid = false; // change valid to false
-        return valid;
+
+        if (id == 'first-name') {
+            re = new RegExp(/^[A-Za-z]{2,}$/i);
+            defaultText = 'This is not a valid first name';
+        }
+        if (id == 'second-name') {
+            re = new RegExp(/^[a-z][a-z-]+$/i);
+            defaultText = 'This is not a valid second name';
+        }
+        if (id == 'email') {
+            /* regular expression: one or more letters or numbers or '_.-', followed by an @ sign. Then the email provider, which is letters,
+            numbers, or selected punctuation. Then a dot. Then a domain name which is letters, may contain a dot. Between 2 and 6 chrecters long.
+            Then end of string.
+            Inspiration from https://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149 */
+            re = new RegExp(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/);
+            defaultText = 'This is not a valid email';
+        }
+        if (id == 'health') {
+            re = new RegExp(/^(ZHA)(\d{6})$/);
+            defaultText = 'This is not a valid ZHA number';
+        }
+        if (id == 'telephone') {
+            re = new RegExp(/^\d{11}$/);
+            defaultText = 'This is not a valid telephone number';
+        }
+        if (id == 'first-name') {
+            removeNameFocus();
+        }
+        var val = field.value;
+        /* first name contain only letters and is at least two charecters long, case insensitive  */
+        if (re.test(val)) { // test value against regular expression
+            /* Remove initial focus on first name */
+
+            /* Remove error background if it exists (maybe add if statement??) */
+            return valid; // return valid
+        } else {
+            document.getElementById(id + 'Error').innerHTML = defaultText;
+            /* Add red error background */
+            addRedError(field);
+            valid = false; // change valid to false
+            return valid;
+        }
     }
 }
 
@@ -113,10 +119,10 @@ function processForm() {
     clearAllErrors();
     var valid = true;
     var fields = document.querySelectorAll('.input-text');
-    fields.forEach(function(field){
+    fields.forEach(function(field) {
         var id = field.id;
         console.log(id);
-        if(id !== 'telephone'){
+        if (id !== 'telephone') {
             if (validateField(field, id) == false) {
                 valid = false;
             }
@@ -129,12 +135,12 @@ function processForm() {
     If the field is empty I am not validating the field. The form can still submit*/
     var telephone = document.getElementById('telephone');
     if (telephone.value !== "") {
-        if(validateField(telephone, 'telephone') == false){
-        valid = false;
+        if (validateField(telephone, 'telephone') == false) {
+            valid = false;
         }
     }
     if (telephone.value == "") {
-        removeRedError(telephone);
+        removeRedError(telephone); // if the value is an empty string it is not an error
     }
     if (valid == true) {
         toggleModal();
@@ -153,7 +159,7 @@ function clearError(id) {
 
 function clearAllErrors() {
     var errors = document.querySelectorAll('Error');
-    errors.forEach(function(error){
+    errors.forEach(function(error) {
         error.innerHTML = "&nbsp;";
     });
 }
