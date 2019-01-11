@@ -2,14 +2,14 @@
 window.onload = start;
 
 function start() {
-    var firstName = document.getElementById('first-name');
+    var firstName = document.getElementById('first-name'); // variables for name hints
     var email = document.getElementById('email');
 
-    nameHint(firstName, 'Enter your name');
+    nameHint(firstName, 'Enter your name'); // load name hints with relevant arguments.
     nameHint(email, 'Enter your email');
     switchToolTip(); // tooltip loaded
 
-    /* document.querySelectorAll returns a NodeList, which allows you to use the forEach mothod. This is why I am using it here.
+    /* document.querySelectorAll returns a nodeList, which allows you to use the forEach mothod. This is why I am using it here.
     getelementbyClassName returns a HTMLCollection object which is less useful in this particular instance  */
     fields = document.querySelectorAll('.input-text'); // selecting all the form field elements
     fields.forEach(function(element) { // for each element in fields node list..
@@ -30,8 +30,8 @@ function start() {
     document.getElementById('userInfo').onsubmit = processForm;
 }
 
-/*The validate field function takes the form field DOM element and its id as parameters. The id gets used to assign the correct regular expression to the variable Re.
-*/
+/* The validate field function takes the form field DOM element and its id as parameters.
+ The id gets used to assign the correct regular expression to the variable Re. Title gets validated seperately as it should only be 5 posssible values*/
 function validateField(field, id) {
     var re = '';
     var defaultText = '';
@@ -46,18 +46,18 @@ function validateField(field, id) {
         }
     } else {
         switch(true){
-        case (id == 'first-name'):
-            re = new RegExp(/^[A-Za-z]{2,}$/i);
+            case (id == 'first-name'):
+            re = new RegExp(/^[a-z]{2,}$/i); // two or more letters
             defaultText = 'This is not a valid first name';
             removeNameFocus();
             break;
 
-         case (id == 'second-name'):
-            re = new RegExp(/^[a-z][a-z-]+$/i);
+            case (id == 'second-name'):
+            re = new RegExp(/^[a-z][a-z-]{1,}$/i);// Must start with a letter then a minimun of one charecter which is a letter of '-';
             defaultText = 'This is not a valid second name';
             break;
 
-        case (id == 'email'):
+            case (id == 'email'):
             /* regular expression: one or more letters or numbers or '_.-', followed by an @ sign. Then the email provider, which is letters,
             numbers, or selected punctuation. Then a dot. Then a domain name which is letters, may contain a dot. Between 2 and 6 chrecters long.
             Then end of string.
@@ -66,13 +66,13 @@ function validateField(field, id) {
             defaultText = 'This is not a valid email';
             break;
 
-        case (id == 'health'):
-            re = new RegExp(/^(ZHA)(\d{6})$/);
+            case (id == 'health'):
+            re = new RegExp(/^(ZHA)(\d{6})$/); // Must start with capital ZHA then 6 digits.
             defaultText = 'This is not a valid ZHA number';
             break;
 
-        case (id  == 'telephone'):
-            re = new RegExp(/^\d{11}$/);
+            case (id  == 'telephone'):
+            re = new RegExp(/^\d{11}$/); // must be 11 digits no other charecters
             defaultText = 'This is not a valid telephone number';
             break;
         }
@@ -134,7 +134,6 @@ function processForm() {
             }
         }
     });
-
     var telephone = document.getElementById('telephone');
     if (telephone.value !== "") {
         if (validateField(telephone, 'telephone') == false) {
