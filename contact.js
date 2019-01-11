@@ -20,10 +20,10 @@ function start() {
     });
 
     fields.forEach(function(element) {
-        element.onfocus = function() {
+        element.onfocus = function() { // if an element in node list is 'focused' on
             var id = this.id;
-            clearError(id);
-            removeRedError(element);
+            clearError(id); // clear error
+            removeRedError(element); // remove red error background
         };
     });
     // call processForm function on submit - this evaluates the validity of all the fields on the form
