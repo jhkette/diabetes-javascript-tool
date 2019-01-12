@@ -9,7 +9,8 @@ function start() {
     nameHint(email, 'Enter your email');
     switchToolTip(); // tooltip loaded
 
-    /* document.querySelectorAll returns a nodeList, which allows you to use the forEach mothod. This is why I am using it here.
+    /* On blur validate field.
+    document.querySelectorAll returns a nodeList, which allows you to use the forEach mothod. This is why I am using it here.
     getelementbyClassName returns a HTMLCollection object which is less useful in this particular instance  */
     fields = document.querySelectorAll('.input-text'); // selecting all the form field elements
     fields.forEach(function(element) { // for each element in fields node list..
@@ -18,7 +19,7 @@ function start() {
             validateField(element, id); // validate field
         };
     });
-
+    /* On focus clear error signs */
     fields.forEach(function(element) {
         element.onfocus = function() { // if an element in node list is 'focused' on
             var id = this.id;
