@@ -8,7 +8,7 @@ Clear form is called first in case there is still an input in the 'results' div.
 function init() {
     document.getElementById('Submit').addEventListener('click', clearForm);
     document.getElementById('Submit').addEventListener('click', calculateForm);
-    openListItems();
+    openListItems(); // call decorative functions.
     drawCircles();
 }
 

@@ -3,9 +3,7 @@ site look presentationally more interesting.
 One loads the popup if the user has regeistered successfully, one
 enlarges the list of diabetes factors that appear on the home page, the other draws circles, to create a background image effect.  */
 
-
-/* Function to add a modal popup. It is called if the form is completed correctly
-some inspiration taken from here https://sabe.io/tutorials/how-to-create-modal-popup-box */
+/* Function to add a modal popup. Inspiration taken from here https://sabe.io/tutorials/how-to-create-modal-popup-box */
 function toggleModal() {
     var modal = document.querySelector(".modal"); // assign modal class div to vairable
     modal.classList.add("show-modal"); // add class (this changes opacity in css)
@@ -19,8 +17,7 @@ function toggleModal() {
             removeModal();
         }
     }
-    /* remove show modal class - this is called on the close button and a click outside window  */
-    function removeModal(e) {
+    function removeModal(e) { // remove show modal class - this is called on the close button and a click outside window  
         var modal = document.querySelector(".modal");
         modal.classList.remove("show-modal");
     }
@@ -28,7 +25,6 @@ function toggleModal() {
 
 /* I introduce the form with a flexbox list of diabetes factors. A click on a list item enlarges
 it by toggling a class with 'flex grow'. The page needs to be loaded before the function is called */
-
 function openListItems() {
     // select all contentitems.This is now a node list of list items
     var contentitems = document.querySelectorAll('.contentitems');
@@ -40,6 +36,7 @@ function openListItems() {
         contentitem.addEventListener('click', toggleOpen);
     });
 }
+
 /* Function that draws random circles - it is called after page load
 Idea for circles came from the coding train https://www.youtube.com/watch?v=XATr_jdh-44*/
 function drawCircles() {

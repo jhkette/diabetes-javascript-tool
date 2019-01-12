@@ -130,10 +130,9 @@ function nameHint(field, message) {
         }
     });
 }
-
-
+/*This function loops through all form fields and uses the validateField function to check they are valid. If one returns valid, var valid is changed to false  */
 function processForm() {
-    event.preventDefault();
+    event.preventDefault(); //Make sure form doesn't submit
     clearAllErrors();
     var valid = true;
     var fields = document.querySelectorAll('.input-text');
