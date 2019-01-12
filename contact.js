@@ -30,7 +30,7 @@ function start() {
     document.getElementById('userInfo').onsubmit = processForm;
 }
 
-/* The validate field function takes the form field DOM element and its id as parameters.
+/* The validate field function takes the form field and its id as parameters.
  The id gets used to assign the correct regular expression to the variable Re. Title gets validated seperately as it should only be 5 posssible values*/
 function validateField(field, id) {
     var re = '';
@@ -45,49 +45,62 @@ function validateField(field, id) {
             return valid;
         }
     } else {
-        switch(true){
+        switch (true) {
             case (id == 'first-name'):
-            re = new RegExp(/^[a-z]{2,}$/i); // two or more letters
-            defaultText = 'This is not a valid first name';
-            removeNameFocus();
-            break;
+                re = new RegExp(/^[a-z]{2,}$/i); // two or more letters
+                defaultText = 'This is not a valid first name';
+                removeNameFocus(); // There is an initial focus on the first field which I am removing
+                break;
 
             case (id == 'second-name'):
-            re = new RegExp(/^[a-z][a-z-]{1,}$/i);// Must start with a letter then a minimun of one charecter which is a letter of '-';
-            defaultText = 'This is not a valid second name';
-            break;
+                re = new RegExp(/^[a-z][a-z-]{1,}$/i); // Must start with a letter then a minimun of one charecter which is a letter of '-';
+                defaultText = 'This is not a valid second name';
+                break;
 
             case (id == 'email'):
-            /* regular expression: one or more letters or numbers or '_.-', followed by an @ sign. Then the email provider, which is letters,
-            numbers, or selected punctuation. Then a dot. Then a domain name which is letters, may contain a dot. Between 2 and 6 chrecters long.
-            Then end of string.
-            Inspiration from https://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149 */
-            re = new RegExp(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/);
-            defaultText = 'This is not a valid email';
-            break;
+                /* regular expression: one or more letters or numbers or '_.-', followed by an @ sign. Then the email provider, which is letters,
+                numbers, or selected punctuation. Then a dot. Then a domain name which is letters, may contain a dot. Between 2 and 6 chrecters long.
+                Then end of string.
+                Inspiration from https://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149 */
+                re = new RegExp(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/);
+                defaultText = 'This is not a valid email';
+                break;
 
             case (id == 'health'):
-            re = new RegExp(/^(ZHA)(\d{6})$/); // Must start with capital ZHA then 6 digits.
-            defaultText = 'This is not a valid ZHA number';
-            break;
+                re = new RegExp(/^(ZHA)(\d{6})$/); // Must start with capital ZHA then 6 digits.
+                defaultText = 'This is not a valid ZHA number';
+                break;
 
-            case (id  == 'telephone'):
-            re = new RegExp(/^\d{11}$/); // must be 11 digits no other charecters
-            defaultText = 'This is not a valid telephone number';
-            break;
+            case (id == 'telephone'):
+                re = new RegExp(/^\d{11}$/); // must be 11 digits no other charecters
+                defaultText = 'This is not a valid telephone number';
+                break;
         }
-        /* first name contain only letters and is at least two charecters long, case insensitive  */
-        if (re.test(field.value)) { // test value against regular expression
-            /* Remove initial focus on first name */
-
-            /* Remove error background if it exists (maybe add if statement??) */
-            return valid; // return valid
+        if (id == 'telephone') {
+            if (field.value !== '') {
+                if (re.test(field.value)) {
+                    return valid;
+                } else {
+                    document.getElementById(id + 'Error').innerHTML = defaultText; // add error message to id+ error (this is the span element in contact.html)
+                    /* Add red error background */
+                    addRedError(field);
+                    valid = false; // change valid to false
+                    return valid;
+                }
+            }
         } else {
-            document.getElementById(id + 'Error').innerHTML = defaultText;
-            /* Add red error background */
-            addRedError(field);
-            valid = false; // change valid to false
-            return valid;
+            /* first name contain only letters and is at least two charecters long, case insensitive  */
+            if (re.test(field.value)) { // test value from field argument against regular expression
+                /* Remove initial focus on first name */
+                /* Remove error background if it exists (maybe add if statement??) */
+                return valid; // return valid
+            } else {
+                document.getElementById(id + 'Error').innerHTML = defaultText; // add error message to id+ error (this is the span element in contact.html)
+                /* Add red error background */
+                addRedError(field);
+                valid = false; // change valid to false
+                return valid;
+            }
         }
     }
 }
@@ -114,11 +127,6 @@ function nameHint(field, message) {
     });
 }
 
-/* The telephone field is the only opetional field.
-Therefore telephone field needs to be dealt with slightly differently. If the field is not empty I am validating it.
-As, were this a real application you woudn't want invalid data entering a database. Therefore if there is an entry in the field it needs to be corrrect,
-otherwise the form will not submit.
-If the field is empty I am not validating the field. The form can still submit*/
 
 function processForm() {
     event.preventDefault();
@@ -126,23 +134,10 @@ function processForm() {
     var valid = true;
     var fields = document.querySelectorAll('.input-text');
     fields.forEach(function(field) {
-        var id = field.id;
-        console.log(id);
-        if (id !== 'telephone') {
-            if (validateField(field, id) == false) {
-                valid = false;
-            }
-        }
-    });
-    var telephone = document.getElementById('telephone');
-    if (telephone.value !== "") {
-        if (validateField(telephone, 'telephone') == false) {
+        if (validateField(field, field.id) == false) {
             valid = false;
         }
-    }
-    if (telephone.value == "") {
-        removeRedError(telephone); // if the value is an empty string it is not an error
-    }
+    });
     if (valid == true) {
         toggleModal();
     } else {
@@ -157,7 +152,7 @@ function clearError(id) {
     document.getElementById('submitError').innerHTML = "&nbsp;";
 }
 
-
+/*Function to clear all errors. This is called on submit  */
 function clearAllErrors() {
     var errors = document.querySelectorAll('Error');
     errors.forEach(function(error) {
