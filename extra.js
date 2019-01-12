@@ -1,5 +1,6 @@
 /*These functions are not part of the requirements. One loads the popup if the user has regeistered successfully, one
-enlarges the list of diabetes factors that appear on the home page, the other draws circles.  */
+enlarges the list of diabetes factors that appear on the home page, the other draws circles. I do think they help make the
+programme look presentable and interesting */
 
 
 /* Function to add a modal popup. It is called if the form is completed correctly
@@ -45,12 +46,11 @@ function drawCircles() {
     var circleNumber = 8; // number of circles
     var container = document.getElementById('home-container'); // get container
     var screenWidth = container.offsetWidth;  // get container width and then height
-    var containerHeight = container.offsetHeight;
     for (var i = 0; i < circleNumber; i++) { // create 8 circles
         var newCircle = document.createElement("div");
         newCircle.setAttribute("class", "circle");
         var diameter = Math.random () * 200;
-        var x = Math.random() * (containerHeight - 200); // assign random number based on screenwidth/height
+        var x = Math.random() * 500; // smallest container height will be around 700px;
         var y = Math.random() * (screenWidth + 100);
         newCircle.style.width = diameter + 'px'; //random diameter
         newCircle.style.height = diameter + 'px';

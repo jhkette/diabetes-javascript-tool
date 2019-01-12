@@ -23,7 +23,7 @@ function clearForm(e) {
 function calculateForm(e) {
     var values = []; // instantiate value array
     var warnings = []; // instantiate warning array
-    var radio = document.querySelectorAll('.radio'); //returns a node list of all items with the class name 'radio'
+    var radio = document.querySelectorAll('.radio'); //returns a node list of all items with the class name 'radio'. A node list enables the use of foreach loop
     radio.forEach(function(element) { // loop through each element in the node list
 
         if (element.checked == true) { // if the element is checked

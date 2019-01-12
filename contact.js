@@ -67,7 +67,7 @@ function validateField(field, id) {
                 break;
 
             case (id == 'health'):
-                re = new RegExp(/^(ZHA)(\d{6})$/); // Must start with capital ZHA then 6 digits.
+                re = new RegExp(/^(ZHA)(\d{6})$/); // Must start with capital ZHA (this is it was presented in specifications) then 6 digits.
                 defaultText = 'This is not a valid ZHA number';
                 break;
 
