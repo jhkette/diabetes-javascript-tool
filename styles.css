@@ -1,6 +1,6 @@
 /* Joseph Ketterer */
 :root {
-    --secondary: #5ec3b6;
+    --secondary: #8FBC8F;
     --tertiary: #e2e2e2;
     --black: #161515;
     --red: #fa8072;
@@ -46,7 +46,7 @@ p {
 } */
 
 h1 {
-    padding-top: 15px;
+
     color: white;
     font-size: 2.5rem;
     text-align: center;
@@ -55,6 +55,7 @@ h1 {
     height: auto;
     text-align: left;
     line-height: 2rem;
+    align-self: center;
 }
 
 
@@ -76,24 +77,39 @@ h4 {
     width: 75%;
     margin: auto;
     padding: 1.8rem;
-    max-width: 1000px;
+    max-width: 1400px;
 }
 
 .row-numbers{
     width: 75%;
     margin: auto;
     padding: 0rem;
-    max-width: 1000px;
+    max-width: 1400px;
 
 }
 
 /*---------------- Main navigation ------------- */
+.main-nav {
+    background-color: var(--black);
+    width: 100%;
+}
+
+.navcontainer {
+    margin: auto;
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    min-height: 7.8rem;
+    max-width: 1400px;
+
+
+}
+
 
 .leftnav {
     display: flex;
     text-align: center;
     align-self: center;
-
 }
 
 .leftnav li:first-child{
@@ -107,7 +123,7 @@ h4 {
     margin: 0;
     margin-left: 2rem;
 
-    padding-top: 15px;
+
 
 }
 .leftnav li a{
@@ -123,32 +139,15 @@ color: white;
 border-bottom: 2px solid white;
 }
 
-.navcontainer {
-    margin: auto;
-    width: 75%;
-    display: flex;
-    justify-content: flex-start;
-    height: 7.5rem;
-    max-width: 1000px;
-
-}
-
-
-.main-nav {
-    background-color: var(--black);
-    width: 100%;
-}
-
-
-
 
 .icon{
     background-image: url(images/search1.svg);
     background-size: 25px 25px;
-    margin-top: 3.2rem;
+    margin-top: 2.7rem;
     background-repeat: no-repeat;
     width: 3rem;
     margin-left: auto;
+
 
 }
 
@@ -263,7 +262,7 @@ border-bottom: 2px solid white;
 
     border-top: 2px dashed var(--black);
     border-bottom: 2px dashed var(--black);
-    max-width: 1000px;
+    max-width: 1400px;
 
 
 }
@@ -318,7 +317,7 @@ button:focus {outline:0;}
     counter-reset: section;
     position: relative;
     background-color: var(--tertiary);
-    max-width: 1000px;
+    max-width: 1400px;
 }
 
 .display {
@@ -455,7 +454,7 @@ button:focus {outline:0;}
 /* -----------------tooltip ------------*/
 .tool {
     position: absolute;
-    top: 70.35rem;
+    top: 70.7rem;
     margin-left: -2.3rem;
 }
 
@@ -606,7 +605,7 @@ input {
 }
 
 .focus {
-    background-color: #f8ffd4;
+    background-color: #eaffea;
 }
 
 .red {
