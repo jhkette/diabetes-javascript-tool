@@ -1,6 +1,7 @@
-/*These functions are not part of the requirements. One loads the popup if the user has regeistered successfully, one
-enlarges the list of diabetes factors that appear on the home page, the other draws circles. I do think they help make the
-programme look presentable and interesting */
+/*These functions are not part of the requirements. They just some extra simple functions to add to functionality/ make the
+site look presentationally more interesting.
+One loads the popup if the user has regeistered successfully, one
+enlarges the list of diabetes factors that appear on the home page, the other draws circles, to create a background image effect.  */
 
 
 /* Function to add a modal popup. It is called if the form is completed correctly
@@ -25,7 +26,6 @@ function toggleModal() {
     }
 }
 
-
 /* I introduce the form with a flexbox list of diabetes factors. A click on a list item enlarges
 it by toggling a class with 'flex grow'. The page needs to be loaded before the function is called */
 
@@ -40,17 +40,17 @@ function openListItems() {
         contentitem.addEventListener('click', toggleOpen);
     });
 }
-/* Function that draws circles - it is called after page load
+/* Function that draws random circles - it is called after page load
 Idea for circles came from the coding train https://www.youtube.com/watch?v=XATr_jdh-44*/
 function drawCircles() {
     var circleNumber = 8; // number of circles
     var container = document.getElementById('home-container'); // get container
-    var screenWidth = container.offsetWidth;  // get container width and then height
+    var screenWidth = container.offsetWidth;  // get container width
     for (var i = 0; i < circleNumber; i++) { // create 8 circles
         var newCircle = document.createElement("div");
         newCircle.setAttribute("class", "circle");
-        var diameter = Math.random () * 200;
-        var x = Math.random() * 500; // smallest container height will be around 700px;
+        var diameter = Math.random () * 275;
+        var x = Math.random() * (700 - diameter); // so it doesn't overflow onto next container.
         var y = Math.random() * (screenWidth + 100);
         newCircle.style.width = diameter + 'px'; //random diameter
         newCircle.style.height = diameter + 'px';

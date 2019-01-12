@@ -9,8 +9,8 @@ function start() {
     nameHint(email, 'Enter your email');
     switchToolTip(); // tooltip loaded
 
-    /* On blur validate field.
-    document.querySelectorAll returns a nodeList, which allows you to use the forEach mothod. This is why I am using it here.
+    /* On blur validate field. */
+    /* document.querySelectorAll returns a nodeList, which allows you to use the forEach mothod. This is why I am using it here.
     getelementbyClassName returns a HTMLCollection object which is less useful in this particular instance  */
     fields = document.querySelectorAll('.input-text'); // selecting all the form field elements
     fields.forEach(function(element) { // for each element in fields node list..
@@ -77,6 +77,8 @@ function validateField(field, id) {
                 defaultText = 'This is not a valid telephone number';
                 break;
         }
+        /* I'm only validating the telephone field if there is an entry. If a user has focused on field but left it empty,  I am simply ignoring it, it is considered de facto valid.
+        This is because it is not mandatory. However, if there is an entry and it is incorrect an incorrect an error will show.  */
         if (id == 'telephone') {
             if (field.value !== '') {
                 if (re.test(field.value)) {
@@ -106,6 +108,7 @@ function validateField(field, id) {
     }
 }
 
+/*This function presents a name hint, removes it on focus, and re-adds hint on blur if field is left empty */
 function nameHint(field, message) {
 
     field.value = message;
