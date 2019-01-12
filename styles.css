@@ -242,6 +242,18 @@ border-bottom: 2px solid white;
     height: 1.8rem;
 }
 
+#home-container{
+    position: relative;
+}
+.circle {
+    border-radius:50%;
+    position: absolute;
+    z-index: 10;
+    opacity: .15;
+    background-color: rgb(6, 122, 18);
+
+}
+
 /* --- end of intro text numbers display--- */
 /*---------------------- results ------------------------*/
 .results {
@@ -273,6 +285,7 @@ border-bottom: 2px solid white;
 .container {
     background-color: var(--secondary);
     width: 100%;
+    position: relative;
 }
 
 .form {

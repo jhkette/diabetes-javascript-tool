@@ -8,7 +8,8 @@ Clear form is called first in case there is still an input in the 'results' div.
 function init() {
     document.getElementById('Submit').addEventListener('click', clearForm);
     document.getElementById('Submit').addEventListener('click', calculateForm);
-
+    openListItems();
+    drawCircles();
 }
 
 /* clears the results form. It's called on every click of the 'calculate button' */
@@ -42,11 +43,12 @@ function calculateForm(e) {
     // call function to calculateResults with the finalNumber and warning array as arguments
     calculateResults(finalNumber, warnings);
 
-    // // prevent defualt behaviour (ie don't submit the form)
+    // prevent defualt behaviour (ie don't submit the form)
     event.preventDefault();
 }
 
-/* This function uses the values from the prior function to create a 'warning' string if the number value is over 25. */
+/* This function uses the values from the prior function to append a message to the index page. It creates a 'warning' string if the number value is over 25 from
+the warning array if the number is over 25. The message is assigned based on the number value from the previous function */
 function calculateResults(number, warnings) {
     /* delcare warningText variable */
     var warningText = '';
