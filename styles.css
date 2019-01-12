@@ -675,3 +675,54 @@ input {
 }
 
 /* ------------ end of popup css ---------------- */
+/* ------------ some media querires ---------------- */
+
+@media only screen and (max-width: 900px) {
+    .contentitems{
+        min-width: 20rem;
+    }
+    .leftnav li:first-child{
+        margin-left: 2rem;
+    }
+    .leftnav li:last-child{
+        margin-right: 1rem;
+    }
+    h1{
+        width: 12rem;
+    }
+    fieldset{
+        min-width: 20rem;
+    }
+    .container{
+        padding-bottom: 8rem;
+    }
+    .formcontainer{
+        width: 100%;
+    }
+    .contact-form{
+        width: 100%;
+    }
+    .forminput{
+        flex-direction: column;
+        align-content: flex-start;
+        align-items: flex-start;
+        margin-bottom: 3rem;
+
+    }
+    .input-text{
+        padding: 1rem 0;
+    }
+    .error{
+        align-self: flex-start;
+        align-content: flex-start;
+
+      }
+
+     .select-style {
+         margin-top: -1rem;
+         padding: 0;
+         }
+    .tool{
+        top: 76rem;
+    }
+}

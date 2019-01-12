@@ -1,5 +1,5 @@
-/*These two functions are not part of the requirements. One loads the popup if the user has regeistered successfully, the other
-enlarges the list of diabetes factors that appear on the home page */
+/*These functions are not part of the requirements. One loads the popup if the user has regeistered successfully, one
+enlarges the list of diabetes factors that appear on the home page, the other draws circles.  */
 
 
 /* Function to add a modal popup. It is called if the form is completed correctly
@@ -13,9 +13,6 @@ function toggleModal() {
     window.addEventListener("click", windowClick); // on click call windowOnClick
 
     function windowClick(event) {
-        /* if the target of the event equals modal, remove modal. The target property gets the element on which the
-        event originally occurred, as opposed to the currentTarget property, which always refers to the element whose
-        event listener triggered the event.  */
         if (event.target === modal) {
             removeModal();
         }
@@ -27,45 +24,38 @@ function toggleModal() {
     }
 }
 
-/* This is a function to add a simple effect to the home page */
+
 /* I introduce the form with a flexbox list of diabetes factors. A click on a list item enlarges
 it by toggling a class with 'flex grow'. The page needs to be loaded before the function is called */
-
 
 function openListItems() {
     // select all contentitems.This is now a node list of list items
     var contentitems = document.querySelectorAll('.contentitems');
     var links = document.querySelectorAll('.summary');
-
-    // function that toggles classList 'open'. This changes flexgrow property in css
-    function toggleOpen(e) {
+    function toggleOpen(e) {  // function that toggles classList 'open'. This changes flexgrow property in css
         this.classList.toggle('open');
     }
-    /*addEventListener to EACH list item. Call toggleopen function on click  */
-    contentitems.forEach(function(contentitem) {
+    contentitems.forEach(function(contentitem) { /// addEventListener to EACH list item.
         contentitem.addEventListener('click', toggleOpen);
-
     });
 }
-
-
+/* Function that draws circles - it is called after page load
+Idea for circles came from the coding train https://www.youtube.com/watch?v=XATr_jdh-44*/
 function drawCircles() {
-    var circleNumber = 8;
-    var container = document.querySelector('#home-container');
-
-    var screenWidth = container.offsetWidth;
+    var circleNumber = 8; // number of circles
+    var container = document.getElementById('home-container'); // get container
+    var screenWidth = container.offsetWidth;  // get container width and then height
     var containerHeight = container.offsetHeight;
-    for (var i = 0; i < circleNumber; i++) {
+    for (var i = 0; i < circleNumber; i++) { // create 8 circles
         var newCircle = document.createElement("div");
-
         newCircle.setAttribute("class", "circle");
         var diameter = Math.random () * 200;
-        var x = Math.random() * Math.max(screenWidth + 100, 0);
-        var y = Math.random() * Math.max(containerHeight - 200, 0);
-        newCircle.style.width = diameter + 'px';
+        var x = Math.random() * (containerHeight - 200); // assign random number based on screenwidth/height
+        var y = Math.random() * (screenWidth + 100);
+        newCircle.style.width = diameter + 'px'; //random diameter
         newCircle.style.height = diameter + 'px';
-        newCircle.style.left = x + "px";
-        newCircle.style.top = y + "px";
+        newCircle.style.left = y + "px"; //random position
+        newCircle.style.top = x + "px";
         container.appendChild(newCircle);
     }
 }

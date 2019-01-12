@@ -1,6 +1,6 @@
 // Joseph Ketterer
 window.onload = start;
-
+/* Function start loads all functions and variables that need to be present on page load */
 function start() {
     var firstName = document.getElementById('first-name'); // variables for name hints
     var email = document.getElementById('email');
@@ -107,8 +107,8 @@ function validateField(field, id) {
 
 function nameHint(field, message) {
 
-    field.value = message; // add default text and styling
-    field.style.color = "#aba9a9";
+    field.value = message;
+    field.style.color = "#aba9a9"; // add text and styling
     field.style.fontStyle = "italic";
 
     field.addEventListener('focus', function(event) {
