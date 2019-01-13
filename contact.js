@@ -8,7 +8,6 @@ window.onload = start;
 function start() {
     var firstName = document.getElementById('first-name'); // variables for name hints
     var email = document.getElementById('email');
-
     nameHint(firstName, 'Enter your name'); // load name hints with relevant arguments.
     nameHint(email, 'Enter your email');
     switchToolTip(); // tooltip loaded
