@@ -1,4 +1,7 @@
-// Joseph Ketterer
+/* Joseph Ketterer
+JKETTE01
+Javascript
+Tobi Brodie */
 
 // call init function on window load
 window.onload = init;

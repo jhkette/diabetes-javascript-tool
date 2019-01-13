@@ -1,4 +1,8 @@
-// Joseph Ketterer
+/* Joseph Ketterer
+JKETTE01
+Javascript
+Tobi Brodie
+*/
 window.onload = start;
 /* Function start loads all functions and variables that need to be present on page load */
 function start() {
@@ -176,7 +180,7 @@ function addRedError(field) {
     field.classList.add('backgroundred');
 }
 
-/*This removes the red background if the form field is correct. It is called in the validation functions    */
+/*This removes the red background if the form field is correct. It is called in the validation functions */
 function removeRedError(field) {
     field.classList.remove('backgroundred');
 }

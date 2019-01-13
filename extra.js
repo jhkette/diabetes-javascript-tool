@@ -1,7 +1,11 @@
-/*These functions are not part of the requirements. They just some extra simple functions to add to functionality/ make the
-site look presentationally more interesting.
-One loads the popup if the user has regeistered successfully, one
-enlarges the list of diabetes factors that appear on the home page, the other draws circles, to create a background image effect.  */
+/* Joseph Ketterer
+JKETTE01
+Javascript
+Tobi Brodie */
+
+/* This section is not part of the requirements. They are just some extra simple functions to add to functionality/ make the
+site look presentationally more interesting. One loads the popup if the user has regeistered successfully, one enlarges the list of diabetes factors that appear on the home page,
+the other draws circles, to create a background image effect.  */
 
 /* Function to add a modal popup. Inspiration taken from here https://sabe.io/tutorials/how-to-create-modal-popup-box */
 function toggleModal() {
@@ -17,7 +21,7 @@ function toggleModal() {
             removeModal();
         }
     }
-    function removeModal(e) { // remove show modal class - this is called on the close button and a click outside window  
+    function removeModal(e) { // remove show modal class - this is called on the close button and a click outside window
         var modal = document.querySelector(".modal");
         modal.classList.remove("show-modal");
     }
@@ -48,7 +52,7 @@ function drawCircles() {
         newCircle.setAttribute("class", "circle");
         var diameter = Math.random () * 275;
         var x = Math.random() * (700 - diameter); // so it doesn't overflow onto next container.
-        var y = Math.random() * (screenWidth + 100);
+        var y = Math.random() * screenWidth;
         newCircle.style.width = diameter + 'px'; //random diameter
         newCircle.style.height = diameter + 'px';
         newCircle.style.left = y + "px"; //random position
