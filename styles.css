@@ -145,6 +145,7 @@ border-bottom: 2px solid white;
     transition: all 1s;
     flex: .8;
     vertical-align: top;
+    z-index: 2;
 }
 
 .contentitems a {
