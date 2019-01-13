@@ -52,13 +52,13 @@ function validateField(field, id) {
         switch (true) {
             case (id == 'first-name'):
                 re = new RegExp(/^[a-z]{2,}$/i); // two or more letters
-                defaultText = 'This is not a valid first name';
+                defaultText = 'A first name should only contain letters';
                 removeNameFocus(); // There is an initial focus on the first field which I am removing
                 break;
 
             case (id == 'second-name'):
-                re = new RegExp(/^[a-z][a-z-]{1,}$/i); // Must start with a letter then a minimun of one charecter which is a letter of '-';
-                defaultText = 'This is not a valid second name';
+                re = new RegExp(/^[a-z][a-z-]{1,}$/i); // Must start with a letter then a minimun of at least one other charecter which is a letter or '-';
+                defaultText = 'A second name should only contain letters or a hyphen';
                 break;
 
             case (id == 'email'):
@@ -67,17 +67,17 @@ function validateField(field, id) {
                 Then end of string.
                 Inspiration from https://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149 */
                 re = new RegExp(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/);
-                defaultText = 'This is not a valid email';
+                defaultText = 'This is not a valid format for an email';
                 break;
 
             case (id == 'health'):
                 re = new RegExp(/^(ZHA)(\d{6})$/); // Must start with capital ZHA (this is it was presented in specifications) then 6 digits.
-                defaultText = 'This is not a valid ZHA number';
+                defaultText = 'This should be the letters ZHA followed by six digits.';
                 break;
 
             case (id == 'telephone'):
                 re = new RegExp(/^\d{11}$/); // must be 11 digits no other charecters
-                defaultText = 'This is not a valid telephone number';
+                defaultText = 'This is not a valid telephone number. Only digits are allowed';
                 break;
         }
         /* I'm only validating the telephone field if there is an entry. If a user has focused on field but left it empty,  I am simply ignoring it, it is considered de facto valid.
@@ -133,7 +133,7 @@ function nameHint(field, message) {
         }
     });
 }
-/*This function loops through all form fields and uses the validateField function to check they are valid. If one returns valid, var valid is changed to false  */
+/* This function loops through all form fields and uses the validateField function to check they are valid. If one returns valid, var valid is changed to false  */
 function processForm() {
     event.preventDefault(); //Make sure form doesn't submit
     clearAllErrors();

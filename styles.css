@@ -29,7 +29,7 @@ html {
 }
 
 body {
-    font-family: 'Source Sans Pro', 'helvtica', 'arial';
+    font-family: 'Source Sans Pro', helvetica, arial;
     font-size: 22px;
     font-weight: 500;
 }
@@ -55,7 +55,7 @@ h1 {
 
 
 h3 {
-    font-family: 'Oswald', 'Helvetica neue', arial, sans-serif;
+    font-family: 'Oswald', 'helvetica neue', arial, sans-serif;
     font-size: 3.5rem;
     border-bottom: 1px dashed var(--black);
     text-transform: uppercase;

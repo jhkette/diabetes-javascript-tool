@@ -3,9 +3,9 @@ JKETTE01
 Javascript
 Tobi Brodie */
 
-/* This section is not part of the requirements. They are just some extra simple functions to add to functionality/ make the
-site look presentationally more interesting. One loads the popup if the user has regeistered successfully, one enlarges the list of diabetes factors that appear on the home page,
-the other draws circles, to create a background image effect.  */
+/* This section is not part of the requirements. They are just some extra simple functions to add to functionality or make the
+site look presentationally more interesting. One loads the popup if the user has regeistered successfully, one enlarges the list of diabetes factors that
+appear on the home page, the other draws circles, to create a background image effect.  */
 
 /* Function to add a modal popup. Inspiration taken from here https://sabe.io/tutorials/how-to-create-modal-popup-box */
 function toggleModal() {
@@ -42,7 +42,7 @@ function openListItems() {
 }
 
 /* Function that draws random circles - it is called after page load
-Idea for circles came from the coding train https://www.youtube.com/watch?v=XATr_jdh-44*/
+Idea for circles came from the coding train https://www.youtube.com/watch?v=XATr_jdh-44 */
 function drawCircles() {
     var circleNumber = 8; // number of circles
     var container = document.getElementById('home-container'); // get container
