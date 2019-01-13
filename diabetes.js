@@ -11,7 +11,9 @@ Clear form is called first in case there is still an input in the 'results' div.
 function init() {
     document.getElementById('Submit').addEventListener('click', clearForm);
     document.getElementById('Submit').addEventListener('click', calculateForm);
-    openListItems(); // call decorative functions.
+    /* call decorative functions in extra.js (they need to be called in init because the dom
+    elements need to be loaded before they are called, otherwise errors are thrown).*/
+    openListItems();
     drawCircles();
 }
 
@@ -45,7 +47,6 @@ function calculateForm(e) {
     var finalNumber = values.reduce(getSum);
     // call function to calculateResults with the finalNumber and warning array as arguments
     calculateResults(finalNumber, warnings);
-
     // prevent defualt behaviour (ie don't submit the form)
     event.preventDefault();
 }
