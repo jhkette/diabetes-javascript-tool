@@ -49,6 +49,7 @@ function validateField(field, id) {
             return valid;
         }
     } else {
+        /*A switch case statement to assign a valie to 're' based on the id argument that is passsed in */
         switch (true) {
             case (id == 'first-name'):
                 re = new RegExp(/^[a-z]{2,}$/i); // two or more letters
@@ -95,10 +96,7 @@ function validateField(field, id) {
                 }
             }
         } else {
-            /* first name contain only letters and is at least two charecters long, case insensitive  */
             if (re.test(field.value)) { // test value from field argument against regular expression
-                /* Remove initial focus on first name */
-                /* Remove error background if it exists (maybe add if statement??) */
                 return valid; // return valid
             } else {
                 document.getElementById(id + 'Error').innerHTML = defaultText; // add error message to id+ error (this is the span element in contact.html)
@@ -119,7 +117,7 @@ function nameHint(field, message) {
     field.style.fontStyle = "italic";
 
     field.addEventListener('focus', function(event) {
-        if (this.value == message) {
+        if (this.value == message) { // remove hint message on focus
             this.value = "";
             this.style.color = "#000";
             this.style.fontStyle = "normal";
@@ -133,6 +131,7 @@ function nameHint(field, message) {
         }
     });
 }
+
 /* This function loops through all form fields and uses the validateField function to check they are valid. If one returns valid, var valid is changed to false  */
 function processForm() {
     event.preventDefault(); //Make sure form doesn't submit
@@ -167,7 +166,7 @@ function clearAllErrors() {
 }
 
 /* This removes the initial 'focus' class on the first name. Is called if the first name is valid
-NOTE: certain browsers add default backgrounds to form fields (ie chrome), so browsers defaults have been changed in css */
+NOTE: certain browsers add default backgrounds to form fields (ie chrome), so browsers defaults have been changed in css  */
 function removeNameFocus() {
     var firstNameField = document.getElementById('first-name');
     firstNameField.classList.remove('focus');
