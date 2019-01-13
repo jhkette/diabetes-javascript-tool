@@ -713,13 +713,16 @@ input {
         align-content: flex-start;
 
       }
+     .label{
+         margin-top: 2.5rem;
+     }
 
      .select-style {
          margin-top: -1rem;
          padding: 0;
          }
     .tool{
-        top: 80.3rem;
+        top: 90.5rem;
     }
     .main-nav{
         padding: 2rem 0;
